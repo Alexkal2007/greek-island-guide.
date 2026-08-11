@@ -1,209 +1,1163 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="icon" type="image/png" href="favicon.png">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="page-title">GREEK ISLAND GUIDE — Island</title>
-<link rel="stylesheet" href="styles.css">
-<style>
-  /* Clean typography for detail sections */
-  .detail-section {
-    margin-top: 32px;
-    padding-top: 24px;
-    border-top: 1px solid rgba(0, 0, 0, 0.08);
+const ISLANDS = [
+  {
+    slug: "santorini",
+    name: { en: "Santorini", el: "Σαντορίνη" },
+    group: "cyclades",
+    groupName: { en: "Cyclades", el: "Κυκλάδες" },
+    tagline: { en: "Volcanic views and sunsets", el: "Ηφαιστειακή θέα και ηλιοβασιλέματα" },
+    img: "images/santorini.jpg",
+    credit: "LBM1948, CC BY-SA 4.0",
+    desc: { 
+      en: "Santorini is one of the most world-renowned destinations, famous for its dramatic volcanic cliffs, iconic whitewashed architecture, and stunning Caldera views.", 
+      el: "Η Σαντορίνη είναι ένας από τους πιο διάσημους προορισμούς στον κόσμο, γνωστή για τα δραματικά ηφαιστειακά βράχια, την κλασική κυκλαδίτικη αρχιτεκτονική και τη μοναδική θέα στην Καλντέρα." 
+    },
+    best: { 
+      en: "The absolute best time to visit Santorini is during the shoulder seasons from late April to June and from September to early October. During these months, the weather is pleasantly warm for swimming and hiking, prices are more reasonable, and you can enjoy the iconic views without the massive peak-summer crowds.", 
+      el: "Η καλύτερη εποχή για να επισκεφθείτε τη Σαντορίνη είναι κατά τους ανοιξιάτικους και φθινοπωρινούς μήνες (Απρίλιο με Ιούνιο και Σεπτέμβριο με Οκτώβριο). Αυτούς τους μήνες ο καιρός είναι ιδανικός για περιήγηση και κολύμπι, οι τιμές είναι πιο προσιτές και αποφεύγετε την υπερβολική κοσμοσυρροή του Ιουλίου και του Αυγούστου." 
+    },
+    locationDesc: {
+      en: "Situated in the southern Aegean Sea, Santorini is part of the Cyclades island group, located approximately 200 km southeast of the mainland. Formed by a massive prehistoric volcanic eruption, its unique geography features sheer cliff faces framing a flooded crater. It is easily reached via daily ferries from Piraeus or direct international flights.",
+      el: "Βρίσκεται στο νότιο Αιγαίο και ανήκει στο σύμπλεγμα των Κυκλάδων, περίπου 200 χιλιόμετρα νοτιοανατολικά της ηπειρωτικής Ελλάδας. Διαμορφώθηκε από μια τεράστια ηφαιστειακή έκρηξη κατά την προϊστορική περίοδο, δημιουργώντας τους εντυπωσιακούς γκρεμούς της Καλντέρας. Διαθέτει εξαιρετική σύνδεση με καθημερινά πλοία από Πειραιά και απευθείας πτήσεις."
+    },
+    highlights: {
+      en: [
+        "Experience the world-famous sunset in Oia, watching the red-gold light reflect across the caldera cliffs and whitewashed houses.",
+        "Hike the scenic cliffside trail connecting Fira to Oia, offering continuously breathtaking views over the Aegean Sea.",
+        "Discover the unique dark sand at Red Beach and Vlychada Beach, bounded by dramatic volcanic rock formations.",
+        "Explore Akrotiri, a remarkably preserved Minoan Bronze Age settlement preserved beneath thick layers of volcanic ash.",
+        "Take a catamaran cruise inside the volcanic crater to swim in natural hot springs and visit Nea Kameni islet."
+      ],
+      el: [
+        "Απολαύστε το παγκοσμίου φήμης ηλιοβασίλεμα στην Οία, βλέποντας το χρυσαφένιο φως να καθρεφτίζεται στα λευκά σπίτια και τα βράχια της Καλντέρας.",
+        "Περπατήστε το μοναδικό μονοπάτι που συνδέει τα Φηρά με την Οία κατά μήκος του γκρεμού με αδιάκοπη θέα στο πέλαγος.",
+        "Επισκεφθείτε την Κόκκινη Σαραντάπηχη και τη Βλυχάδα, παραλίες με σπάνια ηφαιστειακά πετρώματα και εντυπωσιακά τοπία.",
+        "Εξερευνήστε τον αρχαιολογικό χώρο του Ακρωτηρίου, έναν πλήρως διατηρημένο προϊστορικό οικισμό της μινωικής περιόδου.",
+        "Κάντε μια εκδρομή με καταμαράν μέσα στην Καλντέρα για μπάνιο στις θερμές πηγές και περιήγηση στο ηφαίστειο."
+      ]
+    }
+  },
+  {
+    slug: "mykonos",
+    name: { en: "Mykonos", el: "Μύκονος" },
+    group: "cyclades",
+    groupName: { en: "Cyclades", el: "Κυκλάδες" },
+    tagline: { en: "Cosmopolitan beaches and nightlife", el: "Κοσμοπολίτικες παραλίες και νυχτερινή ζωή" },
+    img: "images/mykonos.jpg",
+    credit: "Bgag, CC BY-SA 3.0",
+    desc: { 
+      en: "Mykonos is Greece's premier luxury island, world-famous for its stylish beach clubs, vibrant nightlife, white-sand beaches, and charming Cycladic architecture.", 
+      el: "Η Μύκονος είναι το πιο κοσμοπολίτικο νησί της Ελλάδας, παγκοσμίως γνωστό για τα πολυτελή beach clubs, τη νυχτερινή ζωή, τις χρυσές αμμουδιές και τα γραφικά σοκάκια." 
+    },
+    best: { 
+      en: "May, June, and September are ideal if you want to balance sunny beach days, fine dining, and boutique shopping with comfortable weather and manageable crowds. July and August are peak months for non-stop beach parties, world-famous DJs, and high-energy nightlife.", 
+      el: "Ο Μάιος, ο Ιούνιος και ο Σεπτέμβριος είναι ιδανικοί αν θέλετε να συνδυάσετε την ομορφιά του νησιού και τα καθαρά νερά με πιο χαλαρούς ρυθμούς. Αντίθετα, ο Ιούλιος και ο Αύγουστος είναι η απόλυτη περίοδος αιχμής για όσους αναζητούν έντονη διασκέδαση, πάρτι και κοσμοσυρροή." 
+    },
+    locationDesc: {
+      en: "Situated in the central Cyclades, Mykonos lies between Tinos, Syros, Paros, and Naxos. Spanning 85 square kilometers, its rocky landscape is windswept by strong summer Meltemi winds. It features superb international air links and two major passenger ports.",
+      el: "Βρίσκεται στο κεντρικό σύμπλεγμα των Κυκλάδων, ανάμεσα στην Τήνο, τη Σύρο, την Πάρο και τη Νάξο. Έχει έκταση 85 τ.χλμ. και βρέχεται από τους καλοκαιρινούς ανέμους (μελτέμια). Διαθέτει διεθνές αεροδρόμιο και δύο λιμάνια με πυκνές ακτοπλοϊκές συνδέσεις."
+    },
+    highlights: {
+      en: [
+        "Stroll through the maze-like marble pathways of Mykonos Town (Chora), admiring the iconic Windmills and Little Venice.",
+        "Take a short boat trip to the uninhabited neighbor island of Delos, an outstanding UNESCO World Heritage sanctuary site.",
+        "Relax or celebrate at famous beach venues along Psarou, Paradise, Super Paradise, and Panormos beaches.",
+        "Watch the sun dip below the Aegean with handcrafted cocktails right at the waterfront bars of Little Venice."
+      ],
+      el: [
+        "Περιηγηθείτε στα λαβυρινθώδη σοκάκια της Χώρας, φωτογραφηθείτε στους Ανεμόμυλους και πιείτε ένα ποτό στη Μικρή Βενετία.",
+        "Κάντε μια ημερήσια εκδρομή στο ακατοίκητο ιερό νησί της Δήλου, έναν από τους πιο σημαντικούς αρχαιολογικούς χώρους της UNESCO.",
+        "Χαλαρώστε ή διασκεδάστε στα παγκοσμίου φήμης beach bars στις παραλίες Ψαρού, Paradise, Super Paradise και Πάνορμος.",
+        "Απολαύστε το κοκτέιλ σας με θέα το ηλιοβασίλεμα πάνω στο κύμα στη Μικρή Βενετία."
+      ]
+    }
+  },
+  {
+    slug: "naxos",
+    name: { en: "Naxos", el: "Νάξος" },
+    group: "cyclades",
+    groupName: { en: "Cyclades", el: "Κυκλάδες" },
+    tagline: { en: "Golden beaches and rich history", el: "Χρυσές αμμουδιές και πλούσια ιστορία" },
+    img: "images/naxos.jpg",
+    credit: "Bgabel, CC BY-SA 3.0",
+    desc: { 
+      en: "Naxos is the largest of the Cycladic islands, blending endlessly long sandy beaches, ancient ruins, fertile agricultural valleys, and picturesque mountain villages.", 
+      el: "Η Νάξος είναι το μεγαλύτερο νησί των Κυκλάδων, συνδυάζοντας ατέλειωτες αμμώδεις παραλίες, αρχαία μνημεία, εύφορες πεδιάδες και γραφικά ορεινά χωριά." 
+    },
+    best: { 
+      en: "June to September provides perfect warm weather for swimming along the west coast. May and October are exceptionally rewarding for hikers and culture lovers exploring Mount Zeus and traditional inland villages without extreme heat.", 
+      el: "Από τον Ιούνιο έως τον Σεπτέμβριο ο καιρός είναι εξαιρετικός για μπάνιο στις δυτικές παραλίες. Ο Μάιος και ο Οκτώβριος είναι ιδανικοί για πεζοπορία στο όρος Ζευς και εξερεύνηση των ορεινών χωριών." 
+    },
+    locationDesc: {
+      en: "Located right in the heart of the Aegean Sea, Naxos is the geographic center of the Cyclades. Being the largest island in the group, it features high mountain ranges like Mount Zeus alongside vast fertile plains, accessible easily via ferry from Athens or domestic flights.",
+      el: "Βρίσκεται στην καρδιά του Αιγαίου, αποτελώντας το γεωγραφικό κέντρο των Κυκλάδων. Ως το μεγαλύτερο νησί του συμπλέγματος, διαθέτει ψηλά βουνά (όπως το όρος Ζευς) και εύφορες πεδιάδες, με τακτική πρόσβαση από Αθήνα με πλοίο ή αεροπλάνο."
+    },
+    highlights: {
+      en: [
+        "Walk to the ancient Portara, the massive marble gateway of an unfinished Temple of Apollo commanding the harbor entrance.",
+        "Swim and windsurf along the crystal-clear waters and endless golden dunes of Plaka, Agios Prokopios, and Agia Anna beaches.",
+        "Hike up to Mount Zeus, the highest peak in the Cyclades, according to mythology the birthplace of Zeus.",
+        "Wander the narrow paved alleys of the medieval Venetian Castle (Kastro) in Naxos Town.",
+        "Taste authentic local products including Naxian graviera cheese, potatoes, and local Kitron liqueur in village tavernas."
+      ],
+      el: [
+        "Επισκεφθείτε την Πορτάρα, τη γιγαντιαία μαρμάρινη πύλη του αρχαίου ναού του Απόλλωνα στην είσοδο του λιμανιού.",
+        "Κολυμπήστε στις αχανείς χρυσές αμμουδιές του Αγίου Προκοπίου, της Αγίας Άννας και της Πλάκας με τα πεντακάθαρα νερά.",
+        "Ανεβείτε στην κορυφή του όρους Ζευς, το υψηλότερο σημείο των Κυκλάδων όπου σύμφωνα με τη μυθολογία ανατράφηκε ο Δίας.",
+        "Εξερευνήστε το ενετικό Κάστρο της Χώρας με τα λιθόστρωτα καλντερίμια και τα αρχοντικά.",
+        "Δοκιμάστε τοπική γραβιέρα Νάξου, πατάτες και το παραδοσιακό ηδύποτο Κίτρο στις ταβέρνες των ορεινών χωριών."
+      ]
+    }
+  },
+  {
+    slug: "paros",
+    name: { en: "Paros", el: "Πάρος" },
+    group: "cyclades",
+    groupName: { en: "Cyclades", el: "Κυκλάδες" },
+    tagline: { en: "Traditional villages and watersports", el: "Παραδοσιακά χωριά και θαλάσσια σπορ" },
+    img: "images/paros.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Paros seamlessly combines traditional whitewashed villages, active watersports, cosmopolitan nightlife, and scenic natural harbors.", 
+      el: "Η Πάρος συνδυάζει αρμονικά παραδοσιακά κυκλαδίτικα χωριά, θαλάσσια σπορ, κοσμοπολίτικη ζωή και πανέμορφα φυσικά λιμανάκια." 
+    },
+    best: { 
+      en: "Late May to late September is the ideal window for beach holidays and water sports. Windsurfers and kitesurfers prefer July and August when the summer Meltemi winds reach their peak performance.", 
+      el: "Από τέλη Μαΐου έως τέλη Σεπτεμβρίου είναι η ιδανική περίοδος για διακοπές και θαλάσσια σπορ. Οι λάτρεις του windsurfing και kitesurfing προτιμούν τον Ιούλιο και τον Αύγουστο λόγω των δυνατών ανέμων." 
+    },
+    locationDesc: {
+      en: "Paros is situated in the central Cyclades west of Naxos and east of Antiparos. Its central geographical position makes it a principal transportation hub for island hopping across the Aegean Sea.",
+      el: "Η Πάρος βρίσκεται στις κεντρικές Κυκλάδες, δυτικά της Νάξου και ανατολικά της Αντιπάρου. Η κομβική της θέση την καθιστά κεντρικό σταθμό για island hopping σε όλο το Αιγαίο."
+    },
+    highlights: {
+      en: [
+        "Explore the picturesque fishing harbor of Naoussa, lined with pastel boats and bustling seafood tavernas.",
+        "Visit Kolymbithres Beach, celebrated for its smooth granite rock formations shaping natural seawater pools.",
+        "Discover the historic Panagia Ekatontapiliani church in Parikia, one of the best-preserved Byzantine monuments in Greece.",
+        "Take a short 10-minute passenger ferry ride across to the peaceful sister island of Antiparos."
+      ],
+      el: [
+        "Επισκεφθείτε το πανέμορφο γραφικό λιμανάκι της Νάουσας με τα ψαροκάικα και τις ταβέρνες πάνω στο κύμα.",
+        "Κολυμπήστε στις Κολυμπήθρες, μια παραλία με μοναδικούς γρανιτένιους σχηματισμούς που δημιουργούν φυσικές πισίνες.",
+        "Δείτε τον ιστορικό ναό της Παναγίας Εκατονταπυλιανής στην Παροικιά, ένα από τα σημαντικότερα βυζαντινά μνημεία.",
+        "Πάρτε το καραβάκι για μια σύντομη ημερήσια εξόρμηση 10 λεπτών στην γειτονική Αντίπαρο."
+      ]
+    }
+  },
+  {
+    slug: "milos",
+    name: { en: "Milos", el: "Μήλος" },
+    group: "cyclades",
+    groupName: { en: "Cyclades", el: "Κυκλάδες" },
+    tagline: { en: "Lunar landscapes and sea caves", el: "Σεληνιακά τοπία και θαλάσσιες σπηλιές" },
+    img: "images/milos.jpg",
+    credit: "dronepicr, CC BY 2.0",
+    desc: { 
+      en: "Milos is a geological wonder, famous for its surreal volcanic coastlines, dramatic white chalk cliffs, emerald sea caves, and colorful fishing villages.", 
+      el: "Η Μήλος είναι ένα γεωλογικό θαύμα, γνωστή για τα απόκοσμα σεληνιακά τοπία, τα λευκά βράχια, τις θαλάσσιες σπηλιές και τα γραφικά ψαροχώρια με τα σύρματα." 
+    },
+    best: { 
+      en: "June and September offer ideal calm sea conditions for exploring remote sea caves by boat without strong Meltemi winds. July and August bring vibrant summer energy, but boat tours sell out fast.", 
+      el: "Ο Ιούνιος και ο Σεπτέμβριος είναι οι ιδανικότεροι μήνες για να απολαύσετε τις θαλάσσιες εκδρομές στα Κλέφτικο και Σαρακήνικο με ήρεμη θάλασσα. Τον Ιούλιο και τον Αύγουστο η ζήτηση για σκάφη είναι πολύ μεγάλη." 
+    },
+    locationDesc: {
+      en: "Located in the southwesternmost corner of the Cyclades archipelago, Milos features a large horseshoe-shaped central bay formed by an ancient volcanic crater, offering natural harbor protection.",
+      el: "Βρίσκεται στο νοτιοδυτικότερο άκρο των Κυκλάδων. Το νησί έχει σχήμα πετάλου εξαιτίας του μεγάλου φυσικού κόλπου που σχηματίστηκε από ηφαιστειακή δραστηριότητα."
+    },
+    highlights: {
+      en: [
+        "Walk across the futuristic, blindingly white volcanic pumice rocks of Sarakiniko Beach.",
+        "Swim through the hidden sea arches and pirate hideouts of Kleftiko on an all-day sailboat cruise.",
+        "Photograph the vibrant colorful boat garages ('syrmata') in Klima and Mandrakia fishing hamlets.",
+        "Watch romantic sunsets from the Venetian Castle (Kastro) overlooking Plaka village."
+      ],
+      el: [
+        "Περπατήστε στο απόκοσμο, λευκό ηφαιστειακό τοπίο του Σαρακήνικου που μοιάζει με σεληνιακό πεδίο.",
+        "Κολυμπήστε στις θαλάσσιες σπηλιές και τα παλιά λησμέρια πειρατών στο Κλέφτικο με ιστιοπλοϊκό σκάφος.",
+        "Φωτογραφίστε τα πολύχρωμα «σύρματα» (γκαράζ για τις βάρκες) στα παραδοσιακά ψαροχώρια Κλήμα και Μανδράκια.",
+        "Απολαύστε το ηλιοβασίλεμα από το Κάστρο της Πλάκας με πανοραμική θέα σε όλο το Αιγαίο."
+      ]
+    }
+  },
+  {
+    slug: "ios",
+    name: { en: "Ios", el: "Ίος" },
+    group: "cyclades",
+    groupName: { en: "Cyclades", el: "Κυκλάδες" },
+    tagline: { en: "Golden beaches and lively nightlife", el: "Χρυσές αμμουδιές και ζωντανή νυχτερινή ζωή" },
+    img: "images/ios.jpg",
+    credit: "Flickr upload bot, CC BY-SA 2.0",
+    desc: { 
+      en: "Ios offers a dynamic duality: legendary summer party culture in its hilltop Chora by night, alongside pristine golden beaches, quiet hiking trails, and historical sites by day.", 
+      el: "Η Ίος συνδυάζει δύο πρόσωπα: τη θρυλική νυχτερινή ζωή στη Χώρα τα βράδια, και τις ανέγγιχτες χρυσές αμμουδιές με τα κρυστάλλινα νερά κατά τη διάρκεια της ημέρας." 
+    },
+    best: { 
+      en: "July and August are the energetic peak for young travelers looking for nightlife and beach events. June and September are magical for quiet family getaways, peaceful swimming, and sightseeing.", 
+      el: "Ο Ιούλιος και ο Αύγουστος είναι η περίοδος αιχμής για νέους που αναζητούν πάρτι και διασκέδαση. Ο Ιούνιος και ο Σεπτέμβριος είναι ιδανικοί για χαλαρές οικογενειακές διακοπές και ήρεμο μπάνιο." 
+    },
+    locationDesc: {
+      en: "Positioned in the southern Cyclades between Naxos, Sikinos, and Santorini, Ios spans roughly 100 square kilometers with a steep, cliff-lined coastline and deeply sheltered natural harbors.",
+      el: "Βρίσκεται στις νότιες Κυκλάδες, ανάμεσα στη Νάξο, τη Σίκινο και τη Σαντορίνη. Έχει έκταση περίπου 100 τ.χλμ. με δαντελωτές ακτές και ασφαλή φυσικά λιμάνια."
+    },
+    highlights: {
+      en: [
+        "Unwind on the silky soft golden sand and turquoise waters of Mylopotas and Manganari beaches.",
+        "Wander through the whitewashed alleys of Chora up to Panagia Gremiotissa church for sunset.",
+        "Visit the hilltop site believed to be Homer's Tomb overlooking the northern coastline.",
+        "Experience the international nightlife and music scene in the vibrant bars of Chora."
+      ],
+      el: [
+        "Χαλαρώστε στη χρυσή άμμο και τα γαλαζοπράσινα νερά στις παραλίες Μυλοπότας και Μαγγανάρι.",
+        "Ανεβείτε τα σοκάκια της Χώρας μέχρι την Παναγία τη Γκρεμιώτισσα για να δείτε το ηλιοβασίλεμα.",
+        "Επισκεφθείτε τον αρχαιολογικό χώρο που θεωρείται ο Τάφος του Ομήρου στο βόρειο τμήμα του νησιού.",
+        "Ζήστε τη ζωντανή νυχτερινή ζωή στα σοκάκια και τα μπαρ της Χώρας."
+      ]
+    }
+  },
+  {
+    slug: "sifnos",
+    name: { en: "Sifnos", el: "Σίφνος" },
+    group: "cyclades",
+    groupName: { en: "Cyclades", el: "Κυκλάδες" },
+    tagline: { en: "Gastronomy, pottery, and trails", el: "Γαστρονομία, αγγειοπλαστική και μονοπάτια" },
+    img: "images/sifnos.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Sifnos is the culinary capital of the Cyclades, celebrated for its refined traditional pottery, Aegean gastronomy, spotless villages, and extensive hiking network.", 
+      el: "Η Σίφνος είναι η γαστρονομική πρωτεύουσα των Κυκλάδων, φημισμένη για την παραδοσιακή αγγειοπλαστική, την εκλεκτή κουζίνα, τα κατάλευκα χωριά και τα μονοπάτια της." 
+    },
+    best: { 
+      en: "May, June, and September are superb for hiking the Sifnos Trails network and exploring traditional pottery workshops. September also hosts the famous Tselementes Cycladic Gastronomic Festival.", 
+      el: "Ο Μάιος, ο Ιούνιος και ο Σεπτέμβριος είναι ιδανικοί για πεζοπορία στα οργανωμένα μονοπάτια και επισκέψεις σε εργαστήρια κεραμικής. Τον Σεπτέμβριο πραγματοποιείται και το φεστιβάλ γαστρονομίας «Τσελεμεντές»." 
+    },
+    locationDesc: {
+      en: "Located in the western Cyclades, Sifnos lies between Serifos, Kimolos, and Paros. It features a mountainous landscape dotted with over 300 whitewashed churches and ancient watchtowers.",
+      el: "Βρίσκεται στις δυτικές Κυκλάδες, ανάμεσα στη Σέριφο, την Κίμωλο και την Πάρο. Χαρακτηρίζεται από ορεινό ανάγλυφο, πάνω από 300 εκκλησίες και αρχαίους φρυκτωρούς."
+    },
+    highlights: {
+      en: [
+        "Visit Kastro, the medieval fortified village perched on a rocky cliff above the sea.",
+        "Sample slow-cooked Revithada (chickpea stew) and Mastelo lamb cooked in traditional clay pots.",
+        "Hike along the well-marked Sifnos Trails connecting remote bays and historic monasteries.",
+        "Discover traditional ceramic workshops in Vathi and Kamares to see local artisans at work."
+      ],
+      el: [
+        "Επισκεφθείτε το Κάστρο, τον μεσαιωνικό οχυρωμένο οικισμό που κρέμεται πάνω από τη θάλασσα.",
+        "Δοκιμάστε παραδοσιακή ρεβιθάδα και μαστέλο ψημένο σε πήλινο τσουκάλι.",
+        "Περπατήστε στο δικτυο μονοπατιών Sifnos Trails που συνδέει ιστορικά μοναστήρια και απομονωμένους όρμους.",
+        "Γνωρίστε την τέχνη της αγγειοπλαστικής στα παραδοσιακά εργαστήρια στο Βαθύ και τις Καμάρες."
+      ]
+    }
+  },
+  {
+    slug: "serifos",
+    name: { en: "Serifos", el: "Σέριφος" },
+    group: "cyclades",
+    groupName: { en: "Cyclades", el: "Κυκλάδες" },
+    tagline: { en: "Wild beauty and rugged beaches", el: "Άγρια ομορφιά και ανεπιτήδευτες παραλίες" },
+    img: "images/serifos.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 3.0",
+    desc: { 
+      en: "Serifos is an unspoiled Cycladic gem characterized by a dramatic hilltop Chora, rich mining history, and over 70 uncrowded beaches with sparkling turquoise waters.", 
+      el: "Η Σέριφος είναι ένα αυθεντικό κυκλαδίτικο νησί με εντυπωσιακή αμφιθεατρική Χώρα, μεταλλευτική ιστορία και πάνω από 70 παρθένες παραλίες με καθαρά νερά." 
+    },
+    best: { 
+      en: "June to September is fantastic for beach hopping along unorganized coves. Early summer and autumn are best for walking through the old mining trails in Megalo Livadi without sun exposure.", 
+      el: "Από τον Ιούνιο έως τον Σεπτέμβριο είναι η καλύτερη περίοδος για να απολαύσετε τις παραλίες. Η άνοιξη και το φθινόπωρο ενδείκνυνται για εξερεύνηση των παλιών μεταλλείων στο Μεγάλο Λιβάδι." 
+    },
+    locationDesc: {
+      en: "Serifos sits in the western Cyclades, positioned south of Kythnos and northwest of Sifnos. It is roughly a 2.5 to 4-hour ferry ride from Athens' port of Piraeus.",
+      el: "Βρίσκεται στις δυτικές Κυκλάδες, νότια της Κύθνου και βορειοδυτικά της Σίφνου. Απέχει περίπου 2.5 έως 4 ώρες με το πλοίο από το λιμάνι του Πειραιά."
+    },
+    highlights: {
+      en: [
+        "Climb to the top of Chora, one of the most breathtaking hilltop capital towns in the Aegean.",
+        "Relax on the shaded sandy shores of Psili Ammos, Ganema, and Agios Sostis beaches.",
+        "Explore the historic iron mining loading bridge and ghost-town monuments in Megalo Livadi.",
+        "Enjoy fresh seafood and local wine in the quiet waterside tavernas of Livadi harbor."
+      ],
+      el: [
+        "Ανεβείτε στην κορυφή της Χώρας, μίας από τις πιο εντυπωσιακές αμφιθεατρικές πολιτείες του Αιγαίου.",
+        "Κολυμπήστε στις σκιερές αμμώδεις παραλίες Ψιλή Άμμος, Γάνεμα και Άγιος Σώστης.",
+        "Εξερευνήστε τα ιστορικά μεταλλεία σιδήρου και τη σκάλα φορτοεκφόρτωσης στο Μεγάλο Λιβάδι.",
+        "Απολαύστε φρέσκο ψάρι και ντόπιο κρασί στις ταβέρνες στο παραθαλάσσιο Λιβάδι."
+      ]
+    }
   }
-  .detail-section h3 {
-    font-size: 1.35rem;
-    margin-bottom: 12px;
-    color: var(--ink-dark, #1A202C);
+];
+{
+    slug: "folegandros",
+    name: { en: "Folegandros", el: "Φολέγανδρος" },
+    group: "cyclades",
+    groupName: { en: "Cyclades", el: "Κυκλάδες" },
+    tagline: { en: "Untouched beauty and dramatic cliffs", el: "Ανεπιτήδευτη ομορφιά και απόκρημνα βράχια" },
+    img: "images/folegandros.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Folegandros is a quiet Cycladic jewel defined by its dramatic cliffside Chora, peaceful atmosphere, pristine pebble beaches, and dramatic sea views.", 
+      el: "Η Φολέγανδρος είναι ένα ήσυχο διαμάντι των Κυκλάδων που ξεχωρίζει για την αμφιθεατρική Χώρα στο χείλος του γκρεμού, την ηρεμία και τις παρθένες παραλίες." 
+    },
+    best: { 
+      en: "May to June and September are magical for experiencing the untouched, romantic vibe of Folegandros with mild weather and easy access to walking trails. July and August offer lively squares and clear, warm sea conditions.", 
+      el: "Ο Μάιος, ο Ιούνιος και ο Σεπτέμβριος είναι ιδανικοί για να ζήσετε την αυθεντική και ρομαντική ατμόσφαιρα του νησιού με ήπιο καιρό. Ο Ιούλιος και ο Αύγουστος προσφέρουν ζωντάνια στις πλατείες και υπέροχα νερά." 
+    },
+    locationDesc: {
+      en: "Situated in the southern Cyclades, Folegandros rests between Milos and Sikinos. It is a compact island with a rugged, mountainous topography encircled by sheer sea cliffs.",
+      el: "Βρίσκεται στις νότιες Κυκλάδες, ανάμεσα στη Μήλο και τη Σίκινο. Είναι ένα μικρό νησί με άγριο, βραχώδες ανάγλυφο και απότομους γκρεμούς που καταλήγουν στη θάλασσα."
+    },
+    highlights: {
+      en: [
+        "Walk up the iconic zigzagging stone path leading to the cliffside Church of Panagia for unforgettable sunset vistas.",
+        "Wander through the narrow squares and flower-filled alleys of Chora and the medieval Kastro district.",
+        "Take a traditional wooden boat from Karavostasi port to reach remote beaches like Katergo and Livadaki.",
+        "Enjoy traditional homemade matsata pasta with local cheeses in the outdoor plazas of Chora."
+      ],
+      el: [
+        "Ανεβείτε το εμβληματικό ελικοειδές λιθόστρωτο μονοπάτι προς την Εκκλησία της Παναγίας για ένα μαγευτικό ηλιοβασίλεμα.",
+        "Περπατήστε στις συνεχόμενες πλατείες της Χώρας και στο μεσαιωνικό Κάστρο με τα ανθισμένα μπαλκόνια.",
+        "Πάρτε το παραδοσιακό καραβάκι από το λιμάνι για να επισκεφθείτε τις απομονωμένες παραλίες Κάτεργο και Λιβαδάκι.",
+        "Δοκιμάστε παραδοσιακά χειροποίητα ματσάτα (τοπικά ζυμαρικά) στις γραφικές ταβέρνες της Χώρας."
+      ]
+    }
+  },
+  {
+    slug: "amorgos",
+    name: { en: "Amorgos", el: "Αμοργός" },
+    group: "cyclades",
+    groupName: { en: "Cyclades", el: "Κυκλάδες" },
+    tagline: { en: "Deep blue waters and dramatic cliffs", el: "Απέραντο γαλάζιο και επιβλητικά βράχια" },
+    img: "images/amorgos.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 3.0",
+    desc: { 
+      en: "Famous as the filming location for 'The Big Blue', Amorgos is an island of wild natural beauty, dramatic cliffs, spiritual energy, and crystal-clear deep waters.", 
+      el: "Γνωστή από την ταινία «Απέραντο Γαλάζιο», η Αμοργός είναι ένα νησί με άγρια φυσική ομορφιά, επιβλητικούς γκρεμούς, πνευματική ενέργεια και βαθυγάλαζα νερά." 
+    },
+    best: { 
+      en: "May, June, and September are perfection for hiking the ancient stone paths connecting traditional villages and monasteries. July and August bring warm sea temperatures and traditional summer panigiria (festivals).", 
+      el: "Ο Μάιος, ο Ιούνιος και ο Σεπτέμβριος είναι ιδανικοί για πεζοπορία στα αρχαία μονοπάτια που συνδέουν τα χωριά. Τον Ιούλιο και τον Αύγουστο θα απολαύσετε ζεστά νερά και τα παραδοσιακά νησιώτικα πανηγύρια." 
+    },
+    locationDesc: {
+      en: "Amorgos is the easternmost island of the Cyclades, located near the Dodecanese complex. Its elongated shape features a high mountain ridge spanning its entire 33-kilometer length.",
+      el: "Είναι το ανατολικότερο νησί των Κυκλάδων, σε κοντινή απόσταση από τα Δωδεκάνησα. Έχει μακρόστενο σχήμα και διατρέχεται από μια ψηλή οροσειρά σε όλο το μήκος των 33 χιλιομέτρων της."
+    },
+    highlights: {
+      en: [
+        "Marvel at the Monastery of Panagia Hozoviotissa, built astonishingly into the sheer face of a cliff 300 meters above the sea.",
+        "Swim in the crystal-clear deep blue waters beneath the monastery at Agia Anna beach.",
+        "Stroll through the pristine alleys of Chora, dominated by its medieval castle rock and traditional windmills.",
+        "Sample local baked raki (psiti raki) and traditional goat dishes in Aegiali and Katapola harbors."
+      ],
+      el: [
+        "Επισκεφθείτε την ιστορική Μονή της Παναγίας της Χοζοβιώτισσας, σφηνωμένη στον κατακόρυφο βράχο 300 μέτρα πάνω από τη θάλασσα.",
+        "Κολυμπήστε στα βαθιά, κρυσταλλικά νερά της Αγίας Άννας ακριβώς κάτω από το μοναστήρι.",
+        "Περιηγηθείτε στα σοκάκια της Χώρας με τους ανεμόμυλους και το ενετικό κάστρο.",
+        "Δοκιμάστε ντόπια ψημένηρακή και παραδοσιακό πατατάτο στις ταβέρνες της Αιγιάλης και των Καταπόλων."
+      ]
+    }
+  },
+  {
+    slug: "skyros",
+    name: { en: "Skyros", el: "Σκύρος" },
+    group: "sporades",
+    groupName: { en: "Sporades", el: "Σποράδες" },
+    tagline: { en: "Tradition, pine forests, and quiet beaches", el: "Παράδοση, πευκοδάση και ήσυχες παραλίες" },
+    img: "images/skyros.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 3.0",
+    desc: { 
+      en: "Skyros is an authentic Sporades island offering a unique contrast between a pine-forested northern landscape and a wild, rocky southern terrain rich in culture.", 
+      el: "Η Σκύρος είναι ένα αυθεντικό νησί των Σποράδων που συνδυάζει ένα καταπράσινο βόρειο τμήμα με πεύκα και ένα άγριο, βραχώδες νότιο τοπίο γεμάτο παράδοση." 
+    },
+    best: { 
+      en: "June to September is excellent for swimming in sheltered sandy bays and enjoying seafood. Spring is wonderful for attending local cultural festivals and exploring the island's unique flora and fauna.", 
+      el: "Από τον Ιούνιο έως τον Σεπτέμβριο ο καιρός είναι εξαιρετικός για μπάνιο σε υπέροχες αμμουδιές. Η άνοιξη προσφέρεται για να γνωρίσετε τα τοπικά έθιμα και τη σπάνια φύση του νησιού." 
+    },
+    locationDesc: {
+      en: "Skyros is the southernmost and largest island of the Sporades archipelago, situated in the central Aegean Sea east of the island of Evia.",
+      el: "Είναι το νοτιότερο και μεγαλύτερο νησί του συμπλέγματος των Σποράδων, ανατολικά της Εύβοιας στο κεντρικό Αιγαίο."
+    },
+    highlights: {
+      en: [
+        "Explore the amphitheatrical Chora topped by a Byzantine castle and the Monastery of St. George.",
+        "Discover the indigenous Skyrian ponies, a rare dwarf horse breed unique to the island.",
+        "Relax on the wide sandy beaches of Magazia, Molos, and Atsitsa encircled by pine trees.",
+        "Admire traditional Skyrian wood-carved furniture and unique hand-painted ceramics in town workshops."
+      ],
+      el: [
+        "Ανεβείτε στη Χώρα μέχρι το βυζαντινό κάστρο και το Μοναστήρι του Αγίου Γεωργίου με την εντυπωσιακή θέα.",
+        "Δείτε από κοντά τα σπάνια σκυριανά αλογάκια, μια αυτόχθονη φυλή μικρόσωμων αλόγων.",
+        "Χαλαρώστε στις μεγάλες αμμώδεις παραλίες Μαγαζιά, Μώλος και Ατσίτσα μέσα στα πεύκα.",
+        "Θαυμάστε τα παραδοσιακά σκυριανά ξυλόγλυπτα και τα χειροποίητα κεραμικά στα εργαστήρια του χωριού."
+      ]
+    }
+  },
+  {
+    slug: "skiathos",
+    name: { en: "Skiathos", el: "Σκιάθος" },
+    group: "sporades",
+    groupName: { en: "Sporades", el: "Σποράδες" },
+    tagline: { en: "Pine forests and cosmopolitan golden sand", el: "Πευκοδάση και κοσμοπολίτικες αμμουδιές" },
+    img: "images/skiathos.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Skiathos is the most energetic island of the Sporades, famous for over 60 lush golden beaches, vibrant nightlife, and pine forests reaching the shoreline.", 
+      el: "Η Σκιάθος είναι το πιο ζωντανό νησί των Σποράδων, γνωστή για τις περισσότερες από 60 αμμώδεις παραλίες, τη νυχτερινή ζωή και τα πεύκα που φτάνουν στη θάλασσα." 
+    },
+    best: { 
+      en: "June and September offer warm sunny weather and easy beach access without crowded shuttle buses. July and August bring full-throttle nightlife, bustling beach bars, and vibrant international crowds.", 
+      el: "Ο Ιούνιος και ο Σεπτέμβριος προσφέρουν υπέροχο καιρό και εύκολη πρόσβαση στις παραλίες χωρίς συνωστισμό. Ο Ιούλιος και ο Αύγουστος είναι η περίοδος αιχμής για νυχτερινή διασκέδαση και beach bars." 
+    },
+    locationDesc: {
+      en: "Located in the western Sporades close to the Pelion peninsula, Skiathos is easily accessible by ferry from Volos or via its busy international airport.",
+      el: "Βρίσκεται στις δυτικές Σποράδες, πολύ κοντά στο Πήλιο. Διαθέτει εξαιρετική πρόσβαση με πλοία από το Βόλο καθώς και διεθνές αεροδρόμιο."
+    },
+    highlights: {
+      en: [
+        "Swim at Koukounaries Beach, celebrated worldwide for its fine golden sand and protected pine forest lagoon.",
+        "Take a boat excursion to Lalaria Beach, famous for its smooth white pebbles and massive stone archway.",
+        "Explore Bourtzi peninsula in Skiathos Town, a lush islet hosting a historic Venetian fortress.",
+        "Visit the House of Alexandros Papadiamantis, the museum dedicated to one of Greece's greatest literary figures."
+      ],
+      el: [
+        "Κολυμπήστε στις Κουκουναριές, μία από τις διασημότερες παραλίες με χρυσή άμμο και προστατευόμενο πευκοδάσος.",
+        "Κάντε μια εκδρομή με καραβάκι στη μοναδική παραλία Λαλάρια με τα λευκά βότσαλα και τη φυσική πέτρινη αψίδα.",
+        "Περπατήστε στο Μπούρτζι, τη μικρή κατάφυτη χερσόνησο στην είσοδο του λιμανιού με το ενετικό φρούριο.",
+        "Επισκεφθείτε το Σπίτι-Μουσείο του Αλέξανδρου Παπαδιαμάντη στη Χώρα της Σκιάθου."
+      ]
+    }
+  },
+  {
+    slug: "skopelos",
+    name: { en: "Skopelos", el: "Σκόπελος" },
+    group: "sporades",
+    groupName: { en: "Sporades", el: "Σποράδες" },
+    tagline: { en: "Lush green forests and Mamma Mia views", el: "Κατάφυτα δάση και ατμόσφαιρα Mamma Mia" },
+    img: "images/skopelos.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 3.0",
+    desc: { 
+      en: "Skopelos is one of Greece's greenest islands, where dense pine forests cover over 80% of the land and slope directly into clear turquoise Aegean bays.", 
+      el: "Η Σκόπελος είναι ένα από τα πιο πράσινα νησιά της Ελλάδας, με πυκνά πευκοδάση που καλύπτουν το μεγαλύτερο μέρος του νησιού και φτάνουν μέχρι τη θάλασσα." 
+    },
+    best: { 
+      en: "June to September is fantastic for coastal boat tours and swimming in calm green-blue bays. May and October are peaceful months ideal for hiking through forest trails and olive groves.", 
+      el: "Από τον Ιούνιο έως τον Σεπτέμβριο είναι η ιδανική περίοδος για θαλάσσιες βόλτες και μπάνιο στις καταπράσινες ακτές. Ο Μάιος και ο Οκτώβριος ενδείκνυνται για πεζοπορία στα δασικά μονοπάτια." 
+    },
+    locationDesc: {
+      en: "Positioned between Skiathos and Alonnisos in the Sporades group, Skopelos features a rugged terrain with picturesque traditional harbors and hilltop chapels.",
+      el: "Βρίσκεται ανάμεσα στη Σκιάθο και την Αλόννησο στις Σποράδες. Χαρακτηρίζεται από ορεινό τοπίο, γραφικά λιμάνια και δεκάδες εξωκλήσια."
+    },
+    highlights: {
+      en: [
+        "Climb the 100 cliffside steps to Agios Ioannis Chapel, famous as the wedding location in the 'Mamma Mia!' film.",
+        "Relax on the pebble and sand shores of Kastani, Milia, and Panormos beaches encircled by pines.",
+        "Stroll through Skopelos Town, an officially recognized traditional settlement with tiled roofs and flower balconies.",
+        "Try authentic Skopelitiki strifti, a spiral-shaped fried cheese pie made with local goat cheese."
+      ],
+      el: [
+        "Ανεβείτε τα 100 σκαλοπάτια στον βράχο του Αϊ Γιάννη, το γραφικό εξωκλήσι όπου γυρίστηκε η ταινία «Mamma Mia!».",
+        "Απολαύστε το μπάνιο σας στις παραλίες Καστάνη, Μηλιά και Πάνορμο με τα πεύκα να ακουμπούν στο κύμα.",
+        "Περπατήστε στα διατηρητέα σοκάκια της Χώρας της Σκοπέλου με τα παραδοσιακά σπίτια και τις κεραμοσκεπές.",
+        "Δοκιμάστε την αυθεντική στριφτή σκοπελίτικη τυρόπιτα με ντόπιο κατσικίσιο τυρί."
+      ]
+    }
+  },
+  {
+    slug: "rhodes",
+    name: { en: "Rhodes", el: "Ρόδος" },
+    group: "dodecanese",
+    groupName: { en: "Dodecanese", el: "Δωδεκάνησα" },
+    tagline: { en: "Medieval history and sun-drenched resorts", el: "Μεσαιωνική ιστορία και ηλιόλουστα θέρετρα" },
+    img: "images/rhodes.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Rhodes is the largest Dodecanese island, blending world-class medieval monuments, ancient acropolises, vast beach resorts, and over 300 days of sunshine a year.", 
+      el: "Η Ρόδος είναι το μεγαλύτερο νησί των Δωδεκανήσων, συνδυάζοντας μεσαιωνικά μνημεία, αρχαίες ακροπόλεις, αχανείς παραλίες και πάνω από 300 ημέρες ηλιοφάνειας το χρόνο." 
+    },
+    best: { 
+      en: "April to June and September to November offer ideal warm weather for sight-seeing, exploring medieval castles, and swimming without extreme summer heat. July and August offer vibrant resort life and water sports.", 
+      el: "Ο Απρίλιος έως τον Ιούνιο και ο Σεπτέμβριος έως τον Νοέμβριο είναι ιδανικοί μήνες για περιήγηση στα κάστρα και μπάνιο χωρίς υπερβολική ζέστη. Ο Ιούλιος και ο Αύγουστος προσφέρουν έντονη ζωή στα θέρετρα." 
+    },
+    locationDesc: {
+      en: "Rhodes is situated in the southeastern Aegean Sea, positioned near the coast of Asia Minor. It serves as the historic and administrative capital of the Dodecanese islands.",
+      el: "Βρίσκεται στο νοτιοανατολικό Αιγαίο, πολύ κοντά στα παράλια της Μικράς Ασίας, και αποτελεί την ιστορική και διοικητική πρωτεύουσα των Δωδεκανήσων."
+    },
+    highlights: {
+      en: [
+        "Step back in time inside the Medieval City of Rhodes, a UNESCO World Heritage site featuring the Palace of the Grand Master.",
+        "Climb to the ancient Acropolis of Lindos for sensational views over Saint Paul's Bay.",
+        "Swim in Anthony Quinn Bay, a scenic emerald cove surrounded by pine-covered rock formations.",
+        "Walk through the lush nature reserve of the Valley of the Butterflies during summer migration season."
+      ],
+      el: [
+        "Περιηγηθείτε στη Μεσαιωνική Πόλη της Ρόδου, μνημείο της UNESCO, και επισκεφθείτε το Παλάτι του Μεγάλου Μαγίστρου.",
+        "Ανεβείτε στην Ακρόπολη της Λίνδου για πανοραμική θέα στον γραφικό όρμο του Αγίου Παύλου.",
+        "Κολυμπήστε στον πανέμορφο όρμο Anthony Quinn με τα σμαραγδένια νερά και τα βράχια.",
+        "Περπατήστε στο καταπράσινο φυσικό πάρκο στην Κοιλάδα των Πεταλούδων κατά τους θερινούς μήνες."
+      ]
+    }
+  },
+  {
+    slug: "kos",
+    name: { en: "Kos", el: "Κως" },
+    group: "dodecanese",
+    groupName: { en: "Dodecanese", el: "Δωδεκάνησα" },
+    tagline: { en: "Sandy beaches, cycling, and ancient history", el: "Αμμώδεις παραλίες, ποδηλασία και αρχαία ιστορία" },
+    img: "images/kos.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 3.0",
+    desc: { 
+      en: "Kos is a vibrant Dodecanese island renowned as the birthplace of Hippocrates, featuring vast sandy coastlines, ancient sanctuaries, and a famous cycle-friendly town.", 
+      el: "Η Κως είναι ένα ζωντανό νησί των Δωδεκανήσων, γνωστό ως η πατρίδα του Ιπποκράτη, με μεγάλες αμμουδιές, αρχαία μνημεία και εκτεταμένο δίκτυο ποδηλατοδρόμων." 
+    },
+    best: { 
+      en: "May, June, September, and October provide pleasant conditions for cycling around town and exploring archaeological sites. Summer months bring vibrant resort energy along its endless sandy shorelines.", 
+      el: "Ο Μάιος, ο Ιούνιος, ο Σεπτέμβριος και ο Οκτώβριος είναι ιδανικοί για ποδηλασία και επίσκεψη στους αρχαιολογικούς χώρους. Το καλοκαίρι προσφέρει ζωντάνια και θαλάσσια σπορ στις παραλίες." 
+    },
+    locationDesc: {
+      en: "Located in the southeastern Aegean Sea, Kos is the third largest island of the Dodecanese, positioned south of Kalymnos and north of Nisyros.",
+      el: "Βρίσκεται στο νοτιοανατολικό Αιγαίο και είναι το τρίτο μεγαλύτερο νησί των Δωδεκανήσων, νότια της Καλύμνου και βόρεια της Νισύρου."
+    },
+    highlights: {
+      en: [
+        "Discover the ancient Asklepieion, a renowned healing sanctuary dedicated to the god of medicine.",
+        "Rent a bicycle to explore the palm-lined avenues and historic sites of Kos Town easily.",
+        "Relax on the expansive golden sandy stretches of Tigaki, Mastichari, and Paradise Beach.",
+        "Unwind in the natural sea-warmed thermal waters at Therma Beach."
+      ],
+      el: [
+        "Επισκεφθείτε το αρχαίο Ασκληπιείο, ένα από τα σημαντικότερα θεραπευτήρια του αρχαίου κόσμου.",
+        "Νοικιάστε ποδήλατο και περιηγηθείτε στους παραλιακούς δρόμους και τα μνημεία της πόλης της Κω.",
+        "Χαλαρώστε στις αχανείς χρυσές αμμουδιές στο Τιγκάκι, το Μαστιχάρι και την Paradise Beach.",
+        "Απολαύστε ένα φυσικό ιαματικό λουτρό στα θερμά νερά στην παραλία Θέρμα."
+      ]
+    }
+  },
+  {
+    slug: "symi",
+    name: { en: "Symi", el: "Σύμη" },
+    group: "dodecanese",
+    groupName: { en: "Dodecanese", el: "Δωδεκάνησα" },
+    tagline: { en: "Neoclassical mansions and peaceful bays", el: "Νεοκλασικά αρχοντικά και ήσυχοι όρμοι" },
+    img: "images/symi.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Symi captivates visitors with its fairy-tale harbor lined with colorful neoclassical mansions, sponge-diving heritage, and quiet emerald sea coves.", 
+      el: "Η Σύμη μαγεύει τους επισκέπτες με το παραμυθένιο λιμάνι της με τα πολύχρωμα νεοκλασικά αρχοντικά, την παράδοση στη σπογγαλιεία και τους γαλήνιους όρμους." 
+    },
+    best: { 
+      en: "May to June and September to October offer pleasant temperatures for walking up the historic Kali Strata stairways and taking boat tours around quiet coves. July and August bring warm waters and day-trippers from Rhodes.", 
+      el: "Ο Μάιος, ο Ιούνιος, ο Σεπτέμβριος και ο Οκτώβριος προσφέρουν ιδανικό καιρό για να ανεβείτε την Καλή Στράτα και να κάνετε γύρο του νησιού με σκάφος." 
+    },
+    locationDesc: {
+      en: "Symi is a small Dodecanese island situated north of Rhodes and close to the Datça peninsula of mainland Turkey. Its coastline features steep cliffs and sheltered coves.",
+      el: "Είναι ένα μικρό νησί των Δωδεκανήσων που βρίσκεται βόρεια της Ρόδου. Η ακτογραμμή της χαρακτηρίζεται από απότομους βράχους και προστατευμένους όρμους."
+    },
+    highlights: {
+      en: [
+        "Arrive by boat into Gialos harbor to take in one of the most picturesque neoclassical town views in Greece.",
+        "Climb the 500 steps of Kali Strata connecting the lower harbor to the historic upper village of Chorio.",
+        "Visit Panormitis Monastery at the southern tip of the island, a sacred pilgrimage site dedicated to Archangel Michael.",
+        "Taste the famous Symi red shrimp, a delicious local seafood specialty fried light and crispy."
+      ],
+      el: [
+        "Φτάστε με το πλοίο στο λιμάνι του Γιαλού και θαυμάστε την αμφιθεατρική νεοκλασική αρχιτεκτονική.",
+        "Ανεβείτε τα 500 σκαλοπάτια της Καλής Στράτας που συνδέει το λιμάνι με τον ιστορικό οικισμό Χωριό.",
+        "Επισκεφθείτε την ιστορική Μονή του Ταξιάρχη Μιχαήλ του Πανορμίτη στο νότιο άκρο του νησιού.",
+        "Δοκιμάστε το περίφημο γαριδάκι Σύμης, έναν εκλεκτό τοπικό θαλασσινό μεζέ."
+      ]
+    }
   }
-  .detail-section p {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--ink-soft, #4A5568);
+  {
+    slug: "paxoi",
+    name: { en: "Paxos", el: "Παξοί" },
+    group: "ionian",
+    groupName: { en: "Ionian Islands", el: "Επτάνησα" },
+    tagline: { en: "Exotic turquoise waters and olive groves", el: "Εξωτικά γαλαζοπράσινα νερά και ελαιώνες" },
+    img: "images/paxoi.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Paxos is an enchanting Ionian island covered in centuries-old olive groves, famous for its fjord-like coves, Venetian architecture, and exotic turquoise beaches.", 
+      el: "Οι Παξοί είναι ένα μαγευτικό νησί των Επτανήσων καλυμμένο με αιωνόβιους ελαιώνες, φημισμένο για τα φιόρδ, τη βενετσιάνικη αρχιτεκτονική και τα εξωτικά γαλαζοπράσινα νερά." 
+    },
+    best: { 
+      en: "May, June, and September are perfection for renting a small motorboat to explore secluded coastal caves with peaceful sea conditions. July and August draw luxury yachts and vibrant cosmopolitan summer crowds.", 
+      el: "Ο Μάιος, ο Ιούνιος και ο Σεπτέμβριος είναι ιδανικοί για να νοικιάσετε βάρκα και να εξερευνήσετε τις σπηλιές με ηρεμία. Ο Ιούλιος και ο Αύγουστος προσελκύουν σκάφη και κοσμοπολίτικο κόσμο." 
+    },
+    locationDesc: {
+      en: "Located in the northern Ionian Sea just 14 kilometers south of Corfu, Paxos is a compact island easily accessible by sea hydrofoils and ferry transfers.",
+      el: "Βρίσκονται στο βόρειο Ιόνιο Πέλαγος, μόλις 14 χιλιόμετρα νότια της Κέρκυρας. Πρόκειται για ένα μικρό νησί με εύκολη πρόσβαση με δελφίνια και πλοία."
+    },
+    highlights: {
+      en: [
+        "Take a day boat to the tiny neighboring island of Antipaxos to swim at the world-famous Voutoumi and Vrika beaches.",
+        "Rent a small license-free motorboat in Gaios to access hidden emerald sea coves along the eastern coast.",
+        "Marvel at the sheer white limestone cliffs and sea caves of Erimitis on a sunset boat tour.",
+        "Stroll around the scenic waterfront path of Lakka harbor lined with traditional tavernas."
+      ],
+      el: [
+        "Πάρτε το καραβάκι για τους Αντίπαξους και κολυμπήστε στις εξωτικές παραλίες Βουτούμι και Βρίκα.",
+        "Νοικιάστε μια μικρή βάρκα από τον Γάιο για να ανακαλύψετε κρυφούς όρμους στην ανατολική ακτή.",
+        "Θαυμάστε τους επιβλητικούς λευκούς βράχους και τις σπηλιές του Ερημίτη την ώρα του ηλιοβασιλέματος.",
+        "Περπατήστε στο γραφικό λιμανάκι της Λάκκας με τις παραδοσιακές ταβέρνες πάνω στο κύμα."
+      ]
+    }
+  },
+  {
+    slug: "lefkada",
+    name: { en: "Lefkada", el: "Λευκάδα" },
+    group: "ionian",
+    groupName: { en: "Ionian Islands", el: "Επτάνησα" },
+    tagline: { en: "Car-accessible Caribbean waters", el: "Εξωτικά νερά με πρόσβαση με αυτοκίνητο" },
+    img: "images/lefkada.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 3.0",
+    desc: { 
+      en: "Lefkada is unique among Greek islands as it is connected to the mainland via a floating bridge, famous for dramatic chalk cliffs and turquoise waters.", 
+      el: "Η Λευκάδα ξεχωρίζει καθώς συνδέεται με την ηπειρωτική Ελλάδα μέσω πλωτής γέφυρας, διάσημη για τα εντυπωσιακά λευκά βράχια και τα γαλαζοπράσινα νερά." 
+    },
+    best: { 
+      en: "June and September provide sunny weather, easy road access to western beaches, and manageable traffic. July and August are prime time for windsurfing and kitesurfing championships in Vasiliki and Agios Ioannis.", 
+      el: "Ο Ιούνιος και ο Σεπτέμβριος προσφέρουν άνετη πρόσβαση στις δυτικές παραλίες χωρίς κυκλοφοριακή συμφόρηση. Ο Ιούλιος και ο Αύγουστος είναι η κορυφαία περίοδος για windsurfing και kitesurfing." 
+    },
+    locationDesc: {
+      en: "Situated in the central Ionian Sea off the western coast of mainland Greece, Lefkada is reachable directly by car without needing a passenger ferry.",
+      el: "Βρίσκεται στο κεντρικό Ιόνιο Πέλαγος, στα δυτικά παράλια της Ελλάδας, και είναι προσβάσιμη απευθείας με αυτοκίνητο χωρίς ανάγκη ακτοπλοϊκού εισιτηρίου."
+    },
+    highlights: {
+      en: [
+        "Swim in the electric-blue waters of Porto Katsiki and Egremni beaches below towering sheer cliffs.",
+        "Windsurf or kitesurf in Vasiliki Bay, recognized as one of Europe's top water sports spots.",
+        "Take a cruise from Nydri to explore Meganisi and the historic Private Island of Skorpios.",
+        "Visit the picturesque mountain village of Karya to see traditional lace weaving crafts."
+      ],
+      el: [
+        "Κολυμπήστε στα καταγάλανα νερά στο Πόρτο Κατσίκι και τους Εγκρεμνούς κάτω από τους επιβλητικούς βράχους.",
+        "Κάντε windsurfing ή kitesurfing στον κόλπο της Βασιλικής, έναν από τους κορυφαίους προορισμούς στην Ευρώπη.",
+        "Πάρτε το κρουαζιερόπλοιο από το Νυδρί για να επισκεφθείτε το Μεγανήσι και τον Σκορπιό.",
+        "Επισκεφθείτε το ορεινό χωριό Καρυά για να δείτε τα παραδοσιακά κεντήματα και την τοπική αρχιτεκτονική."
+      ]
+    }
+  },
+  {
+    slug: "kefalonia",
+    name: { en: "Kefalonia", el: "Κεφαλονιά" },
+    group: "ionian",
+    groupName: { en: "Ionian Islands", el: "Επτάνησα" },
+    tagline: { en: "Dramatic mountains and world-famous coves", el: "Επιβλητικά βουνά και παγκοσμίου φήμης παραλίες" },
+    img: "images/kefalonia.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Kefalonia is the largest Ionian island, offering a diverse landscape of pine-forested mountains, subterranean lakes, Venetian villages, and iconic beaches.", 
+      el: "Η Κεφαλονιά είναι το μεγαλύτερο νησί των Επτανήσων, με επιβλητικά βουνά, λιμνοσπήλαια, βενετσιάνικα χωριά και παραλίες παγκόσμιας φήμης." 
+    },
+    best: { 
+      en: "May, June, and September are ideal for exploring the vast island by car and visiting underground natural caves comfortably. July and August bring vibrant town life in Argostoli and busy coastlines.", 
+      el: "Ο Μάιος, ο Ιούνιος και ο Σεπτέμβριος είναι ιδανικοί για να εξερευνήσετε το νησί με αυτοκίνητο και να επισκεφθείτε τα σπήλαια. Ο Ιούλιος και ο Αύγουστος προσφέρουν ζωντάνια στο Αργοστόλι." 
+    },
+    locationDesc: {
+      en: "Located in the heart of the Ionian Sea west of mainland Greece, Kefalonia features high mountain peaks including Mount Ainos National Park, home to rare fir trees.",
+      el: "Βρίσκεται στην καρδιά του Ιονίου Πελάγους, δυτικά της ηπειρωτικής Ελλάδας, και φιλοξενεί τον Εθνικό Δρυμό του Αίνου με τη σπάνια μαύρη ελάτη."
+    },
+    highlights: {
+      en: [
+        "Marvel at the turquoise waters of Myrtos Beach from the high cliff overlook before descending for a swim.",
+        "Take a rowboat tour inside Melissani Cave Lake to see sunlight light up the subterranean cavern.",
+        "Stroll around the colorful Venetian harbor of Fiscardo, filled with luxury yachts and seafood dining.",
+        "Explore Drogarati Cave, famous for its acoustics and impressive stalactites and stalagmites."
+      ],
+      el: [
+        "Θαυμάστε τη θέα στον Μύρτο από το ύψωμα και κολυμπήστε στα καταγάλανα νερά του.",
+        "Κάντε βάρκα στο Λιμνοσπήλαιο της Μελισσάνης και δείτε το ηλιακό φως να φωτίζει τα υπόγεια νερά.",
+        "Περπατήστε στο κοσμοπολίτικο Φισκάρδο με τα διατηρητέα βενετσιάνικα αρχοντικά.",
+        "Επισκεφθείτε το Σπήλαιο Δρογκαράτης με τους εντυπωσιακούς σταλακτίτες και τη μοναδική ακουστική."
+      ]
+    }
+  },
+  {
+    slug: "zakynthos",
+    name: { en: "Zakynthos", el: "Ζάκυνθος" },
+    group: "ionian",
+    groupName: { en: "Ionian Islands", el: "Επτάνησα" },
+    tagline: { en: "The iconic Shipwreck beach and sea turtles", el: "Το εμβληματικό Ναυάγιο και οι θαλάσσιες χελώνες" },
+    img: "images/zakynthos.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 3.0",
+    desc: { 
+      en: "Zakynthos is world-renowned for the legendary Navagio (Shipwreck) Beach, sea turtle nesting grounds, electric blue sea caves, and Venetian architectural charm.", 
+      el: "Η Ζάκυνθος είναι παγκοσμίως γνωστή για την παραλία του Ναυαγίου, τις θαλάσσιες χελώνες Caretta-Caretta, τις Γαλάζιες Σπηλιές και την επτανησιακή αρχιτεκτονική." 
+    },
+    best: { 
+      en: "May to June and September offer the best boat tour conditions for spotting Caretta Caretta turtles and enjoying scenic viewpoints. July and August feature high-energy nightlife and busy beach resorts.", 
+      el: "Ο Μάιος, ο Ιούνιος και ο Σεπτέμβριος είναι οι καλύτεροι μήνες για παρατήρηση των χελωνών Caretta-Caretta και εκδρομές με σκάφος. Ο Ιούλιος και ο Αύγουστος έχουν έντονη νυχτερινή ζωή." 
+    },
+    locationDesc: {
+      en: "Positioned in the southern Ionian Sea, Zakynthos sits south of Kefalonia and west of the Peloponnese, reachable via a short 1-hour ferry ride from Kyllini port.",
+      el: "Βρίσκεται στο νότιο Ιόνιο, νότια της Κεφαλονιάς και δυτικά της Πελοποννήσου, με πρόσβαση σε μόλις 1 ώρα από το λιμάνι της Κυλλήνης."
+    },
+    highlights: {
+      en: [
+        "View the famous Shipwreck (Navagio) Beach from the dramatic clifftop observation deck.",
+        "Take a glass-bottom boat tour around Marathonisi Islet and Laganas Bay to spot loggerhead sea turtles.",
+        "Swim through the luminous reflection inside the Blue Caves at Cape Skinari.",
+        "Watch romantic sunsets over the Ionian Sea from Keri cliffs and Mizithres rocks."
+      ],
+      el: [
+        "Θαυμάστε το παγκοσμίου φήμης Ναυάγιο από την πλατφόρμα θέασης στο πάνω μέρος του γκρεμού.",
+        "Κάντε βόλτα με σκάφος με γυάλινο πάτο στο Μαραθονήσι για να δείτε τις θαλάσσιες χελώνες Caretta-Caretta.",
+        "Κολυμπήστε στις Γαλάζιες Σπηλιές στο Ακρωτήρι Σκινάρι με τις εντυπωσιακές αντανακλάσεις του φωτός.",
+        "Απολαύστε το ηλιοβασίλεμα από τους βράχους στο Κερί και τις Μυζήθρες."
+      ]
+    }
+  },
+  {
+    slug: "corfu",
+    name: { en: "Corfu", el: "Κέρκυρα" },
+    group: "ionian",
+    groupName: { en: "Ionian Islands", el: "Επτάνησα" },
+    tagline: { en: "Venetian heritage and lush landscapes", el: "Βενετσιάνικη κληρονομιά και κατάφυτα τοπία" },
+    img: "images/corfu.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Corfu is a grand Ionian island rich in history, featuring a UNESCO-listed Venetian Old Town, royal palaces, fortress architecture, and lush olive-clad hills.", 
+      el: "Η Κέρκυρα είναι ένα αρχοντικό νησί με πλούσια ιστορία, με τη μεσαιωνική Παλιά Πόλη (UNESCO), βασιλικά ανάκτορα, φρούρια και κατάφυτους ελαιώνες." 
+    },
+    best: { 
+      en: "Easter, May, June, and September offer pleasant weather for exploring fortress walls, listening to local brass bands, and enjoying quiet coves. Summer months bring vibrant resort activities.", 
+      el: "Το Πάσχα, ο Μάιος, ο Ιούνιος και ο Σεπτέμβριος είναι ιδανικοί για περιήγηση στα φρούρια, τις φιλαρμονικές και τις παραλίες. Το καλοκαίρι προσφέρει ζωντάνια σε όλα τα θέρετρα." 
+    },
+    locationDesc: {
+      en: "Situated in the northwestern corner of Greece near the Albanian border, Corfu is the northernmost major Ionian island, easily accessible by air or ferry.",
+      el: "Βρίσκεται στο βορειοδυτικό άκρο της Ελλάδας, αποτελώντας το βορειότερο μεγάλο νησί των Επτανήσων, με διεθνές αεροδρόμιο και τακτική ακτοπλοϊκή σύνδεση."
+    },
+    highlights: {
+      en: [
+        "Stroll through the Liston promenade and Spianada plaza in Corfu Old Town, framed by historic Venetian fortresses.",
+        "Swim through the romantic sandstone rock formations at Canal d'Amour in Sidari.",
+        "Visit the Achilleion Palace, the ornate 19th-century summer residence of Empress Sisi of Austria.",
+        "Take a boat tour around Paleokastritsa to explore hidden bays and the hilltop monastery."
+      ],
+      el: [
+        "Περπατήστε στο Λιστόν και τη Σπιανάδα στην Παλιά Πόλη της Κέρκυρας ανάμεσα στα ενετικά φρούρια.",
+        "Κολυμπήστε στο Canal d'Amour στο Σιδάρι με τους ιδιαίτερους σχηματισμούς των βράχων.",
+        "Επισκεφθείτε το Αχίλλειο, το θερινό ανάκτορο της Αυτοκράτειρας Σίσι της Αυστρίας.",
+        "Κάντε βόλτα με σκάφος στην Παλαιοκαστρίτσα για να ανακαλύψετε κρυφούς όρμους και το μοναστήρι."
+      ]
+    }
+  },
+  {
+    slug: "ithaki",
+    name: { en: "Ithaca", el: "Ιθάκη" },
+    group: "ionian",
+    groupName: { en: "Ionian Islands", el: "Επτάνησα" },
+    tagline: { en: "Homer's mythical island of Odysseus", el: "Το μυθικό νησί του Οδυσσέα" },
+    img: "images/ithaki.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 3.0",
+    desc: { 
+      en: "Ithaca is legendary as the homeland of Homer's Odysseus, offering a tranquil haven of pine-covered hills, traditional harbor hamlets, and calm turquoise bays.", 
+      el: "Η Ιθάκη είναι η θρυλική πατρίδα του Οδυσσέα, ένας γαλήνιος παράδεισος με πευκόφυτους λόφους, γραφικά λιμανάκια και ήρεμους γαλαζοπράσινους όρμους." 
+    },
+    best: { 
+      en: "May to October offers a calm and soothing atmosphere perfect for sailing, quiet swimming, hiking ancient paths, and enjoying waterfront seafood dining.", 
+      el: "Από τον Μάιο έως τον Οκτώβριο το νησί προσφέρει απόλυτη ηρεμία, ιδανική για ιστιοπλοΐα, πεζοπορία σε αρχαία μονοπάτια και φρέσκο ψάρι στο κύμα." 
+    },
+    locationDesc: {
+      en: "Ithaca lies just off the northeast coast of Kefalonia in the Ionian Sea, featuring a long narrow shape deeply indented by natural bays.",
+      el: "Βρίσκεται ανατολικά της Κεφαλονιάς στο Ιόνιο Πέλαγος. Έχει μακρόστενο σχήμα με βαθιούς φυσικούς κόλπους."
+    },
+    highlights: {
+      en: [
+        "Stroll around Vathy, the island's capital, built around a deep horseshoe-shaped natural harbor.",
+        "Swim at Gidaki Beach, widely regarded as one of the finest turquoise pebble beaches in the Ionian.",
+        "Explore the charming traditional fishing villages of Kioni and Frikes lined with waterfront tavernas.",
+        "Hike up to the Monastery of Kathara for sweeping views over the whole island and sea."
+      ],
+      el: [
+        "Περπατήστε στο Βαθύ, την πρωτεύουσα του νησιού, χτισμένη γύρω από έναν ασφαλή φυσικό κόλπο.",
+        "Κολυμπήστε στο Γιδάκι, μία από τις ωραιότερες παραλίες του Ιονίου με πεντακάθαρα νερά.",
+        "Επισκεφθείτε τα γραφικά παραθαλάσσια χωριά Κιόνι και Φρίκες για φρέσκο ψάρι πάνω στο κύμα.",
+        "Ανεβείτε στη Μονή Καθαρών για πανοραμική θέα σε ολόκληρο το νησί και το Ιόνιο."
+      ]
+    }
+  },
+  {
+    slug: "kythira",
+    name: { en: "Kythira", el: "Κύθηρα" },
+    group: "ionian",
+    groupName: { en: "Ionian Islands", el: "Επτάνησα" },
+    tagline: { en: "The island of Aphrodite and historic castles", el: "Το νησί της Αφροδίτης και των κάστρων" },
+    img: "images/kythira.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Kythira lies at the meeting point of three seas, blending Venetian fortresses, waterfalls, traditional stone villages, and serene uncrowded beaches.", 
+      el: "Τα Κύθηρα βρίσκονται στο σημείο συνάντησης τριών πελαγών, συνδυάζοντας ενετικά κάστρα, καταρράκτες, πέτρινα χωριά και γαλήνιες παραλίες." 
+    },
+    best: { 
+      en: "May, June, and September are superb for hiking through canyons, visiting watermills, and sightseeing. Summer months provide warm seas for swimming in secluded coves.", 
+      el: "Ο Μάιος, ο Ιούνιος και ο Σεπτέμβριος είναι εξαιρετικοί για πεζοπορία σε φαράγγια και εξερεύνηση των χωριών. Το καλοκαίρι προσφέρει υπέροχα νερά για μπάνιο." 
+    },
+    locationDesc: {
+      en: "Located off the southern tip of the Peloponnese peninsula, Kythira historically belongs to the Ionian Islands despite its unique isolated location.",
+      el: "Βρίσκονται απέναντι από το νότιο άκρο της Πελοποννήσου (Κάβο Μαλέα), ανήκοντας διοικητικά και ιστορικά στα Επτάνησα."
+    },
+    highlights: {
+      en: [
+        "Explore Chora and its grand Venetian Castle overlooking the twin bays of Kapsali.",
+        "Discover Fonissa Waterfall in Mylopotamos surrounded by lush greenery and historic watermills.",
+        "Swim at Kaladi Beach, famous for its dramatic rock rising out of clear blue waters.",
+        "Visit Avlemonas, a picturesque fishing hamlet with small natural rocky swimming inlets."
+      ],
+      el: [
+        "Εξερευνήστε τη Χώρα και το επιβλητικό Ενετικό Κάστρο με θέα τους δίδυμους όρμους στο Καψάλι.",
+        "Δείτε τον Καταρράκτη της Φόνισσας στον Μυλοπόταμο μέσα σε ένα καταπράσινο τοπίο.",
+        "Κολυμπήστε στο Καλάδι, μια παραλία με εντυπωσιακό βράχο και πεντακάθαρα νερά.",
+        "Πιείτε καφέ στον Αβλέμονα, ένα γραφικό ψαροχώρι με φυσικές βραχώδεις πισίνες."
+      ]
+    }
+  },
+  {
+    slug: "chania",
+    name: { en: "Chania (Crete)", el: "Χανιά (Κρήτη)" },
+    group: "crete",
+    groupName: { en: "Crete", el: "Κρήτη" },
+    tagline: { en: "Venetian harbor and legendary beaches", el: "Ενετικό λιμάνι και θρυλικές παραλίες" },
+    img: "images/chania.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Chania is the crown jewel of western Crete, famous for its historic Venetian harbor, Ottoman lighthouse, Samaria Gorge, and world-class exotic beaches.", 
+      el: "Τα Χανιά είναι το στολίδι της δυτικής Κρήτης, γνωστά για το ενετικό λιμάνι, τον φάρο, το Φαράγγι της Σαμαριάς και τις εξωτικές παραλίες." 
+    },
+    best: { 
+      en: "April to June and September to October offer pleasant temperatures for hiking Samaria Gorge and exploring the Old Town. July and August feature peak warm sea conditions for Balos Lagoon and Elafonisi.", 
+      el: "Ο Απρίλιος έως τον Ιούνιο και ο Σεπτέμβριος έως τον Οκτώβριο είναι ιδανικοί για πεζοπορία στη Σαμαριά και βόλτα στην Παλιά Πόλη. Ο Ιούλιος και ο Αύγουστος προσφέρονται για μπάνιο στο Μπάλο και το Ελαφονήσι." 
+    },
+    locationDesc: {
+      en: "Located on the northwestern coast of Crete, Chania features an international airport and major ferry connections via Souda port.",
+      el: "Βρίσκονται στη βορειοδυτική ακτή της Κρήτης, διαθέτοντας διεθνές αεροδρόμιο και ακτοπλοϊκό λιμάνι στη Σούδα."
+    },
+    highlights: {
+      en: [
+        "Wander through the Venetian Old Town and harbor, taking in views of the Egyptian Lighthouse.",
+        "Take a boat trip or drive to Balos Lagoon to swim in shallow turquoise waters and pink-hued sand.",
+        "Experience the famous pink sand and crystal-clear waters at Elafonisi Islet.",
+        "Hike the legendary 16-kilometer Samaria Gorge National Park down to the Libyan Sea."
+      ],
+      el: [
+        "Περιηγηθείτε στα σοκάκια της Παλιάς Πόλης των Χανίων και το Ενετικό Λιμάνι με τον Φάρο.",
+        "Επισκεφθείτε τη Λιμνοθάλασσα του Μπάλου με τα εξωτικά γαλαζοπράσινα νερά και τη ροζ άμμο.",
+        "Κολυμπήστε στο Ελαφονήσι, ένα προστατευόμενο τοπίο με σπάνια ομορφιά και αμμοθίνες.",
+        "Διασχίστε το διάσημο Φαράγγι της Σαμαριάς μήκους 16 χιλιομέτρων μέχρι το Λιβυκό Πέλαγος."
+      ]
+    }
   }
-  .highlights-list {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-top: 10px;
+];
+{
+    slug: "heraklion",
+    name: { en: "Heraklion (Crete)", el: "Ηράκλειο (Κρήτη)" },
+    group: "crete",
+    groupName: { en: "Crete", el: "Κρήτη" },
+    tagline: { en: "Minoan palaces and vibrant city culture", el: "Μινωικά ανάκτορα και ζωντανή αστική κουλτούρα" },
+    img: "images/heraklion.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Heraklion is Crete's dynamic capital, seamlessly blending a bustling modern metropolis with ancient Minoan history, Venetian fortresses, and world-class museums.", 
+      el: "Το Ηράκλειο είναι η δυναμική πρωτεύουσα της Κρήτης, συνδυάζοντας μια ζωντανή πόλη με τη μινωική ιστορία, τα ενετικά τείχη και μουσεία παγκόσμιας κλάσης." 
+    },
+    best: { 
+      en: "May to June and September to October offer comfortable weather for exploring outdoor archaeological sites and museums without the intense summer heat. July and August bring vibrant nightlife and busy port energy.", 
+      el: "Ο Μάιος, ο Ιούνιος, ο Σεπτέμβριος και ο Οκτώβριος προσφέρουν ιδανικές θερμοκρασίες για την επίσκεψη στους αρχαιολογικούς χώρους και τα μουσεία. Το καλοκαίρι έχει έντονη αστική ζωή." 
+    },
+    locationDesc: {
+      en: "Situated on the central northern coast of Crete, Heraklion hosts the island's primary international airport and main maritime ferry port linking to Athens.",
+      el: "Βρίσκεται στη βόρεια κεντρική ακτή της Κρήτης και διαθέτει το μεγαλύτερο διεθνές αεροδρόμιο και λιμάνι του νησιού με καθημερινές συνδέσεις με την Αθήνα."
+    },
+    highlights: {
+      en: [
+        "Explore the legendary Palace of Knossos, the political and cultural center of the ancient Minoan civilization.",
+        "Discover priceless archaeological artifacts at the renowned Heraklion Archaeological Museum.",
+        "Walk along the massive Venetian Fortress of Koules guarding the entrance to the old harbor.",
+        "Stroll through the lively 1866 Street market to sample traditional Cretan cheeses, herbs, and local raki."
+      ],
+      el: [
+        "Εξερευνήστε το εντυπωσιακό Παλάτι της Κνωσού, το κέντρο του μινωικού πολιτισμού.",
+        "Θαυμάστε ανεκτίμητους θησαυρούς στο Αρχαιολογικό Μουσείο Ηρακλείου.",
+        "Περπατήστε στο ενετικό Φρούριο του Κούλε που δεσπόζει στην είσοδο του παλιού λιμανιού.",
+        "Περιηγηθείτε στην ιστορική οδό 1866 για να δοκιμάσετε τοπικά κρητικά τυριά, βότανα και ρακή."
+      ]
+    }
+  },
+  {
+    slug: "rethymno",
+    name: { en: "Rethymno (Crete)", el: "Ρέθυμνο (Κρήτη)" },
+    group: "crete",
+    groupName: { en: "Crete", el: "Κρήτη" },
+    tagline: { en: "Venetian Renaissance charm and sandy shores", el: "Ενετική αναγεννησιακή γοητεία και αμμουδιές" },
+    img: "images/rethymno.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Rethymno charms visitors with its remarkably preserved Venetian-Ottoman Old Town, intricate stone alleys, imposing fortress, and a long sandy beach stretching alongside the city.", 
+      el: "Το Ρέθυμνο μαγεύει τους επισκέπτες με την άριστα διατηρημένη ενετο-οθωμανική Παλιά Πόλη, τα γραφικά σοκάκια, το επιβλητικό φρούριο και τη μεγάλη αμμώδη παραλία." 
+    },
+    best: { 
+      en: "May, June, and September provide wonderful weather for walking through historic streets and enjoying coastal tavernas. July and August offer lively beach vibes and cultural summer festivals.", 
+      el: "Ο Μάιος, ο Ιούνιος και ο Σεπτέμβριος είναι εξαιρετικοί για βόλτες στα ιστορικά σοκάκια και φαγητό δίπλα στη θάλασσα. Τον Ιούλιο και τον Αύγουστο διοργανώνονται σημαντικά πολιτιστικά φεστιβάλ." 
+    },
+    locationDesc: {
+      en: "Positioned on the north coast of Crete roughly halfway between Chania and Heraklion, Rethymno is easily accessible via the main northern highway.",
+      el: "Βρίσκεται στη βόρεια ακτή της Κρήτης, περίπου στο μέσον της απόστασης ανάμεσα στα Χανιά και το Ηράκλειο, με εύκολη πρόσβαση από τον ΒΟΑΚ."
+    },
+    highlights: {
+      en: [
+        "Wander through the old Venetian harbor and admire the iconic Rimondi Fountain.",
+        "Explore the massive Fortezza castle sitting on the hill overlooking the azure Cretan Sea.",
+        "Stroll down narrow alleys lined with ornate wooden Turkish balconies and Venetian doorways.",
+        "Relax on the long sandy city beach or take a short drive to nearby Preveli palm beach."
+      ],
+      el: [
+        "Περπατήστε στο παλιό ενετικό λιμάνι και θαυμάστε την περίφημη Κρήνη Ριμόντι.",
+        "Επισκεφθείτε τη Φορτέτζα, το τεράστιο ενετικό κάστρο που δεσπόζει πάνω από την πόλη.",
+        "Χαθείτε στα σοκάκια με τα τούρκικα σακχασιά (ξύλινα μπαλκόνια) και τα ενετικά θυρώματα.",
+        "Απολαύστε το μπάνιο σας στη μεγάλη αμμώδη παραλία ή επισκεφθείτε την κοντινή λίμνη και φοινικόδασος της Πρέβελης."
+      ]
+    }
+  },
+  {
+    slug: "agios-nikolaos",
+    name: { en: "Agios Nikolaos (Crete)", el: "Άγιος Νικόλαος (Κρήτη)" },
+    group: "crete",
+    groupName: { en: "Crete", el: "Κρήτη" },
+    tagline: { en: "The bottomless lake and picturesque gulf", el: "Η απύθμενη λίμνη και ο γραφικός κόλπος" },
+    img: "images/agios-nikolaos.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 3.0",
+    desc: { 
+      en: "Agios Nikolaos is a cosmopolitan Cretan coastal town centered around a scenic bottomless lake connected to the sea, surrounded by cafes and hills.", 
+      el: "Ο Άγιος Νικόλαος είναι μια κοσμοπολίτικη παραθαλάσσια πόλη της Κρήτης, χτισμένη γύρω από τη γραφική λίμνη Βουλισμένη που συνδέεται με τη θάλασσα." 
+    },
+    best: { 
+      en: "June and September offer warm sunny days, relaxing lakeside dining, and clear swimming conditions without peak summer crowds. July and August bring lively international resort activity.", 
+      el: "Ο Ιούνιος και ο Σεπτέμβριος προσφέρουν ζεστό καιρό, χαλαρωτικές στιγμές γύρω από τη λίμνη και καθαρά νερά. Ο Ιούλιος και ο Αύγουστος φέρνουν ζωντάνια και τουριστική κίνηση." 
+    },
+    locationDesc: {
+      en: "Located on the eastern side of Crete in the Mirabello Gulf within the Lasithi region, Agios Nikolaos is easily reached from Heraklion airport.",
+      el: "Βρίσκεται στην ανατολική Κρήτη, στον κόλπο Μιραμπέλλου του νομού Λασιθίου, σε μικρή απόσταση από το αεροδρόμιο του Ηρακλείου."
+    },
+    highlights: {
+      en: [
+        "Walk around Lake Voulismeni, framed by red rock cliffs and lined with atmospheric cafes and restaurants.",
+        "Take a boat trip to Spinalonga Island, the historic fortified former leper colony with rich stories.",
+        "Relax on Kitroplateia and Ammoudi beaches situated right near the town center.",
+        "Explore the traditional nearby mountain village of Kritsa and ancient Lato archaeological site."
+      ],
+      el: [
+        "Κάντε βόλτα γύρω από τη λίμνη Βουλισμένη και απολαύστε τον καφέ σας στις παραλίμνιες καφετέριες.",
+        "Πάρτε το καραβάκι για το ιστορικό νησάκι της Σπιναλόνγκας με τα ενετικά τείχη.",
+        "Κολυμπήστε στις παραλίες Κιτροplateia και Άμμουδι κοντά στο κέντρο της πόλης.",
+        "Επισκεφθείτε το παραδοσιακό χωριό Κριτσά και τον αρχαιολογικό χώρο της Λατούς."
+      ]
+    }
+  },
+  {
+    slug: "sitia",
+    name: { en: "Sitia (Crete)", el: "Σητεία (Κρήτη)" },
+    group: "crete",
+    groupName: { en: "Crete", el: "Κρήτη" },
+    tagline: { en: "Authentic eastern charm and palm forests", el: "Αυθεντική ανατολική γοητεία και φοινικόδασος" },
+    img: "images/sitia.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 3.0",
+    desc: { 
+      en: "Sitia is a relaxed and authentic eastern Cretan port town celebrated for its warm hospitality, excellent olive oil, wine heritage, and nearby natural wonders.", 
+      el: "Η Σητεία είναι μια ήρεμη και αυθεντική ανατολική κρητική πόλη, φημισμένη για τη φιλοξενία, το εξαιρετικό ελαιόλαδο, τα κρασιά και τα μοναδικά τοπία." 
+    },
+    best: { 
+      en: "May to June and September offer ideal peaceful conditions for exploring eastern Crete's remote gorges, beaches, and Minoan sites. July and August bring authentic local summer festivals.", 
+      el: "Ο Μάιος, ο Ιούνιος και ο Σεπτέμβριος είναι ιδανικοί για να εξερευνήσετε τα απομονωμένα φαράγγια και τις παραλίες της ανατολικής Κρήτης." 
+    },
+    locationDesc: {
+      en: "Situated on the far northeastern coast of Crete in Lasithi, Sitia features a regional domestic airport and a peaceful hillside harbor.",
+      el: "Βρίσκεται στη βορειοανατολική ακτή της Κρήτης στον νομό Λασιθίου, διαθέτοντας αμφιθεατρική κτίση γύρω από το λιμάνι και τοπικό αεροδρόμιο."
+    },
+    highlights: {
+      en: [
+        "Stroll along the palm-lined seaside promenade filled with traditional fish tavernas and cafes.",
+        "Explore Kazarma Fortress, the imposing Venetian castle overlooking the town and harbor.",
+        "Take a trip to Vai Palm Beach, famous for Europe's largest natural date palm forest.",
+        "Visit the ancient Minoan site of Zakros and the dramatic Dead's Gorge."
+      ],
+      el: [
+        "Περπατήστε στον παραλιακό πεζόδρομο με τα ταβερνάκια και τα παραδοσιακά καφενεία.",
+        "Ανεβείτε στην Κασάρμα, το ενετικό φρούριο που δεσπόζει πάνω από την πόλη.",
+        "Επισκεφθείτε το περίφημο φοινικόδασος στο Βάι με την εξωτική παραλία.",
+        "Ανακαλύψτε το μινωικό ανάκτορο στην Κάτω Ζάκρο και το Φαράγγι των Νεκρών."
+      ]
+    }
+  },
+  {
+    slug: "chios",
+    name: { en: "Chios", el: "Χίος" },
+    group: "aegean",
+    groupName: { en: "North Aegean", el: "Βόρειο Αιγαίο" },
+    tagline: { en: "Mastic villages and medieval architecture", el: "Μαστιχοχώρια και μεσαιωνική αρχιτεκτονική" },
+    img: "images/chios.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Chios is a fascinating North Aegean island famous worldwide for producing natural mastic resin, featuring fortified medieval villages and dramatic coastlines.", 
+      el: "Η Χίος είναι ένα συναρπαστικό νησί του Βορείου Αιγαίου, παγκοσμίως γνωστό για τη μαστίχα, τα οχυρωμένα μεσαιωνικά χωριά και την πλούσια ιστορία." 
+    },
+    best: { 
+      en: "June to September is wonderful for swimming in unique volcanic beaches and touring the geometric medieval mastic villages. Spring brings incredible wild flora.", 
+      el: "Από τον Ιούνιο έως τον Σεπτέμβριος ο καιρός είναι εξαιρετικός για μπάνιο στις ιδιαίτερες παραλίες και περιήγηση στα Μαστιχοχώρια." 
+    },
+    locationDesc: {
+      en: "Located in the eastern Aegean Sea close to the Karaburun peninsula of Turkey, Chios is easily reached by ferry from Piraeus or via its airport.",
+      el: "Βρίσκεται στο ανατολικό Αιγαίο, απέναντι από τα παράλια της Μικράς Ασίας, με τακτική ακτοπλοϊκή σύνδεση με τον Πειραιά και αεροδρόμιο."
+    },
+    highlights: {
+      en: [
+        "Wander through Pyrgi, a medieval village famous for its striking geometric black-and-white scratch-carved facades.",
+        "Explore Mesta, an intact fortress-like medieval village with labyrinthine stone alleys.",
+        "Relax on the unique volcanic grey pebble shore of Mavra Volia beach.",
+        "Visit the UNESCO-listed Nea Moni monastery, renowned for its 11th-century golden mosaics."
+      ],
+      el: [
+        "Περιηγηθείτε στο Πυργί, το διάσημο μεσαιωνικό χωριό με τα 'ξυστά' γεωμετρικά σχέδια στις προσόψεις των σπιτιών.",
+        "Εξερευνήστε τα Μεστά, ένα καλοδιατηρημένο κάστρο-χωριό με λαβυρινθώδη σοκάκια.",
+        "Κολυμπήστε στην παραλία Μαύρα Βόλια με τα εντυπωσιακά σκούρα ηφαιστειακά βότσαλα.",
+        "Επισκεφθείτε τη Νέα Μονή, μνημείο της UNESCO με τα εντυπωσιακά ψηφιδωτά."
+      ]
+    }
+  },
+  {
+    slug: "lesvos",
+    name: { en: "Lesbos (Mytilene)", el: "Λέσβος (Μυτιλήνη)" },
+    group: "aegean",
+    groupName: { en: "North Aegean", el: "Βόρειο Αιγαίο" },
+    tagline: { en: "Petrified forest, ouzo, and hot springs", el: "Απολιθωμένο δάσος, ούζο και ιαματικά λουτρά" },
+    img: "images/lesvos.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Lesbos is a large, diverse North Aegean island rich in culture, famous for its Petrified Forest, traditional ouzo distilleries, thermal springs, and bird sanctuaries.", 
+      el: "Η Λέσβος είναι ένα μεγάλο και πολυδιάστατο νησί του Βορείου Αιγαίου, γνωστό για το Απολιθωμένο Δάσος, τα παραδοσιακά αποστακτήρια ούζου και τα ιαματικά λουτρά." 
+    },
+    best: { 
+      en: "May, June, and September are superb for hiking, birdwatching in wetlands, and exploring traditional villages. July and August offer warm sea swimming and lively local festivals.", 
+      el: "Ο Μάιος, ο Ιούνιος και ο Σεπτέμβριος είναι εξαιρετικοί για πεζοπορία, παρατήρηση πουλιών στους υδροβιότοπους και εξερεύνηση των ορεινών χωριών." 
+    },
+    locationDesc: {
+      en: "Situated in the northeastern Aegean Sea near the coast of Asia Minor, Lesbos is Greece's third-largest island with extensive natural gulfs.",
+      el: "Βρίσκεται στο βορειοανατολικό Αιγαίο, αποτελώντας το τρίτο μεγαλύτερο νησί της Ελλάδας, με τεράστιους φυσικούς κόλπους (Κалλονής και Γέρας)."
+    },
+    highlights: {
+      en: [
+        "Visit the UNESCO-protected Petrified Forest of Lesbos in Sigri, featuring ancient fossilized tree trunks.",
+        "Sample authentic local ouzo paired with meze in the traditional tavernas of Plomari.",
+        "Relax in the natural healing thermal hot springs at Eftalou and Gera.",
+        "Marvel at the imposing medieval Castle of Mytilene overlooking the bustling capital harbor."
+      ],
+      el: [
+        "Επισκεφθείτε το μοναδικό Απολιθωμένο Δάσος στο Σίγρι, μνημείο παγκόσμιας κληρονομιάς της UNESCO.",
+        "Δοκιμάστε αυθεντικό τοπικό ούζο με μεζέδες στα παραδοσιακά αποστακτήρια στο Πλωμάρι.",
+        "Χαλαρώστε στα ιαματικά λουτρά στα Θέρμα και την Εφταλού.",
+        "Θαυμάστε το εντυπωσιακό Κάστρο της Μυτιλήνης που δεσπόζει πάνω από την πόλη."
+      ]
+    }
+  },
+  {
+    slug: "samos",
+    name: { en: "Samos", el: "Σάμος" },
+    group: "aegean",
+    groupName: { en: "North Aegean", el: "Βόρειο Αιγαίο" },
+    tagline: { en: "Lush green mountains and sweet muscat wine", el: "Κατάφυτα βουνά και γλυκό μοσχάτο κρασί" },
+    img: "images/samos.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 3.0",
+    desc: { 
+      en: "Samos is a lush and mountainous North Aegean island known for its sweet Muscat wines, ancient Greek history, waterfalls, and beautiful pebble beaches.", 
+      el: "Η Σάμος είναι ένα καταπράσινο και ορεινό νησί του Βορείου Αιγαίου, γνωστό για τα γλυκά μοσχάτα κρασιά, την αρχαία ιστορία, τους καταρράκτες και τις παραλίες." 
+    },
+    best: { 
+      en: "June to September is ideal for combining mountain hiking through pine forests with swimming in clear blue Aegean coves.", 
+      el: "Από τον Ιούνιο έως τον Σεπτέμβριο ο καιρός είναι ιδανικός για συνδυασμό ορεινής πεζοπορίας στα πευκοδάση και κολύμβησης στις καθαρές παραλίες." 
+    },
+    locationDesc: {
+      en: "Located in the eastern Aegean Sea separated from Turkey by a narrow strait, Samos features high peaks like Mount Kerkis.",
+      el: "Βρίσκεται στο ανατολικό Αιγαίο, πολύ κοντά στα μικρασιατικά παράλια, διαθέτοντας πλούσια βλάστηση και υψηλές ορεινές κορυφές όπως ο Κούρκεβας."
+    },
+    highlights: {
+      en: [
+        "Explore the Eupalinos Tunnel, an astonishing 6th-century BC subterranean aqueduct engineered through a mountain.",
+        "Visit the ancient Sanctuary of Hera (Heraion), a massive UNESCO World Heritage temple site.",
+        "Hike to the cascading waterfalls near the mountain village of Potami.",
+        "Taste the world-famous sweet Samian Muscat wine at local cooperative wineries."
+      ],
+      el: [
+        "Επισκεφθείτε το Ευπαλίνειο Ορυχέδιο, το θαυμαστό αρχαίο υDραγωγείο του 6ου αιώνα π.Χ.",
+        "Ανακαλύψτε το Ηραίο, τον σπουδαίο αρχαιολογικό χώρο και ναό αφιερωμένο στη θεά Ήρα.",
+        "Περπατήστε μέχρι τους καταρράκτες στο Ποτάμι κοντά στο Καρλόβασι.",
+        "Δοκιμάστε το παγκοσμίου φήμης γλυκό μοσχάτο κρασί Σάμου."
+      ]
+    }
+  },
+  {
+    slug: "athens",
+    name: { en: "Athens", el: "Αθήνα" },
+    group: "attica",
+    groupName: { en: "Attica", el: "Αττική" },
+    tagline: { en: "The historic cradle of Western civilization", el: "Η ιστορική κοέκτιβα του δυτικού πολιτισμού" },
+    img: "images/athens.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Athens is a vibrant metropolis where ancient classical history coexists with modern urban culture, world-class museums, bustling neighborhoods, and Mediterranean flair.", 
+      el: "Η Αθήνα είναι μια ζωντανή μητρόπολη όπου η αρχαία ιστορία συνυπάρχει αρμονικά με τη σύγχρονη αστική κουλτούρα, τα μουσεία και τις πολυσύχναστες γειτονιές." 
+    },
+    best: { 
+      en: "March to May and September to November offer ideal mild weather for walking around archaeological sites, museums, and exploring city cafes. Summer brings vibrant outdoor rooftop nightlife.", 
+      el: "Ο Μάρτιος έως τον Μάιo και ο Σεπτέμβριος έως τον Νοέμβριο προσφέρουν ιδανικό καιρό για περιπάτους στους αρχαιολογικούς χώρους και τα μουσεία χωρίς τη ζέστη." 
+    },
+    locationDesc: {
+      en: "Situated in the Attica basin surrounded by mountains and facing the Saronic Gulf, Athens serves as the historic capital city of Greece.",
+      el: "Βρίσκεται στο λεκανοπέδιο της Αττικής, περικυκλωμένη από βουνά και βρέχεται από τον Σαρωνικό κόλπο, αποτελώντας την πρωτεύουσα της Ελλάδας."
+    },
+    highlights: {
+      en: [
+        "Marvel at the Parthenon and historic monuments atop the iconic Acropolis hill.",
+        "Explore priceless classical treasures inside the Acropolis Museum and National Archaeological Museum.",
+        "Wander through the picturesque neoclassical alleys of Plaka and Anafiotika beneath the citadel.",
+        "Experience the vibrant culinary scene and rooftop cocktail bars overlooking the illuminated city."
+      ],
+      el: [
+        "Θαυμάστε τον Παρθενώνα και τα αθάνατα μνημεία πάνω στον βράχο της Ακρόπολης.",
+        "Επισκεφθείτε το υπερσύγχρονο Μουσείο της Ακρόπολης και το Εθνικό Αρχαιολογικό Μουσείο.",
+        "Περπατήστε στα γραφικά σοκάκια της Πλάκας και των Αναφιώτικων κάτω από την Ακρόπολη.",
+        "Απολαύστε τη ζωντανή ατμόσφαιρα στα μπαρ και τα εστιατόρια με θέα την φωταγωγημένη πόλη."
+      ]
+    }
+  },
+  {
+    slug: "thessaloniki",
+    name: { en: "Thessaloniki", el: "Θεσσαλονίκη" },
+    group: "macedonia",
+    groupName: { en: "Macedonia", el: "Μακεδονία" },
+    tagline: { en: "Byzantine heritage, culture, and culinary capital", el: "Βυζαντινή κληρονομιά, κουλτούρα και γαστρονομία" },
+    img: "images/thessaloniki.jpg",
+    credit: "Wikimedia Commons, CC BY-SA 4.0",
+    desc: { 
+      en: "Thessaloniki is Greece's vibrant northern capital, renowned for its rich Byzantine heritage, lively student culture, beautiful seaside promenade, and legendary gastronomy.", 
+      el: "Η Θεσσαλονίκη είναι η ζωντανή συμπρωτεύουσα της Ελλάδας, γνωστή για τη βυζαντινή της κληρονομιά, τη φοιτητική ενέργεια, την παραλία και τη γαστρονομία της." 
+    },
+    best: { 
+      en: "May to June and September to October provide wonderful pleasant weather for walking the long seafront promenade and touring historical monuments. Winter brings a cozy, vibrant cafe culture.", 
+      el: "Ο Μάιος, ο Ιούνιος, ο Σεπτέμβριος και ο Οκτώβριος προσφέρουν εξαιρετικό καιρό για βόλτες στην παραλία και επίσκεψη στα μνημεία." 
+    },
+    locationDesc: {
+      en: "Located on the Thermaic Gulf in northern Greece, Thessaloniki serves as the major commercial and cultural hub of the Macedonia region.",
+      el: "Βρίσκεται στον Θερμαϊκό κόλπο στη βόρεια Ελλάδα και αποτελεί το μεγαλύτερο οικονομικό και πολιτιστικό κέντρο της Μακεδονίας."
+    },
+    highlights: {
+      en: [
+        "Walk along the bustling seafront promenade to the iconic White Tower, the city's main symbol.",
+        "Explore ancient Byzantine churches and the Rotunda, designated UNESCO World Heritage monuments.",
+        "Sample local culinary delights and fresh products at the historic Modiano and Kapani food markets.",
+        "Stroll through the charming traditional upper town (Ano Poli) for panoramic views over the gulf."
+      ],
+      el: [
+        "Περπατήστε στην εκτεταμένη παραλιακή λεωφόρο μέχρι τον Λευκό Πύργο, το σήμα κατατεθέν της πόλης.",
+        "Επισκεφθείτε τα παλαιοχριστιανικά και βυζαντινά μνημεία της UNESCO, όπως τη Ροτόντα και τον Άγιο Δημήτριο.",
+        "Ανακαλύψτε τις γεύσεις και τα αρώματα στις ιστορικές αγορές Καπάνι και Μοδιάνο.",
+        "Περιηγηθείτε στα γραφικά σοκάκια της Άννας Πόλης με την πανοραμική θέα στον Θερμαϊκό."
+      ]
+    }
   }
-  .highlights-list li {
-    font-size: 1.05rem;
-    line-height: 1.8;
-    color: var(--ink-soft, #4A5568);
-    margin-bottom: 6px;
-  }
-</style>
-</head>
-<body>
-
-<header>
-  <nav class="wrap">
-    <a href="main.html" class="logo"><b>GREEK</b>-ISLAND-GUIDE</a>
-    <div class="navlinks">
-      <a href="main.html" data-en="Home" data-el="Αρχική">Home</a>
-      <a href="islands.html" class="active" data-en="Islands" data-el="Νησιά">Islands</a>
-      <a href="services.html" data-en="Services" data-el="Υπηρεσίες">Services</a>
-      <a href="practical.html" data-en="Travel Info" data-el="Χρήσιμες Πληροφορίες">Travel Info</a>
-      <a href="reviews.html" data-en="Reviews" data-el="Εμπειρίες">Reviews</a>
-      <a href="faq.html" data-en="FAQ" data-el="Ερωτήσεις">FAQ</a>
-    </div>
-    <div class="navright">
-      <button class="lang-toggle" onclick="toggleLang()"><span class="lang-label">ΕΛ</span></button>
-      <a href="islands.html" class="navcta" data-en="All islands" data-el="Όλα τα νησιά">All islands</a>
-    </div>
-  </nav>
-</header>
-
-<div class="island-hero">
-  <img id="isl-img" src="" alt="">
-  <div class="scrim"></div>
-  <div class="content">
-    <span class="group" id="isl-group"></span>
-    <h1 id="isl-name"></h1>
-  </div>
-</div>
-
-<div class="wrap">
-  <!-- Main Overview -->
-  <div class="island-body" style="margin-top:36px;">
-    <p id="isl-desc"></p>
-    <p id="isl-more"></p>
-    <p id="isl-more2"></p>
-    <p class="photo-credit" id="isl-credit"></p>
-  </div>
-
-  <!-- Detailed Sections (Replacing quick fact boxes) -->
-  <div class="detail-section">
-    <h3 data-en="Best Time to Visit" data-el="Καλύτερη Εποχή Επίσκεψης">Best Time to Visit</h3>
-    <p id="isl-best"></p>
-  </div>
-
-  <div class="detail-section">
-    <h3 data-en="Island Group & Location" data-el="Σύμπλεγμα & Τοποθεσία">Island Group & Location</h3>
-    <p id="isl-group2"></p>
-  </div>
-
-  <div class="detail-section">
-    <h3 data-en="Top Highlights & Experiences" data-el="Σημαντικότερα Αξιοθέατα & Εμπειρίες">Top Highlights & Experiences</h3>
-    <ul id="isl-highlights" class="highlights-list"></ul>
-  </div>
-
-  <div style="margin-top: 40px;">
-    <a href="islands.html" class="backlink">← <span data-en="Back to all islands" data-el="Πίσω σε όλα τα νησιά">Back to all islands</span></a>
-  </div>
-
-  <section class="section" style="padding-top:44px;">
-    <div class="section-head">
-      <div>
-        <span class="tag" data-en="Keep exploring" data-el="Συνέχισε την εξερεύνηση">Keep exploring</span>
-        <h2 data-en="Other islands you might like" data-el="Άλλα νησιά που μπορεί να σου αρέσουν">Other islands you might like</h2>
-      </div>
-    </div>
-    <div class="dest-grid" id="related-grid"></div>
-  </section>
-</div>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="logo" style="margin-bottom:14px;"><b>GREEK</b>-ISLAND-GUIDE</div>
-        <p style="color:var(--ink-soft);font-size:14px;max-width:260px;" data-en="A travel guide to the Greek islands and mainland Greece, made by people who love the Aegean." data-el="Ταξιδιωτικός οδηγός για τα ελληνικά νησιά και την ηπειρωτική Ελλάδα, φτιαγμένος από ανθρώπους που αγαπούν το Αιγαίο.">A travel guide to the Greek islands and mainland Greece, made by people who love the Aegean.</p>
-      </div>
-      <div>
-        <h4 data-en="Destinations" data-el="Προορισμοί">Destinations</h4>
-        <a href="islands.html" data-en="All islands" data-el="Όλα τα νησιά">All islands</a>
-        <a href="services.html" data-en="Services" data-el="Υπηρεσίες">Services</a>
-        <a href="practical.html" data-en="Travel info" data-el="Χρήσιμες πληροφορίες">Travel info</a>
-      </div>
-      <div>
-        <h4 data-en="More" data-el="Περισσότερα">More</h4>
-        <a href="reviews.html" data-en="Traveller reviews" data-el="Εμπειρίες ταξιδιωτών">Traveller reviews</a>
-        <a href="faq.html" data-en="FAQ" data-el="Συχνές ερωτήσεις">FAQ</a>
-        <a href="main.html" data-en="Home" data-el="Αρχική">Home</a>
-      </div>
-      <div>
-        <h4 data-en="Language" data-el="Γλώσσα">Language</h4>
-        <a href="#" onclick="setLang('en');return false;">English</a>
-        <a href="#" onclick="setLang('el');return false;">Ελληνικά</a>
-      </div>
-      <div>
-        <h4 data-en="Legal" data-el="Νομικά">Legal</h4>
-        <a href="about-us.html" data-en="About Us" data-el="Σχετικά με εμάς">About Us</a>
-        <a href="contact-us.html" data-en="Contact Us" data-el="Επικοινωνία">Contact Us</a>
-        <a href="terms-of-use.html" data-en="Terms of Use" data-el="Όροι Χρήσης">Terms of Use</a>
-        <a href="privacy-policy.html" data-en="Privacy Policy" data-el="Πολιτική Απορρήτου">Privacy Policy</a>
-        <a href="cookies-policy.html" data-en="Cookies Policy" data-el="Πολιτική Cookies">Cookies Policy</a>
-      </div>
-    </div>
-    <div class="credits" id="isl-credit-footer"></div>
-    <div class="foot-bottom">
-      <span>© 2026 GREEK-ISLAND-GUIDE</span>
-      <span data-en="Made for travellers who love the sea" data-el="Σχεδιασμένο για ταξιδιώτες που αγαπούν τη θάλασσα">Made for travellers who love the sea</span>
-    </div>
-  </div>
-</footer>
-
-<script src="data.js"></script>
-<script src="i18n.js"></script>
-<script>
-  var params = new URLSearchParams(window.location.search);
-  var slug = params.get('id') || 'santorini';
-  var island = ISLANDS.find(function(x){ return x.slug === slug; }) || ISLANDS[0];
-
-  function renderIsland(){
-    var lang = getLang();
-    document.getElementById('page-title').textContent = island.name[lang] + ' — GREEK ISLAND GUIDE';
-    document.getElementById('isl-img').src = island.img;
-    document.getElementById('isl-img').alt = island.name[lang];
-    document.getElementById('isl-group').textContent = island.groupName[lang];
-    document.getElementById('isl-group2').textContent = island.groupName[lang];
-    document.getElementById('isl-name').textContent = island.name[lang];
-    document.getElementById('isl-desc').textContent = island.desc[lang];
-    document.getElementById('isl-more').textContent = island.more ? island.more[lang] : '';
-    document.getElementById('isl-more2').textContent = island.more2 ? island.more2[lang] : '';
-    document.getElementById('isl-best').textContent = island.best[lang];
-
-    var creditLabel = lang === 'en' ? 'Photo: ' : 'Φωτογραφία: ';
-    document.getElementById('isl-credit').textContent = creditLabel + island.credit;
-    var footerCreditLabel = lang === 'en'
-      ? 'Photo credit for this page:'
-      : 'Πηγή φωτογραφίας για αυτή τη σελίδα:';
-    document.getElementById('isl-credit-footer').innerHTML =
-      '<b>' + footerCreditLabel + '</b> ' + island.name[lang] + ' — ' + island.credit + '.';
-
-    var hlist = document.getElementById('isl-highlights');
-    hlist.innerHTML = '';
-    island.highlights[lang].forEach(function(h){
-      var li = document.createElement('li');
-      li.textContent = h;
-      hlist.appendChild(li);
-    });
-
-    var related = document.getElementById('related-grid');
-    related.innerHTML = '';
-    ISLANDS.filter(function(x){ return x.slug !== island.slug; })
-      .slice(0, 3)
-      .forEach(function(isl){
-        var card = document.createElement('a');
-        card.href = 'island.html?id=' + isl.slug;
-        card.className = 'dest-card';
-        card.innerHTML =
-          '<img src="'+isl.img+'" alt="'+isl.name[lang]+'">' +
-          '<div class="scrim"></div>' +
-          '<div class="content">' +
-            '<span class="group">'+isl.groupName[lang]+'</span>' +
-            '<h3>'+isl.name[lang]+'</h3>' +
-            '<div class="meta">'+isl.tagline[lang]+'</div>' +
-          '</div>';
-        related.appendChild(card);
-      });
-  }
-
-  document.addEventListener('DOMContentLoaded', renderIsland);
-  document.addEventListener('langchange', renderIsland);
-</script>
-</body>
-</html>
+];
