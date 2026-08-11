@@ -5,13 +5,107 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GREEK ISLAND GUIDE — Home</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* Fixes για το Logo & Header Responsive */
+  header nav.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    position: relative;
+  }
+  .logo {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    font-size: 1.15rem;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    line-height: 1;
+  }
+  .logo b {
+    margin-right: 2px;
+  }
+  
+  /* Mobile Menu Styles */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--sea-deep, #0A3D66);
+    padding: 5px;
+  }
+
+  @media (max-width: 992px) {
+    .menu-toggle {
+      display: block;
+    }
+    .navlinks {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      z-index: 100;
+      gap: 12px;
+    }
+    .navlinks.active {
+      display: flex;
+    }
+    .navright .navcta {
+      display: none;
+    }
+  }
+
+  /* Πρόσθετες ενότητες κειμένου */
+  .info-intro-block, .info-outro-block {
+    margin: 40px 0;
+    padding: 30px;
+    background: #f8fafc;
+    border-radius: 16px;
+    border: 1px solid #e2e8f0;
+  }
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .info-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #edf2f7;
+  }
+  .info-card h4 {
+    margin: 0 0 8px 0;
+    color: var(--sea-deep, #0A3D66);
+    font-size: 1.1rem;
+  }
+  .info-card p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--ink-soft, #4A5568);
+    line-height: 1.5;
+  }
+</style>
 </head>
 <body>
 
 <header>
   <nav class="wrap">
-    <a href="main.html" class="logo"><b>GREEK</b>-ISLAND-GUIDE</a>
-    <div class="navlinks">
+    <a href="main.html" class="logo" data-en="GREEK-ISLAND-GUIDE" data-el="ΟΔΗΓΟΣ ΕΛΛΗΝΙΚΩΝ ΝΗΣΙΩΝ"><b>GREEK</b>-ISLAND-GUIDE</a>
+    
+    <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
+
+    <div class="navlinks" id="mobile-nav">
       <a href="main.html" class="active" data-en="Home" data-el="Αρχική">Home</a>
       <a href="islands.html" data-en="Islands" data-el="Νησιά">Islands</a>
       <a href="services.html" data-en="Services" data-el="Υπηρεσίες">Services</a>
@@ -19,6 +113,7 @@
       <a href="reviews.html" data-en="Reviews" data-el="Εμπειρίες">Reviews</a>
       <a href="faq.html" data-en="FAQ" data-el="Ερωτήσεις">FAQ</a>
     </div>
+    
     <div class="navright">
       <button class="lang-toggle" onclick="toggleLang()"><span class="lang-label">ΕΛ</span></button>
       <a href="islands.html" class="navcta" data-en="Plan your trip" data-el="Σχεδίασε το ταξίδι">Plan your trip</a>
@@ -38,7 +133,7 @@
       </div>
       <div class="hero-stats">
         <div class="stat"><b>112</b><span data-en="Destinations" data-el="Προορισμοί">Destinations</span></div>
-        <div class="stat"><b>9</b><span data-en="Island groups" data-el="Νησιωτικά σύμπλεγμα">Island groups</span></div>
+        <div class="stat"><b>9</b><span data-en="Island groups" data-el="Νησιωτικά συμπλέγματα">Island groups</span></div>
         <div class="stat"><b>340+</b><span data-en="Ferry routes" data-el="Δρομολόγια πλοίων">Ferry routes</span></div>
       </div>
     </div>
@@ -64,6 +159,29 @@
 </section>
 
 <div class="wrap">
+
+  <!-- ΠΡΟΣΘΕΤΟ ΚΕΙΜΕΝΟ ΠΑΝΩ ΑΠΟ ΤΑ ΝΗΣΙΑ -->
+  <section class="info-intro-block">
+    <span class="tag" data-en="Island Selection" data-el="Επιλογή Νησιού">Island Selection</span>
+    <h3 style="margin-top:10px;" data-en="How to choose your next Greek island destination" data-el="Πώς να επιλέξετε τον επόμενο νησιωτικό προορισμό σας">How to choose your next Greek island destination</h3>
+    <p data-en="Every island group in Greece has its own distinct character, architecture, and rhythm. Whether you are seeking cosmopolitan nightlife, quiet family beaches, or rich historic landmarks, defining your travel priorities is the first step." data-el="Κάθε νησιωτικό σύμπλεγμα στην Ελλάδα διαθέτει τον δικό του μοναδικό χαρακτήρα, αρχιτεκτονική και ρυθμό. Είτε αναζητάτε κοσμοπολίτικη ζωή, ήσυχες οικογενειακές παραλίες είτε πλούσια ιστορικά μνημεία, ο καθορισμός των προτεραιοτήτων σας είναι το πρώτο βήμα.">Every island group in Greece has its own distinct character, architecture, and rhythm. Whether you are seeking cosmopolitan nightlife, quiet family beaches, or rich historic landmarks, defining your travel priorities is the first step.</p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h4 data-en="Cyclades & Architecture" data-el="Κυκλάδες & Αρχιτεκτονική">Cyclades & Architecture</h4>
+        <p data-en="Famous for white-washed houses, blue-domed churches, and iconic wind-swept landscapes." data-el="Διάσημες για τα λευκά σπιτάκια, τους μπλε θόλους και τα χαρακτηριστικά κυκλαδίτικα τοπία.">Famous for white-washed houses, blue-domed churches, and iconic wind-swept landscapes.</p>
+      </div>
+      <div class="info-card">
+        <h4 data-en="Ionian & Lush Nature" data-el="Ιόνιο & Πράσινο Τοπίο">Ionian & Lush Nature</h4>
+        <p data-en="Turquoise waters framed by pine forests and Venetian-influenced historic towns." data-el="Γαλαζοπράσινα νερά, πευκόφυτες παραλίες και πόλεις με έντονη βενετσιάνικη αρχιτεκτονική.">Turquoise waters framed by pine forests and Venetian-influenced historic towns.</p>
+      </div>
+      <div class="info-card">
+        <h4 data-en="Dodecanese & History" data-el="Δωδεκάνησα & Ιστορία">Dodecanese & History</h4>
+        <p data-en="Medieval castles, ancient ruins, and a captivating mix of Eastern and Western culture." data-el="Μεσαιωνικά κάστρα, αρχαία μνημεία και μια γοητευτική ανάμειξη πολιτισμών.">Medieval castles, ancient ruins, and a captivating mix of Eastern and Western culture.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="section">
     <div class="section-head">
       <div>
@@ -75,6 +193,28 @@
     </div>
 
     <div class="dest-grid" id="featured-grid"></div>
+  </section>
+
+  <!-- ΠΡΟΣΘΕΤΟ ΚΕΙΜΕΝΟ ΚΑΤΩ ΑΠΟ ΤΑ ΝΗΣΙΑ -->
+  <section class="info-outro-block">
+    <span class="tag" data-en="Essential Travel Tips" data-el="Χρήσιμες Συμβουλές">Essential Travel Tips</span>
+    <h3 style="margin-top:10px;" data-en="Smart planning for an unforgettable Aegean trip" data-el="Σωστός προγραμματισμός για ένα αξέχαστο ταξίδι">Smart planning for an unforgettable Aegean trip</h3>
+    <p data-en="Navigating the Greek seas is smooth when you know what to expect regarding ferry connections, seasonal weather, and local transportation." data-el="Οι μετακινήσεις στα ελληνικά νησιά γίνονται εύκολες όταν γνωρίζετε τι να περιμένετε σχετικά με τα ακτοπλοϊκά δρομολόγια, τον καιρό και τις τοπικές συγκοινωνίες.">Navigating the Greek seas is smooth when you know what to expect regarding ferry connections, seasonal weather, and local transportation.</p>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h4 data-en="Ferry Bookings" data-el="Ακτοπλοϊκά Εισιτήρια">Ferry Bookings</h4>
+        <p data-en="High-season routes fill quickly. Book your ferry passes early, especially for high-speed catamarans." data-el="Τα δρομολόγια αιχμής γεμίζουν γρήγορα. Κάντε κράτηση εγκαίρως, ειδικά για τα ταχύπλοα.">High-season routes fill quickly. Book your ferry passes early, especially for high-speed catamarans.</p>
+      </div>
+      <div class="info-card">
+        <h4 data-en="Getting Around" data-el="Μετακινήσεις">Getting Around</h4>
+        <p data-en="Renting a car or scooter provides full freedom to reach remote beaches and quiet mountain villages." data-el="Η ενοικίαση αυτοκινήτου ή scooter προσφέρει ελευθερία για να ανακαλύψετε απόκρημνες παραλίες.">Renting a car or scooter provides full freedom to reach remote beaches and quiet mountain villages.</p>
+      </div>
+      <div class="info-card">
+        <h4 data-en="Best Season" data-el="Ιδανική Εποχή">Best Season</h4>
+        <p data-en="May to June and September to October offer pleasant weather, warm seas, and fewer crowds." data-el="Ο Μάιος, ο Ιούνιος, ο Σεπτέμβριος και ο Οκτώβριος προσφέρουν εξαιρετικό καιρό χωρίς συνωστισμό.">May to June and September to October offer pleasant weather, warm seas, and fewer crowds.</p>
+      </div>
+    </div>
   </section>
 
   <section class="section">
@@ -114,7 +254,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="logo" style="margin-bottom:14px;"><b>GREEK</b>-ISLAND-GUIDE</div>
+        <div class="logo" style="margin-bottom:14px;" data-en="GREEK-ISLAND-GUIDE" data-el="ΟΔΗΓΟΣ ΕΛΛΗΝΙΚΩΝ ΝΗΣΙΩΝ"><b>GREEK</b>-ISLAND-GUIDE</div>
         <p style="color:var(--ink-soft);font-size:14px;max-width:260px;" data-en="A travel guide to the Greek islands and mainland Greece, made by people who love the Aegean." data-el="Ταξιδιωτικός οδηγός για τα ελληνικά νησιά και την ηπειρωτική Ελλάδα, φτιαγμένος από ανθρώπους που αγαπούν το Αιγαίο.">A travel guide to the Greek islands and mainland Greece, made by people who love the Aegean.</p>
       </div>
       <div>
@@ -166,9 +306,11 @@
 <script src="i18n.js"></script>
 <script>
   var FEATURED = ['santorini','mykonos','chania','rhodes','corfu','naxos'];
+  
   function renderFeatured(){
-    var lang = getLang();
+    var lang = typeof getLang === 'function' ? getLang() : 'en';
     var grid = document.getElementById('featured-grid');
+    if(!grid) return;
     grid.innerHTML = '';
     FEATURED.forEach(function(slug, i){
       var isl = ISLANDS.find(function(x){ return x.slug === slug; });
@@ -188,8 +330,39 @@
       grid.appendChild(card);
     });
   }
-  document.addEventListener('DOMContentLoaded', renderFeatured);
-  document.addEventListener('langchange', renderFeatured);
+
+  function toggleMobileMenu() {
+    var nav = document.getElementById('mobile-nav');
+    if (nav) {
+      nav.classList.toggle('active');
+    }
+  }
+
+  // Ενημέρωση του Logo text στη σωστή γλώσσα
+  function updateLogoText() {
+    var lang = typeof getLang === 'function' ? getLang() : 'en';
+    var logos = document.querySelectorAll('.logo');
+    logos.forEach(function(el) {
+      var text = el.getAttribute('data-' + lang);
+      if(text) {
+        if(lang === 'en') {
+          el.innerHTML = '<b>GREEK</b>-ISLAND-GUIDE';
+        } else {
+          el.innerHTML = text;
+        }
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    renderFeatured();
+    updateLogoText();
+  });
+
+  document.addEventListener('langchange', function() {
+    renderFeatured();
+    updateLogoText();
+  });
 </script>
 </body>
 </html>
