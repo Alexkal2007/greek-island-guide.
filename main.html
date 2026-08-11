@@ -64,6 +64,35 @@
     }
   }
 
+  /* Βελτιώσεις στο Hero Copy για περισσότερο κείμενο */
+  .hero-sub-extended {
+    margin: 18px 0 24px;
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: var(--ink-soft, #4A5568);
+  }
+  .hero-sub-extended p {
+    margin-bottom: 12px;
+  }
+  .hero-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    background: rgba(11, 95, 165, 0.04);
+    border-left: 3px solid var(--sea, #0B5FA5);
+    border-radius: 0 8px 8px 0;
+  }
+  .hero-highlight-item {
+    font-size: 0.88rem;
+    color: var(--sea-deep, #0A3D66);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
   /* Πρόσθετες ενότητες κειμένου */
   .info-intro-block, .info-outro-block {
     margin: 40px 0;
@@ -125,18 +154,39 @@
   <div class="wrap">
     <div class="hero-copy">
       <span class="eyebrow" data-en="Greece travel guide" data-el="Ταξιδιωτικός οδηγός Ελλάδας">Greece travel guide</span>
+      
       <h1 class="hero-title" data-en-html='Lose yourself in the<br><em>Aegean</em> blue' data-el-html='Χάσου στο<br><em>γαλάζιο</em> του Αιγαίου'>Lose yourself in the<br><em>Aegean</em> blue</h1>
-      <p class="hero-sub" data-en="112 destinations across the islands and mainland Greece, organised by island group, with practical guidance on ferries, places to stay and local experiences." data-el="112 προορισμοί σε νησιά και ηπειρωτική Ελλάδα, οργανωμένοι ανά ομάδα νησιών, με πρακτικές οδηγίες για ακτοπλοϊκά δρομολόγια, διαμονή και τοπικές εμπειρίες.">112 destinations across the islands and mainland Greece, organised by island group, with practical guidance on ferries, places to stay and local experiences.</p>
+      
+      <div class="hero-sub-extended">
+        <p data-en="Welcome to your complete digital gateway to the Greek seas. With 112 curated destinations spanning the Aegean and Ionian seas, we help you navigate the rich tapestry of mainland coastal gems and sun-drenched islands." 
+           data-el="Καλώς ήρθατε στον πληρέστερο ψηφιακό ταξιδιωτικό σας οδηγό για τις ελληνικές θάλασσες. Με 112 επιλεγμένους προορισμούς στο Αιγαίο και το Ιόνιο, σας βοηθάμε να ανακαλύψετε την πλούσια ομορφιά των νησιών και των παραθαλάσσιων περιοχών της Ελλάδας.">
+           Welcome to your complete digital gateway to the Greek seas. With 112 curated destinations spanning the Aegean and Ionian seas, we help you navigate the rich tapestry of mainland coastal gems and sun-drenched islands.
+        </p>
+        <p data-en="Whether you're looking for iconic Cycladic architecture, lush green landscapes in the Ionian, or historic medieval settlements in the Dodecanese, discover practical ferry schedules, handpicked hotels, and authentic local experiences." 
+           data-el="Είτε αναζητάτε την εμβληματική κυκλαδίτικη αρχιτεκτονική, τα καταπράσινα τοπία του Ιονίου, είτε τους μεσαιωνικούς οικισμούς των Δωδεκανήσων, εδώ θα βρείτε ακτοπλοϊκά δρομολόγια, προτάσεις διαμονής και αυθεντικές εμπειρίες.">
+           Whether you're looking for iconic Cycladic architecture, lush green landscapes in the Ionian, or historic medieval settlements in the Dodecanese, discover practical ferry schedules, handpicked hotels, and authentic local experiences.
+        </p>
+      </div>
+
+      <div class="hero-highlights">
+        <div class="hero-highlight-item">✓ <span data-en="112 Handpicked Destinations" data-el="112 Επιλεγμένοι Προορισμοί">112 Handpicked Destinations</span></div>
+        <div class="hero-highlight-item">✓ <span data-en="Ferry Connections & Routes" data-el="Ακτοπλοϊκές Συνδέσεις">Ferry Connections & Routes</span></div>
+        <div class="hero-highlight-item">✓ <span data-en="Local Gastronomy & Culture" data-el="Τοπική Γαστρονομία & Πολιτισμός">Local Gastronomy & Culture</span></div>
+        <div class="hero-highlight-item">✓ <span data-en="Custom Island Hopping Trips" data-el="Προσαρμοσμένο Island Hopping">Custom Island Hopping Trips</span></div>
+      </div>
+
       <div class="hero-actions">
         <a href="islands.html" class="btn btn-primary"><span data-en="Find a destination" data-el="Βρες προορισμό">Find a destination</span> →</a>
         <a href="islands.html" class="btn btn-ghost" data-en="Browse the islands" data-el="Δες τα νησιά">Browse the islands</a>
       </div>
+      
       <div class="hero-stats">
         <div class="stat"><b>112</b><span data-en="Destinations" data-el="Προορισμοί">Destinations</span></div>
         <div class="stat"><b>9</b><span data-en="Island groups" data-el="Νησιωτικά συμπλέγματα">Island groups</span></div>
         <div class="stat"><b>340+</b><span data-en="Ferry routes" data-el="Δρομολόγια πλοίων">Ferry routes</span></div>
       </div>
     </div>
+    
     <div class="heroimg" style="background:#fff;display:flex;align-items:center;justify-content:center;">
       <svg viewBox="0 0 900 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;display:block;" role="img" aria-label="Flag of Greece">
         <rect width="900" height="600" fill="#0D5EAF"/>
