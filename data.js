@@ -247,7 +247,7 @@ const ISLANDS = [
       en: 'The island is largely flat and easy to explore by bicycle, with long sandy beaches along its south coast and the ancient Asklepieion — a healing sanctuary linked to Hippocrates — a short trip from the main town.',
       el: 'Το νησί είναι σε μεγάλο βαθμό επίπεδο και εύκολο στην εξερεύνηση με ποδήλατο, με μακριές αμμώδεις παραλίες στη νότια ακτή του και το αρχαίο Ασκληπιείο — ένα θεραπευτικό ιερό συνδεδεμένο με τον Ιπποκράτη — σε μικρή απόσταση από την κύρια πόλη.'
     },
-    best: { en: 'May–October', el: 'Μάιος–Οκτώβριος' },
+    best: { en: 'May–October', el: 'Μάιος–Σεπτέμβριος' },
     highlights: {
       en: ['Neratzia Castle', 'Ancient Asklepieion', 'Tree of Hippocrates', 'South-coast sandy beaches'],
       el: ['Κάστρο Νερατζιάς', 'Αρχαίο Ασκληπιείο', 'Πλάτανος του Ιπποκράτη', 'Αμμώδεις παραλίες νότιας ακτής']
@@ -781,122 +781,12 @@ const ISLANDS = [
     },
     more: {
       en: 'The island is mountainous and dotted with small, spread-out villages rather than one central town, and shops in some villages have traditionally kept unusually late hours. Beaches such as Mesakti, on the north coast, offer long stretches of golden sand backed by pine-covered hills.',
-      el: 'Το νησί είναι ορεινό και γεμάτο μικρά, διάσπαρτα χωριά αντί για ένα κεντρικό αστικό κέντρο, ενώ τα μαγαζιά σε ορισμένα χωριά έχουν παραδοσιακά ασυνήθιστα αργό ωράριο. Παραλίες όπως το Μεσακτή, στη βόρεια ακτή, προσφέρουν μακριές αμμουδιές με χρυσή άμμο και φόντο πευκόφυτους λόφους.'
+      el: 'Το νησί είναι ορεινό και διάσπαρτο με μικρά, απομακρυσμένα χωριά αντί για μία κεντρική πόλη, ενώ τα καταστήματα σε ορισμένα χωριά παραδοσιακά κρατούν ασυνήθιστα αργά ωράρια. Παραλίες όπως η Μεσακτή, στη βόρεια ακτή, προσφέρουν μεγάλες εκτάσεις χρυσής άμμου με φόντο πευκόφυτους λόφους.'
     },
     best: { en: 'June–September', el: 'Ιούνιος–Σεπτέμβριος' },
     highlights: {
-      en: ['Mesakti beach', 'Armenistis village', 'Hot springs at Therma', 'Slow-paced village life'],
-      el: ['Παραλία Μεσακτή', 'Χωριό Αρμενιστής', 'Ιαματικές πηγές στα Θέρμα', 'Χωριά με αργό ρυθμό ζωής']
-    }
-  },
-  {
-    slug: 'nisyros',
-    group: 'dodecanese',
-    groupName: { en: 'Dodecanese', el: 'Δωδεκάνησα' },
-    name: { en: 'Nisyros', el: 'Νίσυρος' },
-    tagline: { en: 'A volcanic crater you can walk into', el: 'Ένας ηφαιστειακός κρατήρας που περπατιέται' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nisyros_Stefanos_Krater_banner.jpg?width=1400',
-    credit: 'Wikimedia Commons contributor, CC BY 3.0',
-    desc: {
-      en: 'Nisyros is a small, round island formed entirely by a still-active volcano. Visitors can walk down into the Stefanos crater itself, where sulphur deposits, bubbling mud pools and hissing steam vents make the volcanic activity impossible to miss.',
-      el: 'Η Νίσυρος είναι ένα μικρό, στρογγυλό νησί που σχηματίστηκε εξ ολοκλήρου από ένα ηφαίστειο που παραμένει ενεργό. Οι επισκέπτες μπορούν να κατέβουν μέσα στον ίδιο τον κρατήρα Στέφανος, όπου εναποθέσεις θείου, αναβράζουσες λασπολίμνες και ατμός που σφυρίζει κάνουν την ηφαιστειακή δραστηριότητα αδύνατο να περάσει απαρατήρητη.'
-    },
-    more: {
-      en: 'The clifftop village of Nikia looks directly down into the crater and is built in a distinctive circular layout around its main square. Nisyros is usually visited as a day trip from Kos, though staying overnight means having the volcano\'s otherworldly landscape largely to yourself.',
-      el: 'Το χωριό Νικιά, χτισμένο πάνω σε γκρεμό, κοιτάζει απευθείας μέσα στον κρατήρα και έχει χαρακτηριστική κυκλική διάταξη γύρω από την κεντρική πλατεία του. Η Νίσυρος επισκέπτεται συνήθως ως ημερήσια εκδρομή από την Κω, αν και μια διανυκτέρευση σημαίνει να έχεις το αλλόκοτο ηφαιστειακό τοπίο σχεδόν μόνο για τον εαυτό σου.'
-    },
-    best: { en: 'May–September', el: 'Μάιος–Σεπτέμβριος' },
-    highlights: {
-      en: ['Stefanos volcanic crater', 'Nikia\'s circular clifftop village', 'Mandraki old town', 'Sulphur springs & mud pools'],
-      el: ['Ηφαιστειακός κρατήρας Στέφανος', 'Κυκλικό χωριό Νικιά πάνω σε γκρεμό', 'Παλιά πόλη Μανδράκι', 'Θειούχες πηγές & λασπολίμνες']
-    }
-  },
-  {
-    slug: 'kalymnos',
-    group: 'dodecanese',
-    groupName: { en: 'Dodecanese', el: 'Δωδεκάνησα' },
-    name: { en: 'Kalymnos', el: 'Κάλυμνος' },
-    tagline: { en: 'Rock climbing and sponge-diving history', el: 'Αναρρίχηση και ιστορία σφουγγαράδων' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pothia%2C_Kalymnos.JPG?width=1400',
-    credit: 'Wikimedia Commons contributor, CC BY-SA 3.0',
-    desc: {
-      en: 'Kalymnos was for generations the centre of Greece\'s natural sponge-diving industry, and Pothia, the main town, still has shops selling sponges along its harbour. In recent decades the island has become one of the world\'s best-known rock-climbing destinations, thanks to its steep limestone cliffs.',
-      el: 'Η Κάλυμνος υπήρξε επί γενιές το κέντρο της ελληνικής βιομηχανίας φυσικών σφουγγαριών, και η Πόθια, η κύρια πόλη, εξακολουθεί να έχει μαγαζιά που πουλάνε σφουγγάρια κατά μήκος του λιμανιού. Τις τελευταίες δεκαετίες το νησί έχει γίνει ένας από τους πιο γνωστούς προορισμούς αναρρίχησης στον κόσμο, χάρη στους απότομους ασβεστολιθικούς βράχους του.'
-    },
-    more: {
-      en: 'Climbers from around the world visit routes around Masouri and Myrties on the west coast, often combining a day on the rock with an afternoon swim. A short boat ride away, the tiny islet of Telendos, cut off from Kalymnos by an earthquake in the 6th century, offers a quieter, almost traffic-free alternative for a night or two.',
-      el: 'Αναρριχητές από όλο τον κόσμο επισκέπτονται διαδρομές γύρω από τη Μασούρη και τις Μυρτιές στη δυτική ακτή, συχνά συνδυάζοντας μια μέρα στον βράχο με ένα απογευματινό μπάνιο. Μια σύντομη βαρκάδα μακριά, η μικροσκοπική νησίδα Τέλενδος, αποκομμένη από την Κάλυμνο από σεισμό τον 6ο αιώνα, προσφέρει μια πιο ήσυχη, σχεδόν χωρίς κίνηση εναλλακτική για μία-δύο βραδιές.'
-    },
-    best: { en: 'April–June & September–October for climbing, July–August for swimming', el: 'Απρίλιος–Ιούνιος & Σεπτέμβριος–Οκτώβριος για αναρρίχηση, Ιούλιος–Αύγουστος για μπάνιο' },
-    highlights: {
-      en: ['Rock climbing at Masouri & Myrties', 'Sponge-diving shops in Pothia', 'Telendos islet by boat', 'Vathys fjord-like inlet'],
-      el: ['Αναρρίχηση στη Μασούρη & Μυρτιές', 'Μαγαζιά σφουγγαράδων στην Πόθια', 'Νησίδα Τέλενδος με βάρκα', 'Φιόρδ-like κόλπος Βαθύ']
-    }
-  },
-  {
-    slug: 'agkistri',
-    group: 'saronic',
-    groupName: { en: 'Saronic Islands', el: 'Σαρωνικά Νησιά' },
-    name: { en: 'Agkistri', el: 'Αγκίστρι' },
-    tagline: { en: 'A small, pine-covered island near Aegina', el: 'Ένα μικρό, πευκόφυτο νησί κοντά στην Αίγινα' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Agistri_Aponissos.jpg?width=1400',
-    credit: 'Wikimedia Commons contributor, CC BY-SA 4.0',
-    desc: {
-      en: 'Agkistri is one of the smallest inhabited islands in the Saronic Gulf, an easy stop combined with nearby Aegina and a popular weekend escape for Athenians. Pine forest covers most of the island, running down to a handful of small, clear-watered bays.',
-      el: 'Το Αγκίστρι είναι ένα από τα μικρότερα κατοικημένα νησιά του Σαρωνικού, εύκολος προορισμός σε συνδυασμό με την κοντινή Αίγινα και δημοφιλής απόδραση Σαββατοκύριακου για Αθηναίους. Πευκοδάσος καλύπτει το μεγαλύτερο μέρος του νησιού, φτάνοντας μέχρι λίγους μικρούς όρμους με καθαρά νερά.'
-    },
-    more: {
-      en: 'The island has no large towns, just a few small settlements including Skala and Milos, and can easily be explored on foot or by rented bicycle in a day. Its small size and short ferry connection from Piraeus make it a low-key alternative to busier Saronic islands.',
-      el: 'Το νησί δεν έχει μεγάλες πόλεις, μόνο λίγους μικρούς οικισμούς όπως η Σκάλα και ο Μύλος, και μπορεί εύκολα να εξερευνηθεί με τα πόδια ή με ενοικιαζόμενο ποδήλατο μέσα σε μία μέρα. Το μικρό μέγεθός του και η σύντομη ακτοπλοϊκή σύνδεση από τον Πειραιά το κάνουν μια χαμηλών τόνων εναλλακτική σε σχέση με πιο πολυσύχναστα νησιά του Σαρωνικού.'
-    },
-    best: { en: 'May–September', el: 'Μάιος–Σεπτέμβριος' },
-    highlights: {
-      en: ['Aponissos beach', 'Pine-forest walking paths', 'Skala village', 'Easy day trip from Aegina'],
-      el: ['Παραλία Απόνησος', 'Μονοπάτια μέσα στο πευκοδάσος', 'Χωριό Σκάλα', 'Εύκολη ημερήσια εκδρομή από την Αίγινα']
-    }
-  },
-  {
-    slug: 'athens',
-    group: 'cities',
-    groupName: { en: 'Mainland cities', el: 'Ηπειρωτικές πόλεις' },
-    name: { en: 'Athens', el: 'Αθήνα' },
-    tagline: { en: 'The Acropolis and ancient history', el: 'Η Ακρόπολη και η αρχαία ιστορία' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Acropolis_Parthenon_Athens_Greece.jpg?width=1400',
-    credit: 'Jebulon, CC0 (public domain)',
-    desc: {
-      en: "Athens, Greece's capital, is built around the Acropolis, the rocky hill crowned by the Parthenon that has watched over the city for roughly 2,500 years. Most visitors combine the ancient sites with the narrow streets of Plaka, the old quarter beneath the rock.",
-      el: 'Η Αθήνα, πρωτεύουσα της Ελλάδας, είναι χτισμένη γύρω από την Ακρόπολη, τον βραχώδη λόφο που στέφεται από τον Παρθενώνα και επιβλέπει την πόλη εδώ και περίπου 2.500 χρόνια. Οι περισσότεροι επισκέπτες συνδυάζουν τους αρχαίους χώρους με τα στενά δρομάκια της Πλάκας, της παλιάς συνοικίας κάτω από τον βράχο.'
-    },
-    more: {
-      en: "Athens is also Greece's main ferry hub, with the port of Piraeus connecting to nearly every island group, which makes the city a natural starting or ending point for an island-hopping trip. Beyond the Acropolis, the Acropolis Museum, the National Archaeological Museum and the lively neighbourhoods of Monastiraki and Psiri round out a city visit.",
-      el: 'Η Αθήνα είναι επίσης ο κύριος ακτοπλοϊκός κόμβος της Ελλάδας, με το λιμάνι του Πειραιά να συνδέεται με σχεδόν κάθε νησιωτικό σύμπλεγμα, γεγονός που κάνει την πόλη φυσικό σημείο εκκίνησης ή ολοκλήρωσης ενός ταξιδιού island hopping. Πέρα από την Ακρόπολη, το Μουσείο της Ακρόπολης, το Εθνικό Αρχαιολογικό Μουσείο και οι ζωντανές γειτονιές του Μοναστηρακίου και του Ψυρρή συμπληρώνουν μια επίσκεψη στην πόλη.'
-    },
-    best: { en: 'April–June & September–October', el: 'Απρίλιος–Ιούνιος & Σεπτέμβριος–Οκτώβριος' },
-    highlights: {
-      en: ['Acropolis & Parthenon', 'Acropolis Museum', 'Plaka & Monastiraki', 'Piraeus ferry port'],
-      el: ['Ακρόπολη & Παρθενώνας', 'Μουσείο Ακρόπολης', 'Πλάκα & Μοναστηράκι', 'Λιμάνι Πειραιά']
-    }
-  },
-  {
-    slug: 'thessaloniki',
-    group: 'cities',
-    groupName: { en: 'Mainland cities', el: 'Ηπειρωτικές πόλεις' },
-    name: { en: 'Thessaloniki', el: 'Θεσσαλονίκη' },
-    tagline: { en: "Greece's northern capital", el: 'Η βόρεια πρωτεύουσα της Ελλάδας' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/White_Tower_in_Thessaloniki.jpg?width=1400',
-    credit: 'Haneburger, CC BY-SA 4.0',
-    desc: {
-      en: "Thessaloniki, Greece's second-largest city, stretches along the Thermaic Gulf with the White Tower, its best-known landmark, standing on the waterfront promenade. The city layers Byzantine churches, Ottoman-era buildings and a lively student population.",
-      el: 'Η Θεσσαλονίκη, η δεύτερη μεγαλύτερη πόλη της Ελλάδας, απλώνεται κατά μήκος του Θερμαϊκού κόλπου, με τον Λευκό Πύργο, το πιο γνωστό της ορόσημο, να στέκεται στην παραλιακή προμενάδα. Η πόλη συνδυάζει βυζαντινές εκκλησίες, κτίρια της οθωμανικής περιόδου και έναν ζωντανό φοιτητικό πληθυσμό.'
-    },
-    more: {
-      en: "Several of the city's Byzantine churches, including the Rotunda and Agios Dimitrios, are listed as UNESCO World Heritage Sites. Thessaloniki is also widely regarded as Greece's food capital, known for street snacks like bougatsa and a lively market district around Modiano.",
-      el: 'Αρκετές από τις βυζαντινές εκκλησίες της πόλης, συμπεριλαμβανομένων της Ροτόντας και του Αγίου Δημητρίου, είναι μνημεία παγκόσμιας κληρονομιάς της UNESCO. Η Θεσσαλονίκη θεωρείται επίσης ευρέως η γαστρονομική πρωτεύουσα της Ελλάδας, γνωστή για σνακ του δρόμου όπως η μπουγάτσα και μια ζωντανή αγορά γύρω από το Μοδιάνο.'
-    },
-    best: { en: 'April–June & September–October', el: 'Απρίλιος–Ιούνιος & Σεπτέμβριος–Οκτώβριος' },
-    highlights: {
-      en: ['White Tower', 'Rotunda & Agios Dimitrios', 'Modiano Market', 'Ano Poli old town'],
-      el: ['Λευκός Πύργος', 'Ροτόντα & Άγιος Δημήτριος', 'Αγορά Μοδιάνο', 'Άνω Πόλη']
+      en: ['Blue Zone longevity lifestyle', 'Mesakti & Seychelles beaches', 'Traditional local festivals (panigyria)', 'Therma natural hot springs'],
+      el: ['Τρόπος ζωής μακροζωίας (Μπλε Ζώνη)', 'Παραλίες Μεσακτή & Σεϋχέλλες', 'Παραδοσιακά πανηγύρια', 'Φυσικές θερμές πηγές στα Θέρμα']
     }
   }
 ];
