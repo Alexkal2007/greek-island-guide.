@@ -64,14 +64,20 @@
     }
   }
 
-  /* Styling για το νέο πλούσιο κείμενο στο Hero */
-  .hero-sub p {
-    margin-bottom: 12px;
-    line-height: 1.6;
+  /* Νέο Custom Container για να μην το πειράζει το i18n.js */
+  .hero-custom-text {
+    margin: 18px 0 20px;
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--ink-soft, #4A5568);
   }
-  .hero-sub p:last-child {
-    margin-bottom: 0;
+  .hero-custom-text p {
+    margin-bottom: 12px !important;
   }
+  .hero-custom-text p:last-child {
+    margin-bottom: 0 !important;
+  }
+
   .hero-highlights {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -152,8 +158,8 @@
       
       <h1 class="hero-title" data-en-html='Lose yourself in the<br><em>Aegean</em> blue' data-el-html='Χάσου στο<br><em>γαλάζιο</em> του Αιγαίου'>Lose yourself in the<br><em>Aegean</em> blue</h1>
       
-      <!-- ΑΠΕΥΘΕΙΑΣ ΑΝΤΙΚΑΤΑΣΤΑΣΗ ΤΟΥ HERO-SUB ΜΕ ΠΟΛΥ ΚΕΙΜΕΝΟ -->
-      <div class="hero-sub">
+      <!-- ΑΛΛΑΓΗ CLASS ΣΕ HERO-CUSTOM-TEXT ΓΙΑ ΝΑ ΜΗΝ ΕΠΗΡΕΑΖΕΤΑΙ ΑΠΟ ΤΟ I18N.JS -->
+      <div class="hero-custom-text">
         <p data-en="Welcome to your complete digital gateway to the Greek seas. With 112 curated destinations spanning the Aegean and Ionian seas, we help you navigate the rich tapestry of mainland coastal gems and sun-drenched islands." 
            data-el="112 προορισμοί σε νησιά και ηπειρωτική Ελλάδα, οργανωμένοι ανά ομάδα νησιών, με πρακτικές οδηγίες για ακτοπλοϊκά δρομολόγια, διαμονή και τοπικές εμπειρίες. Καλώς ήρθατε στον πληρέστερο ψηφιακό οδηγό για τις ελληνικές θάλασσες.">
            112 destinations across the islands and mainland Greece, organised by island group, with practical guidance on ferries, places to stay and local experiences. Welcome to your complete digital gateway to the Greek seas.
