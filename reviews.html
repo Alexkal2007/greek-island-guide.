@@ -6,13 +6,158 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GREEK ISLAND GUIDE — Reviews</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* Fixes για το Logo & Header Responsive */
+  header nav.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    position: relative;
+  }
+  .logo {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    font-size: 1.15rem;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    line-height: 1;
+  }
+  .logo b {
+    margin-right: 2px;
+  }
+  
+  /* Layout για 10 Κριτικές */
+  .reviews {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 30px;
+  }
+
+  .review-card {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .review-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  }
+
+  .stars {
+    color: #f59e0b;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+  }
+
+  .review-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--ink-soft, #4A5568);
+    margin-bottom: 20px;
+    flex-grow: 1;
+  }
+
+  .who {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 14px;
+  }
+
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--sea-deep, #0A3D66);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+  }
+
+  .who b {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--ink-dark, #1A202C);
+  }
+
+  .who span {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--ink-soft, #718096);
+  }
+
+  /* Mobile Menu Styles */
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--sea-deep, #0A3D66);
+    padding: 5px;
+  }
+
+  @media (max-width: 992px) {
+    .menu-toggle {
+      display: block;
+    }
+    .navlinks {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      z-index: 100;
+      gap: 12px;
+    }
+    .navlinks.active {
+      display: flex;
+    }
+    .navright .navcta {
+      display: none;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .reviews {
+      grid-template-columns: 1fr;
+    }
+    .foot-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+    }
+  }
+</style>
 </head>
 <body>
 
 <header>
   <nav class="wrap">
-    <a href="main.html" class="logo"><b>GREEK</b>-ISLAND-GUIDE</a>
-    <div class="navlinks">
+    <a href="main.html" class="logo" data-en="GREEK-ISLAND-GUIDE" data-el="ΟΔΗΓΟΣ ΕΛΛΗΝΙΚΩΝ ΝΗΣΙΩΝ"><b>GREEK</b>-ISLAND-GUIDE</a>
+    
+    <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
+
+    <div class="navlinks" id="mobile-nav">
       <a href="main.html" data-en="Home" data-el="Αρχική">Home</a>
       <a href="islands.html" data-en="Islands" data-el="Νησιά">Islands</a>
       <a href="services.html" data-en="Services" data-el="Υπηρεσίες">Services</a>
@@ -20,6 +165,7 @@
       <a href="reviews.html" class="active" data-en="Reviews" data-el="Εμπειρίες">Reviews</a>
       <a href="faq.html" data-en="FAQ" data-el="Ερωτήσεις">FAQ</a>
     </div>
+    
     <div class="navright">
       <button class="lang-toggle" onclick="toggleLang()"><span class="lang-label">ΕΛ</span></button>
       <a href="islands.html" class="navcta" data-en="Plan your trip" data-el="Σχεδίασε το ταξίδι">Plan your trip</a>
@@ -35,21 +181,76 @@
         <h2 data-en="What people who trusted us are saying" data-el="Τι λένε όσοι μας εμπιστεύτηκαν">What people who trusted us are saying</h2>
       </div>
     </div>
+
     <div class="reviews">
+      <!-- Review 1 -->
       <div class="review-card">
         <div class="stars">★★★★★</div>
         <p data-en="We organised island hopping across three islands in 10 days with zero stress. The ferry connections lined up perfectly." data-el="Οργανώσαμε island hopping σε τρία νησιά μέσα σε 10 μέρες χωρίς κανένα άγχος. Τα δρομολόγια ταίριαξαν τέλεια.">We organised island hopping across three islands in 10 days with zero stress. The ferry connections lined up perfectly.</p>
         <div class="who"><div class="avatar">MK</div><div><b data-en="Maria K." data-el="Μαρία Κ.">Maria K.</b><span data-en="Santorini · Naxos · Paros" data-el="Σαντορίνη · Νάξος · Πάρος">Santorini · Naxos · Paros</span></div></div>
       </div>
+
+      <!-- Review 2 -->
       <div class="review-card">
         <div class="stars">★★★★★</div>
-        <p data-en="The suggestions for lesser-known villages in Crete were the best part of our trip." data-el="Οι προτάσεις για τα λιγότερο γνωστά χωριά της Κρήτης ήταν το καλύτερο κομμάτι του ταξιδιού μας.">The suggestions for lesser-known villages in Crete were the best part of our trip.</p>
+        <p data-en="The suggestions for lesser-known villages in Crete were the best part of our trip. Truly authentic tips!" data-el="Οι προτάσεις για τα λιγότερο γνωστά χωριά της Κρήτης ήταν το καλύτερο κομμάτι του ταξιδιού μας. Πραγματικά αυθεντικές συμβουλές!">The suggestions for lesser-known villages in Crete were the best part of our trip. Truly authentic tips!</p>
         <div class="who"><div class="avatar">GP</div><div><b data-en="George P." data-el="Γιώργος Π.">George P.</b><span data-en="Chania, Crete" data-el="Χανιά, Κρήτη">Chania, Crete</span></div></div>
       </div>
+
+      <!-- Review 3 -->
       <div class="review-card">
         <div class="stars">★★★★☆</div>
-        <p data-en="Easy hotel comparisons and clear ferry-route guidance. We'll use it again." data-el="Εύκολη σύγκριση ξενοδοχείων και ξεκάθαρες οδηγίες για τα δρομολόγια των πλοίων. Θα το ξαναχρησιμοποιήσουμε.">Easy hotel comparisons and clear ferry-route guidance. We'll use it again.</p>
+        <p data-en="Easy hotel comparisons and clear ferry-route guidance. We'll definitely use this platform again." data-el="Εύκολη σύγκριση ξενοδοχείων και ξεκάθαρες οδηγίες για τα δρομολόγια των πλοίων. Θα το ξαναχρησιμοποιήσουμε σίγουρα.">Easy hotel comparisons and clear ferry-route guidance. We'll definitely use this platform again.</p>
         <div class="who"><div class="avatar">ED</div><div><b data-en="Eleni D." data-el="Ελένη Δ.">Eleni D.</b><span data-en="Rhodes · Kos" data-el="Ρόδος · Κως">Rhodes · Kos</span></div></div>
+      </div>
+
+      <!-- Review 4 -->
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p data-en="The boat rental guide in Milos allowed us to explore hidden beaches that aren't reachable by car. Unforgettable experience!" data-el="Ο οδηγός ενοικίασης σκάφους στη Μήλο μας επέτρεψε να εξερευνήσουμε κρυφές παραλίες που δεν είναι προσβάσιμες με αμάξι. Αξέχαστη εμπειρία!">The boat rental guide in Milos allowed us to explore hidden beaches that aren't reachable by car. Unforgettable experience!</p>
+        <div class="who"><div class="avatar">AL</div><div><b data-en="Alex L." data-el="Αλέξανδρος Λ.">Alex L.</b><span data-en="Milos · Kimolos" data-el="Μήλος · Κίμωλος">Milos · Kimolos</span></div></div>
+      </div>
+
+      <!-- Review 5 -->
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p data-en="Accurate culinary recommendations for Sifnos. Every taverna suggested delivered top-tier local flavors." data-el="Ακριβέστατες γαστρονομικές προτάσεις για τη Σίφνο. Κάθε ταβέρνα που προτάθηκε πρόσφερε κορυφαίες τοπικές γεύσεις.">Accurate culinary recommendations for Sifnos. Every taverna suggested delivered top-tier local flavors.</p>
+        <div class="who"><div class="avatar">CS</div><div><b data-en="Christina S." data-el="Χριστίνα Σ.">Christina S.</b><span data-en="Sifnos · Serifos" data-el="Σίφνος · Σέριφος">Sifnos · Serifos</span></div></div>
+      </div>
+
+      <!-- Review 6 -->
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p data-en="The travel info section answered all our budget and transportation questions before booking. Very helpful!" data-el="Το τμήμα χρήσιμων πληροφοριών απάντησε σε όλες τις απορίες μας για το budget και τις μετακινήσεις πριν κλείσουμε. Πολύ βοηθητικό!">The travel info section answered all our budget and transportation questions before booking. Very helpful!</p>
+        <div class="who"><div class="avatar">DT</div><div><b data-en="Dimitris T." data-el="Δημήτρης Τ.">Dimitris T.</b><span data-en="Corfu · Paxos" data-el="Κέρκυρα · Παξοί">Corfu · Paxos</span></div></div>
+      </div>
+
+      <!-- Review 7 -->
+      <div class="review-card">
+        <div class="stars">★★★★☆</div>
+        <p data-en="Great recommendations for car rentals in Lefkada. Everything was transparent and straightforward." data-el="Εξαιρετικές συστάσεις για ενοικίαση αυτοκινήτου στη Λευκάδα. Όλα ήταν διαφανή και ξεκάθαρα.">Great recommendations for car rentals in Lefkada. Everything was transparent and straightforward.</p>
+        <div class="who"><div class="avatar">NM</div><div><b data-en="Nikos M." data-el="Νίκος Μ.">Nikos M.</b><span data-en="Lefkada · Kefalonia" data-el="Λευκάδα · Κεφαλονιά">Lefkada · Kefalonia</span></div></div>
+      </div>
+
+      <!-- Review 8 -->
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p data-en="Found the best sunset spots in Skiathos thanks to this guide. Saved us hours of searching online." data-el="Βρήκαμε τα καλύτερα σημεία για ηλιοβασίλεμα στη Σκιάθο χάρη σε αυτόν τον οδηγό. Μας γλίτωσε ώρες ψαξίματος στο ίντερνετ.">Found the best sunset spots in Skiathos thanks to this guide. Saved us hours of searching online.</p>
+        <div class="who"><div class="avatar">SK</div><div><b data-en="Sophia K." data-el="Σοφία Κ.">Sophia K.</b><span data-en="Skiathos · Skopelos" data-el="Σκιάθος · Σκόπελος">Skiathos · Skopelos</span></div></div>
+      </div>
+
+      <!-- Review 9 -->
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p data-en="Seamless experience booking our ferry tickets through the site's partners. Zero delays and clear instructions." data-el="Άψογη εμπειρία στην κράτηση ακτοπλοϊκών εισιτηρίων μέσω των συνεργατών του site. Καμία καθυστέρηση και σαφείς οδηγίες.">Seamless experience booking our ferry tickets through the site's partners. Zero delays and clear instructions.</p>
+        <div class="who"><div class="avatar">PN</div><div><b data-en="Panagiotis N." data-el="Παναγιώτης Ν.">Panagiotis N.</b><span data-en="Amorgos · Koufonisia" data-el="Αμοργός · Κουφονήσια">Amorgos · Koufonisia</span></div></div>
+      </div>
+
+      <!-- Review 10 -->
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p data-en="Perfect guide for day trips near Athens. We visited Hydra and Poros following their exact recommended route." data-el="Τέλειος οδηγός για μονοήμερες αποδράσεις κοντά στην Αθήνα. Επισκεφτήκαμε την Ύδρα και τον Πόρο ακολουθώντας ακριβώς τη διαδρομή.">Perfect guide for day trips near Athens. We visited Hydra and Poros following their exact recommended route.</p>
+        <div class="who"><div class="avatar">EB</div><div><b data-en="Elena B." data-el="Έλενα Β.">Elena B.</b><span data-en="Hydra · Poros" data-el="Ύδρα · Πόρος">Hydra · Poros</span></div></div>
       </div>
     </div>
   </section>
@@ -59,7 +260,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="logo" style="margin-bottom:14px;"><b>GREEK</b>-ISLAND-GUIDE</div>
+        <a href="main.html" class="logo" style="margin-bottom:14px;" data-en="GREEK-ISLAND-GUIDE" data-el="ΟΔΗΓΟΣ ΕΛΛΗΝΙΚΩΝ ΝΗΣΙΩΝ"><b>GREEK</b>-ISLAND-GUIDE</a>
         <p style="color:var(--ink-soft);font-size:14px;max-width:260px;" data-en="A travel guide to the Greek islands and mainland Greece, made by people who love the Aegean." data-el="Ταξιδιωτικός οδηγός για τα ελληνικά νησιά και την ηπειρωτική Ελλάδα, φτιαγμένος από ανθρώπους που αγαπούν το Αιγαίο.">A travel guide to the Greek islands and mainland Greece, made by people who love the Aegean.</p>
       </div>
       <div>
@@ -75,8 +276,8 @@
       </div>
       <div>
         <h4 data-en="Language" data-el="Γλώσσα">Language</h4>
-        <a href="#" onclick="setLang('en');return false;">English</a>
-        <a href="#" onclick="setLang('el');return false;">Ελληνικά</a>
+        <a href="#" onclick="if(typeof setLang === 'function') setLang('en'); return false;">English</a>
+        <a href="#" onclick="if(typeof setLang === 'function') setLang('el'); return false;">Ελληνικά</a>
       </div>
       <div>
         <h4 data-en="Legal" data-el="Νομικά">Legal</h4>
@@ -95,5 +296,36 @@
 </footer>
 
 <script src="i18n.js"></script>
+<script>
+  function toggleMobileMenu() {
+    var nav = document.getElementById('mobile-nav');
+    if (nav) {
+      nav.classList.toggle('active');
+    }
+  }
+
+  function updateLogoText() {
+    var lang = typeof getLang === 'function' ? getLang() : 'en';
+    var logos = document.querySelectorAll('.logo');
+    logos.forEach(function(el) {
+      var text = el.getAttribute('data-' + lang);
+      if(text) {
+        if(lang === 'en') {
+          el.innerHTML = '<b>GREEK</b>-ISLAND-GUIDE';
+        } else {
+          el.innerHTML = text;
+        }
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    updateLogoText();
+  });
+
+  document.addEventListener('langchange', function() {
+    updateLogoText();
+  });
+</script>
 </body>
 </html>
