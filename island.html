@@ -6,6 +6,35 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="page-title">GREEK ISLAND GUIDE — Island</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* Clean typography for detail sections */
+  .detail-section {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+  .detail-section h3 {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+    color: var(--ink-dark, #1A202C);
+  }
+  .detail-section p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--ink-soft, #4A5568);
+  }
+  .highlights-list {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  .highlights-list li {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--ink-soft, #4A5568);
+    margin-bottom: 6px;
+  }
+</style>
 </head>
 <body>
 
@@ -37,6 +66,7 @@
 </div>
 
 <div class="wrap">
+  <!-- Main Overview -->
   <div class="island-body" style="margin-top:36px;">
     <p id="isl-desc"></p>
     <p id="isl-more"></p>
@@ -44,22 +74,25 @@
     <p class="photo-credit" id="isl-credit"></p>
   </div>
 
-  <div class="facts">
-    <div class="fact-card">
-      <span class="label" data-en="Best time to visit" data-el="Καλύτερη εποχή">Best time to visit</span>
-      <p id="isl-best"></p>
-    </div>
-    <div class="fact-card">
-      <span class="label" data-en="Island group" data-el="Σύμπλεγμα νησιών">Island group</span>
-      <p id="isl-group2"></p>
-    </div>
-    <div class="fact-card">
-      <span class="label" data-en="Don't miss" data-el="Μην παραλείψεις">Don't miss</span>
-      <ul id="isl-highlights"></ul>
-    </div>
+  <!-- Detailed Sections (Replacing quick fact boxes) -->
+  <div class="detail-section">
+    <h3 data-en="Best Time to Visit" data-el="Καλύτερη Εποχή Επίσκεψης">Best Time to Visit</h3>
+    <p id="isl-best"></p>
   </div>
 
-  <a href="islands.html" class="backlink">← <span data-en="Back to all islands" data-el="Πίσω σε όλα τα νησιά">Back to all islands</span></a>
+  <div class="detail-section">
+    <h3 data-en="Island Group & Location" data-el="Σύμπλεγμα & Τοποθεσία">Island Group & Location</h3>
+    <p id="isl-group2"></p>
+  </div>
+
+  <div class="detail-section">
+    <h3 data-en="Top Highlights & Experiences" data-el="Σημαντικότερα Αξιοθέατα & Εμπειρίες">Top Highlights & Experiences</h3>
+    <ul id="isl-highlights" class="highlights-list"></ul>
+  </div>
+
+  <div style="margin-top: 40px;">
+    <a href="islands.html" class="backlink">← <span data-en="Back to all islands" data-el="Πίσω σε όλα τα νησιά">Back to all islands</span></a>
+  </div>
 
   <section class="section" style="padding-top:44px;">
     <div class="section-head">
