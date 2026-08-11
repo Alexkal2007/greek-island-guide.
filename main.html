@@ -64,33 +64,28 @@
     }
   }
 
-  /* Βελτιώσεις στο Hero Copy για περισσότερο κείμενο */
-  .hero-sub-extended {
-    margin: 18px 0 24px;
-    font-size: 0.96rem;
-    line-height: 1.65;
-    color: var(--ink-soft, #4A5568);
-  }
-  .hero-sub-extended p {
+  /* Styling για το νέο πλούσιο κείμενο στο Hero */
+  .hero-sub p {
     margin-bottom: 12px;
+    line-height: 1.6;
+  }
+  .hero-sub p:last-child {
+    margin-bottom: 0;
   }
   .hero-highlights {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    margin-bottom: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 8px;
+    margin: 18px 0 24px;
     padding: 12px 16px;
-    background: rgba(11, 95, 165, 0.04);
+    background: rgba(11, 95, 165, 0.05);
     border-left: 3px solid var(--sea, #0B5FA5);
     border-radius: 0 8px 8px 0;
   }
   .hero-highlight-item {
     font-size: 0.88rem;
     color: var(--sea-deep, #0A3D66);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+    font-weight: 600;
   }
 
   /* Πρόσθετες ενότητες κειμένου */
@@ -157,14 +152,15 @@
       
       <h1 class="hero-title" data-en-html='Lose yourself in the<br><em>Aegean</em> blue' data-el-html='Χάσου στο<br><em>γαλάζιο</em> του Αιγαίου'>Lose yourself in the<br><em>Aegean</em> blue</h1>
       
-      <div class="hero-sub-extended">
+      <!-- ΑΠΕΥΘΕΙΑΣ ΑΝΤΙΚΑΤΑΣΤΑΣΗ ΤΟΥ HERO-SUB ΜΕ ΠΟΛΥ ΚΕΙΜΕΝΟ -->
+      <div class="hero-sub">
         <p data-en="Welcome to your complete digital gateway to the Greek seas. With 112 curated destinations spanning the Aegean and Ionian seas, we help you navigate the rich tapestry of mainland coastal gems and sun-drenched islands." 
-           data-el="Καλώς ήρθατε στον πληρέστερο ψηφιακό ταξιδιωτικό σας οδηγό για τις ελληνικές θάλασσες. Με 112 επιλεγμένους προορισμούς στο Αιγαίο και το Ιόνιο, σας βοηθάμε να ανακαλύψετε την πλούσια ομορφιά των νησιών και των παραθαλάσσιων περιοχών της Ελλάδας.">
-           Welcome to your complete digital gateway to the Greek seas. With 112 curated destinations spanning the Aegean and Ionian seas, we help you navigate the rich tapestry of mainland coastal gems and sun-drenched islands.
+           data-el="112 προορισμοί σε νησιά και ηπειρωτική Ελλάδα, οργανωμένοι ανά ομάδα νησιών, με πρακτικές οδηγίες για ακτοπλοϊκά δρομολόγια, διαμονή και τοπικές εμπειρίες. Καλώς ήρθατε στον πληρέστερο ψηφιακό οδηγό για τις ελληνικές θάλασσες.">
+           112 destinations across the islands and mainland Greece, organised by island group, with practical guidance on ferries, places to stay and local experiences. Welcome to your complete digital gateway to the Greek seas.
         </p>
-        <p data-en="Whether you're looking for iconic Cycladic architecture, lush green landscapes in the Ionian, or historic medieval settlements in the Dodecanese, discover practical ferry schedules, handpicked hotels, and authentic local experiences." 
+        <p data-en="Whether you are looking for iconic Cycladic architecture, lush green landscapes in the Ionian, or historic medieval settlements in the Dodecanese, discover practical ferry schedules, handpicked hotels, and authentic local experiences." 
            data-el="Είτε αναζητάτε την εμβληματική κυκλαδίτικη αρχιτεκτονική, τα καταπράσινα τοπία του Ιονίου, είτε τους μεσαιωνικούς οικισμούς των Δωδεκανήσων, εδώ θα βρείτε ακτοπλοϊκά δρομολόγια, προτάσεις διαμονής και αυθεντικές εμπειρίες.">
-           Whether you're looking for iconic Cycladic architecture, lush green landscapes in the Ionian, or historic medieval settlements in the Dodecanese, discover practical ferry schedules, handpicked hotels, and authentic local experiences.
+           Whether you are looking for iconic Cycladic architecture, lush green landscapes in the Ionian, or historic medieval settlements in the Dodecanese, discover practical ferry schedules, handpicked hotels, and authentic local experiences.
         </p>
       </div>
 
