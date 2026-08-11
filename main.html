@@ -65,7 +65,7 @@
     }
   }
 
-  /* Νέο Custom Container για να μην το πειράζει το i18n.js */
+  /* Custom Container για το κείμενο του Hero */
   .hero-custom-text {
     margin: 18px 0 20px;
     font-size: 0.98rem;
@@ -126,6 +126,51 @@
     color: var(--ink-soft, #4A5568);
     line-height: 1.5;
   }
+
+  /* Grid για τους Προτεινόμενους Προορισμούς */
+  .dest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  /* Responsive Media Queries */
+  @media (max-width: 768px) {
+    .hero .wrap {
+      grid-template-columns: 1fr;
+      flex-direction: column;
+    }
+    .heroimg {
+      min-height: 250px;
+    }
+    .hero-actions {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .hero-actions .btn {
+      width: 100%;
+      text-align: center;
+    }
+    .hero-stats {
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .info-intro-block, .info-outro-block {
+      padding: 20px;
+      margin: 24px 0;
+    }
+    .news form {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .news input, .news button {
+      width: 100%;
+    }
+    .foot-grid {
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px;
+    }
+  }
 </style>
 </head>
 <body>
@@ -159,7 +204,6 @@
       
       <h1 class="hero-title" data-en-html='Lose yourself in the<br><em>Aegean</em> blue' data-el-html='Χάσου στο<br><em>γαλάζιο</em> του Αιγαίου'>Lose yourself in the<br><em>Aegean</em> blue</h1>
       
-      <!-- ΑΛΛΑΓΗ CLASS ΣΕ HERO-CUSTOM-TEXT ΓΙΑ ΝΑ ΜΗΝ ΕΠΗΡΕΑΖΕΤΑΙ ΑΠΟ ΤΟ I18N.JS -->
       <div class="hero-custom-text">
         <p data-en="Welcome to your complete digital gateway to the Greek seas. With 112 curated destinations spanning the Aegean and Ionian seas, we help you navigate the rich tapestry of mainland coastal gems and sun-drenched islands." 
            data-el="112 προορισμοί σε νησιά και ηπειρωτική Ελλάδα, οργανωμένοι ανά ομάδα νησιών, με πρακτικές οδηγίες για ακτοπλοϊκά δρομολόγια, διαμονή και τοπικές εμπειρίες. Καλώς ήρθατε στον πληρέστερο ψηφιακό οδηγό για τις ελληνικές θάλασσες.">
@@ -213,7 +257,6 @@
 
 <div class="wrap">
 
-  <!-- ΠΡΟΣΘΕΤΟ ΚΕΙΜΕΝΟ ΠΑΝΩ ΑΠΟ ΤΑ ΝΗΣΙΑ -->
   <section class="info-intro-block">
     <span class="tag" data-en="Island Selection" data-el="Επιλογή Νησιού">Island Selection</span>
     <h3 style="margin-top:10px;" data-en="How to choose your next Greek island destination" data-el="Πώς να επιλέξετε τον επόμενο νησιωτικό προορισμό σας">How to choose your next Greek island destination</h3>
@@ -248,7 +291,6 @@
     <div class="dest-grid" id="featured-grid"></div>
   </section>
 
-  <!-- ΠΡΟΣΘΕΤΟ ΚΕΙΜΕΝΟ ΚΑΤΩ ΑΠΟ ΤΑ ΝΗΣΙΑ -->
   <section class="info-outro-block">
     <span class="tag" data-en="Essential Travel Tips" data-el="Χρήσιμες Συμβουλές">Essential Travel Tips</span>
     <h3 style="margin-top:10px;" data-en="Smart planning for an unforgettable Aegean trip" data-el="Σωστός προγραμματισμός για ένα αξέχαστο ταξίδι">Smart planning for an unforgettable Aegean trip</h3>
@@ -365,13 +407,12 @@
     var grid = document.getElementById('featured-grid');
     if(!grid) return;
     grid.innerHTML = '';
-    FEATURED.forEach(function(slug, i){
+    FEATURED.forEach(function(slug){
       var isl = ISLANDS.find(function(x){ return x.slug === slug; });
       if(!isl) return;
       var card = document.createElement('a');
       card.href = 'island.html?id=' + isl.slug;
-      card.className = 'dest-card' + (i===0 ? ' tall' : '');
-      if(i===0){ card.style.gridRow = 'span 2'; card.style.height = '624px'; }
+      card.className = 'dest-card';
       card.innerHTML =
         '<img src="'+isl.img+'" alt="'+isl.name[lang]+'">' +
         '<div class="scrim"></div>' +
@@ -391,7 +432,6 @@
     }
   }
 
-  // Ενημέρωση του Logo text στη σωστή γλώσσα
   function updateLogoText() {
     var lang = typeof getLang === 'function' ? getLang() : 'en';
     var logos = document.querySelectorAll('.logo');
