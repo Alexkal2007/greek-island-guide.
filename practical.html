@@ -6,13 +6,82 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GREEK ISLAND GUIDE — Travel Info</title>
 <link rel="stylesheet" href="styles.css">
+<style>
+  /* Header & Navigation Fixes */
+  header nav.wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    position: relative;
+  }
+  .logo {
+    white-space: nowrap !important;
+    flex-shrink: 0 !important;
+    font-size: 1.15rem;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    line-height: 1;
+  }
+  .logo b {
+    margin-right: 2px;
+  }
+  
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--sea-deep, #0A3D66);
+    padding: 5px;
+  }
+
+  /* Grid Layout for 10 cards */
+  .practical {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  @media (max-width: 992px) {
+    .menu-toggle {
+      display: block;
+    }
+    .navlinks {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #ffffff;
+      flex-direction: column;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      z-index: 100;
+      gap: 12px;
+    }
+    .navlinks.active {
+      display: flex;
+    }
+    .navright .navcta {
+      display: none;
+    }
+  }
+</style>
 </head>
 <body>
 
 <header>
   <nav class="wrap">
-    <a href="main.html" class="logo"><b>GREEK</b>-ISLAND-GUIDE</a>
-    <div class="navlinks">
+    <a href="main.html" class="logo" data-en="GREEK-ISLAND-GUIDE" data-el="ΟΔΗΓΟΣ ΕΛΛΗΝΙΚΩΝ ΝΗΣΙΩΝ"><b>GREEK</b>-ISLAND-GUIDE</a>
+    
+    <button class="menu-toggle" onclick="toggleMobileMenu()" aria-label="Menu">☰</button>
+
+    <div class="navlinks" id="mobile-nav">
       <a href="main.html" data-en="Home" data-el="Αρχική">Home</a>
       <a href="islands.html" data-en="Islands" data-el="Νησιά">Islands</a>
       <a href="services.html" data-en="Services" data-el="Υπηρεσίες">Services</a>
@@ -33,29 +102,79 @@
       <div>
         <span class="tag" data-en="Before you go" data-el="Πριν φύγεις">Before you go</span>
         <h2 data-en="Useful travel information" data-el="Χρήσιμες πληροφορίες">Useful travel information</h2>
-        <p data-en="The basics you need to know before planning your Greek island holiday." data-el="Τα βασικά που χρειάζεται να ξέρεις πριν οργανώσεις τις διακοπές σου.">The basics you need to know before planning your Greek island holiday.</p>
+        <p data-en="Essential tips and practical insights to ensure a seamless holiday across the Aegean." data-el="Όλα τα βασικά που χρειάζεται να γνωρίζεις για ξένοιαστες διακοπές στα ελληνικά νησιά.">Essential tips and practical insights to ensure a seamless holiday across the Aegean.</p>
       </div>
     </div>
+
     <div class="practical">
+      <!-- 1. Best time to visit -->
       <div class="prac-card">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="5"/><path d="M12 1v3M12 20v3M4.2 4.2l2 2M17.8 17.8l2 2M1 12h3M20 12h3M4.2 19.8l2-2M17.8 6.2l2-2"/></svg>
         <h3 data-en="Best time to visit" data-el="Καλύτερη εποχή">Best time to visit</h3>
-        <p data-en="May–June and September for fewer crowds; July–August for the full summer atmosphere." data-el="Μάιος-Ιούνιος και Σεπτέμβριος για λιγότερο κόσμο· Ιούλιος-Αύγουστος για γεμάτη καλοκαιρινή ατμόσφαιρα.">May–June and September for fewer crowds; July–August for the full summer atmosphere.</p>
+        <p data-en="May–June & September for pleasant weather and fewer crowds; July–August for peak summer life." data-el="Μάιος-Ιούνιος & Σεπτέμβριος για ήρεμο καιρό και λιγότερο κόσμο· Ιούλιος-Αύγουστος για την απόλυτη καλοκαιρινή ζωή.">May–June & September for pleasant weather and fewer crowds; July–August for peak summer life.</p>
       </div>
+
+      <!-- 2. Currency -->
       <div class="prac-card">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="3"/></svg>
-        <h3 data-en="Currency" data-el="Νόμισμα">Currency</h3>
-        <p data-en="The euro (€) is used everywhere. Cards are widely accepted, but it helps to carry cash on smaller islands." data-el="Ευρώ (€) παντού. Κάρτες γίνονται δεκτές στα περισσότερα καταστήματα, αλλά χρήσιμο να έχεις μετρητά στα μικρά νησιά.">The euro (€) is used everywhere. Cards are widely accepted, but it helps to carry cash on smaller islands.</p>
+        <h3 data-en="Currency & Payments" data-el="Νόμισμα & Πληρωμές">Currency & Payments</h3>
+        <p data-en="Euro (€) is used everywhere. Cards are accepted almost universally, but carry small cash for tiny island cafes." data-el="Ευρώ (€) παντού. Κάρτες γίνονται δεκτές σχεδόν παντού, αλλά καλό είναι να έχεις λίγα μετρητά για μικρά καφενεία.">Euro (€) is used everywhere. Cards are accepted almost universally, but carry small cash for tiny island cafes.</p>
       </div>
+
+      <!-- 3. Getting around -->
       <div class="prac-card">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 12h18M12 3v18"/><circle cx="12" cy="12" r="9"/></svg>
-        <h3 data-en="Getting around" data-el="Μετακίνηση">Getting around</h3>
-        <p data-en="Ferries for island hopping, domestic flights for longer distances, and a car for exploring each island." data-el="Πλοίο για island hopping, εσωτερικές πτήσεις για μεγάλες αποστάσεις, αυτοκίνητο για εξερεύνηση κάθε νησιού.">Ferries for island hopping, domestic flights for longer distances, and a car for exploring each island.</p>
+        <h3 data-en="Getting Around" data-el="Μετακίνηση & Μεταφορές">Getting Around</h3>
+        <p data-en="Ferries link most islands, while scooters and cars are best for exploring hidden beaches on arrival." data-el="Τα πλοία συνδέουν τα περισσότερα νησιά, ενώ μηχανάκια και αυτοκίνητα είναι ιδανικά για εξερεύνηση στις παραλίες.">Ferries link most islands, while scooters and cars are best for exploring hidden beaches on arrival.</p>
       </div>
+
+      <!-- 4. Language -->
       <div class="prac-card">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
-        <h3 data-en="Language" data-el="Γλώσσα">Language</h3>
-        <p data-en="Greek is the official language, but English is widely spoken in hotels and tourist areas." data-el="Τα ελληνικά είναι η επίσημη γλώσσα, αλλά τα αγγλικά μιλιούνται ευρέως σε ξενοδοχεία και τουριστικές περιοχές.">Greek is the official language, but English is widely spoken in hotels and tourist areas.</p>
+        <h3 data-en="Language" data-el="Γλώσσα & Επικοινωνία">Language</h3>
+        <p data-en="Greek is the official language, but English is widely spoken in hotels, restaurants, and shops." data-el="Επίσημη γλώσσα τα ελληνικά, αλλά τα αγγλικά μιλιούνται ευρέως σε ξενοδοχεία, εστιατόρια και μαγαζιά.">Greek is the official language, but English is widely spoken in hotels, restaurants, and shops.</p>
+      </div>
+
+      <!-- 5. Ferry Booking -->
+      <div class="prac-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 20l2-8 6 2 4-6 8 4-2 8H2z"/><path d="M4 12V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v6"/></svg>
+        <h3 data-en="Ferry Tickets" data-el="Ακτοπλοϊκά Εισητήρια">Ferry Tickets</h3>
+        <p data-en="Book early for peak summer months (July–August), especially for high-speed catamarans and vehicles." data-el="Κάνε κράτηση νωρίς για τους μήνες αιχμής (Ιούλιο-Αύγουστο), ειδικά για ταχύπλοα και μεταφορά οχημάτων.">Book early for peak summer months (July–August), especially for high-speed catamarans and vehicles.</p>
+      </div>
+
+      <!-- 6. Health & Safety -->
+      <div class="prac-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M12 8v8M8 12h8"/></svg>
+        <h3 data-en="Health & Safety" data-el="Υγεία & Ασφάλεια">Health & Safety</h3>
+        <p data-en="Greece is very safe. Pharmacies are widely available, and European Health Cards (EHIC) are valid." data-el="Η Ελλάδα είναι απόλυτα ασφαλής. Φαρμακεία υπάρχουν παντού και ισχύει η Ευρωπαϊκή Κάρτα Ασφάλισης (ΕΚΑΑ).">Greece is very safe. Pharmacies are widely available, and European Health Cards (EHIC) are valid.</p>
+      </div>
+
+      <!-- 7. Electricity & Plugs -->
+      <div class="prac-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2v6M6 8v4a6 6 0 0 0 12 0V8M9 22h6M12 18v4"/></svg>
+        <h3 data-en="Electricity & Plugs" data-el="Ρεύμα & Πρίζες">Electricity & Plugs</h3>
+        <p data-en="Standard voltage is 230V (50Hz) with Type C and F plugs. Non-EU travelers may need an adapter." data-el="Standard τάση 230V (50Hz) με πρίζες τύπου C και F. Ταξιδιώτες εκτός ΕΕ μπορεί να χρειαστούν ανταπτοράκι.">Standard voltage is 230V (50Hz) with Type C and F plugs. Non-EU travelers may need an adapter.</p>
+      </div>
+
+      <!-- 8. Sun & Heat Protection -->
+      <div class="prac-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <h3 data-en="Sun & Meltemi Wind" data-el="Ήλιος & Μετέμια">Sun & Meltemi Wind</h3>
+        <p data-en="Sunscreen and hydration are essential. Strong summer winds (Meltemi) in August can affect ferry schedules." data-el="Αντηλιακό και ενυδάτωση είναι απαραίτητα. Τα δυνατά μελτέμια τον Αύγουστο ενδέχεται να επηρεάσουν τα δρομολόγια.">Sunscreen and hydration are essential. Strong summer winds (Meltemi) in August can affect ferry schedules.</p>
+      </div>
+
+      <!-- 9. Tipping Culture -->
+      <div class="prac-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        <h3 data-en="Tipping Culture" data-el="Φιλοδώρημα">Tipping Culture</h3>
+        <p data-en="Tipping is not strictly mandatory but appreciated. Leaving 5%–10% in tavernas and cafes is common." data-el="Το φιλοδώρημα δεν είναι υποχρεωτικό αλλά εκτιμάται. Ένα 5%–10% σε ταβέρνες και καφέ είναι σύνηθες.">Tipping is not strictly mandatory but appreciated. Leaving 5%–10% in tavernas and cafes is common.</p>
+      </div>
+
+      <!-- 10. Internet & Mobile eSIM -->
+      <div class="prac-card">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+        <h3 data-en="Mobile & Connectivity" data-el="Ίντερνετ & eSIM">Mobile & Connectivity</h3>
+        <p data-en="EU roaming is free. Travelers from third countries can easily get a local prepaid SIM or eSIM." data-el="Το EU roaming είναι δωρεάν. Ταξιδιώτες εκτός ΕΕ μπορούν εύκολα να πάρουν τοπική κάρτα SIM ή eSIM.">EU roaming is free. Travelers from third countries can easily get a local prepaid SIM or eSIM.</p>
       </div>
     </div>
   </section>
@@ -65,7 +184,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="logo" style="margin-bottom:14px;"><b>GREEK</b>-ISLAND-GUIDE</div>
+        <a href="main.html" class="logo" style="margin-bottom:14px;" data-en="GREEK-ISLAND-GUIDE" data-el="ΟΔΗΓΟΣ ΕΛΛΗΝΙΚΩΝ ΝΗΣΙΩΝ"><b>GREEK</b>-ISLAND-GUIDE</a>
         <p style="color:var(--ink-soft);font-size:14px;max-width:260px;" data-en="A travel guide to the Greek islands and mainland Greece, made by people who love the Aegean." data-el="Ταξιδιωτικός οδηγός για τα ελληνικά νησιά και την ηπειρωτική Ελλάδα, φτιαγμένος από ανθρώπους που αγαπούν το Αιγαίο.">A travel guide to the Greek islands and mainland Greece, made by people who love the Aegean.</p>
       </div>
       <div>
@@ -81,8 +200,8 @@
       </div>
       <div>
         <h4 data-en="Language" data-el="Γλώσσα">Language</h4>
-        <a href="#" onclick="setLang('en');return false;">English</a>
-        <a href="#" onclick="setLang('el');return false;">Ελληνικά</a>
+        <a href="#" onclick="if(typeof setLang === 'function') setLang('en'); return false;">English</a>
+        <a href="#" onclick="if(typeof setLang === 'function') setLang('el'); return false;">Ελληνικά</a>
       </div>
       <div>
         <h4 data-en="Legal" data-el="Νομικά">Legal</h4>
@@ -101,5 +220,31 @@
 </footer>
 
 <script src="i18n.js"></script>
+<script>
+  function toggleMobileMenu() {
+    var nav = document.getElementById('mobile-nav');
+    if (nav) {
+      nav.classList.toggle('active');
+    }
+  }
+
+  function updateLogoText() {
+    var lang = typeof getLang === 'function' ? getLang() : 'en';
+    var logos = document.querySelectorAll('.logo');
+    logos.forEach(function(el) {
+      var text = el.getAttribute('data-' + lang);
+      if(text) {
+        if(lang === 'en') {
+          el.innerHTML = '<b>GREEK</b>-ISLAND-GUIDE';
+        } else {
+          el.innerHTML = text;
+        }
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', updateLogoText);
+  document.addEventListener('langchange', updateLogoText);
+</script>
 </body>
 </html>
