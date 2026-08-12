@@ -90,6 +90,12 @@
     <ul id="isl-highlights" class="highlights-list"></ul>
   </div>
 
+  <!-- New Sweet Section -->
+  <div class="detail-section">
+    <h3 data-en="Local Sweets & Delicacies" data-el="Τοπικά Γλυκά & Λιχουδιές">Local Sweets & Delicacies</h3>
+    <p id="isl-sweet"></p>
+  </div>
+
   <div style="margin-top: 40px;">
     <a href="islands.html" class="backlink">← <span data-en="Back to all islands" data-el="Πίσω σε όλα τα νησιά">Back to all islands</span></a>
   </div>
@@ -165,6 +171,9 @@
     document.getElementById('isl-more').textContent = island.more ? island.more[lang] : '';
     document.getElementById('isl-more2').textContent = island.more2 ? island.more2[lang] : '';
     document.getElementById('isl-best').textContent = island.best[lang];
+    
+    // Render sweet info
+    document.getElementById('isl-sweet').textContent = island.sweet ? island.sweet[lang] : '';
 
     var creditLabel = lang === 'en' ? 'Photo: ' : 'Φωτογραφία: ';
     document.getElementById('isl-credit').textContent = creditLabel + island.credit;
