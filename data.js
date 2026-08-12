@@ -23,7 +23,8 @@ const ISLANDS = [
     highlights: {
       en: ['Sunset in Oia', 'Caldera-view villages', 'Volcanic black-sand beaches', 'Assyrtiko wine tasting', 'Boat trip to Nea Kameni volcano', 'Akrotiri Bronze Age site'],
       el: ['Ηλιοβασίλεμα στην Οία', 'Χωριά με θέα στην καλντέρα', 'Ηφαιστειογενείς μαύρες παραλίες', 'Γευσιγνωσία Ασύρτικου', 'Βαρκάδα στο ηφαίστειο Νέα Καμένη', 'Οικισμός Ακρωτηρίου της Εποχής του Χαλκού']
-    }
+    },
+    sweet: { en: ['Kopania', 'Melitinia'], el: ['Κοπανιά', 'Μελιτίνια'] }
   },
   {
     slug: 'mykonos',
@@ -49,7 +50,8 @@ const ISLANDS = [
     highlights: {
       en: ['Little Venice', 'Windmills of Kato Mili', 'Beach clubs at Paradise & Super Paradise', 'Day trip to Delos', 'Chora\'s maze-like old town', 'Panagia Paraportiani church'],
       el: ['Μικρή Βενετία', 'Ανεμόμυλοι Κάτω Μύλοι', 'Beach clubs στο Paradise & Super Paradise', 'Ημερήσια εκδρομή στη Δήλο', 'Λαβυρινθώδης παλιά πόλη της Χώρας', 'Εκκλησία Παναγία Παραπορτιανή']
-    }
+    },
+    sweet: { en: ['Amygdalota'], el: ['Αμυγδαλωτά'] }
   },
   {
     slug: 'naxos',
@@ -75,7 +77,8 @@ const ISLANDS = [
     highlights: {
       en: ['Portara gate', 'Mountain villages of Apeiranthos & Halki', 'Plaka & Agios Prokopios beaches', 'Local Kitron liqueur', 'Mount Zas hiking trail', 'Unfinished Kouros statues'],
       el: ['Πορτάρα', 'Ορεινά χωριά Απείρανθος & Χαλκί', 'Παραλίες Πλάκα & Άγιος Προκόπιος', 'Τοπικό λικέρ Κίτρο', 'Μονοπάτι πεζοπορίας στο όρος Ζας', 'Ημιτελείς Κούροι']
-    }
+    },
+    sweet: { en: ['Melachrino'], el: ['Μελαχρινό'] }
   },
   {
     slug: 'paros',
@@ -101,7 +104,8 @@ const ISLANDS = [
     highlights: {
       en: ['Kastro quarter, Parikia', 'Naoussa harbour', 'Lefkes mountain village', 'Golden Beach windsurfing', 'Panagia Ekatontapiliani church', 'Day trip to Antiparos'],
       el: ['Κάστρο, Παροικιά', 'Λιμάνι Νάουσας', 'Ορεινό χωριό Λεύκες', 'Windsurfing στη Χρυσή Ακτή', 'Παναγία Εκατονταπυλιανή', 'Ημερήσια εκδρομή στην Αντίπαρο']
-    }
+    },
+    sweet: { en: ['Rafiolia'], el: ['Ραφιόλια'] }
   },
   {
     slug: 'milos',
@@ -127,7 +131,8 @@ const ISLANDS = [
     highlights: {
       en: ['Sarakiniko beach', 'Kleftiko sea caves by boat', 'Plaka village & castle view', 'Klima fishing village', 'Catacombs of Milos', 'Tsigrado & Fyriplaka beaches'],
       el: ['Παραλία Σαρακήνικο', 'Σπηλιές Κλέφτικο με βάρκα', 'Χωριό Πλάκα & θέα από το κάστρο', 'Ψαροχώρι Κλήμα', 'Κατακόμβες της Μήλου', 'Παραλίες Τσιγκράδο & Φυριπλάκα']
-    }
+    },
+    sweet: { en: ['Koufelia'], el: ['Κουφέλια'] }
   },
   {
     slug: 'ios',
@@ -153,7 +158,8 @@ const ISLANDS = [
     highlights: {
       en: ['Chora nightlife', 'Mylopotas beach', 'Kastro ruins above Chora', 'Theodoti & Manganari beaches', "Homer's Tomb at Plakoto", 'Prehistoric site of Skarkos'],
       el: ['Νυχτερινή ζωή στη Χώρα', 'Παραλία Μυλοπόταμος', 'Ερείπια Κάστρου πάνω από τη Χώρα', 'Παραλίες Θεοδότη & Μαγγανάρι', 'Τάφος του Ομήρου στο Πλακωτό', 'Προϊστορικός οικισμός Σκάρκου']
-    }
+    },
+    sweet: { en: ['Amygdalota'], el: ['Αμυγδαλωτά'] }
   },
   {
     slug: 'sifnos',
@@ -179,7 +185,8 @@ const ISLANDS = [
     highlights: {
       en: ['Kastro village', 'Local pottery workshops', 'Chrissopigi monastery', 'Slow-cooked clay-pot cuisine', 'Traditional revithada & mastelo', 'Apollonia evening strolls'],
       el: ['Χωριό Κάστρο', 'Τοπικά εργαστήρια κεραμικής', 'Μοναστήρι Χρυσοπηγής', 'Κουζίνα σε πήλινα σκεύη', 'Παραδοσιακή ρεβιθάδα & μαστέλο', 'Βραδινή βόλτα στην Απολλωνία']
-    }
+    },
+    sweet: { en: ['Pastel'], el: ['Παστέλι'] }
   },
   {
     slug: 'serifos',
@@ -205,7 +212,8 @@ const ISLANDS = [
     highlights: {
       en: ['Chora hilltop village', 'Livadi port beaches', 'Old iron-mining sites', 'Panagia Skopiani church', 'Psili Ammos beach', 'Megalo Livadi historical bay'],
       el: ['Χώρα στην κορυφή του λόφου', 'Παραλίες στο λιμάνι Λιβάδι', 'Παλιές θέσεις εξόρυξης σιδήρου', 'Εκκλησία Παναγία Σκοπιανή', 'Παραλία Ψιλή Άμμος', 'Ιστορικός όρμος Μεγάλο Λιβάδι']
-    }
+    },
+    sweet: { en: ['Pastel'], el: ['Παστέλι'] }
   },
   {
     slug: 'folegandros',
@@ -231,7 +239,8 @@ const ISLANDS = [
     highlights: {
       en: ['Chora\'s clifftop main square', 'Katergo beach', 'Ano Meria folklore museum', 'Church of Panagia above Chora', 'Medieval Kastro quarter', 'Zigzagging sunset walking path'],
       el: ['Κεντρική πλατεία της Χώρας πάνω στον γκρεμό', 'Παραλία Κάτεργο', 'Λαογραφικό μουσείο Άνω Μεριάς', 'Εκκλησία Παναγίας πάνω από τη Χώρα', 'Μεσαιωνική συνοικία Κάστρο', 'Ελικοειδές μονοπάτι για το ηλιοβασίλεμα']
-    }
+    },
+    sweet: { en: ['Karpouzeta'], el: ['Καρπουζένια'] }
   },
   {
     slug: 'rhodes',
@@ -257,7 +266,8 @@ const ISLANDS = [
     highlights: {
       en: ['Street of the Knights', 'Palace of the Grand Master', 'Lindos acropolis & beach', 'Old Town city walls', 'Valley of the Butterflies', 'Ancient Kamiros ruins'],
       el: ['Οδός των Ιπποτών', 'Παλάτι του Μεγάλου Μαγίστρου', 'Ακρόπολη & παραλία Λίνδου', 'Τείχη της Παλιάς Πόλης', 'Κοιλάδα των Πεταλούδων', 'Ερείπια αρχαίας Καμείρου']
-    }
+    },
+    sweet: { en: ['Melekounia'], el: ['Μελεκούνι'] }
   },
   {
     slug: 'kos',
@@ -283,7 +293,8 @@ const ISLANDS = [
     highlights: {
       en: ['Neratzia Castle', 'Ancient Asklepieion', 'Tree of Hippocrates', 'South-coast sandy beaches', 'Sunset views in Zia village', 'Therma natural hot springs'],
       el: ['Κάστρο Νερατζιάς', 'Αρχαίο Ασκληπιείο', 'Πλάτανος του Ιπποκράτη', 'Αμμώδεις παραλίες νότιας ακτής', 'Ηλιοβασίλεμα στο χωριό Ζιά', 'Θερμά ιαματικά λουτρά']
-    }
+    },
+    sweet: { en: ['Pitaroudia'], el: ['Πιταρούδια'] }
   },
   {
     slug: 'corfu',
@@ -309,7 +320,8 @@ const ISLANDS = [
     highlights: {
       en: ['Liston promenade', 'Old Fortress', 'Paleokastritsa coastline', 'Local pastitsada cuisine', 'Achilleion Palace', 'Cricket ground in Spianada Square'],
       el: ['Στοά Λιστόν', 'Παλαιό Φρούριο', 'Ακτογραμμή Παλαιοκαστρίτσας', 'Τοπική κουζίνα με παστιτσάδα', 'Αχίλλειο', 'Γήπεδο κρίκετ στη Σπιανάδα']
-    }
+    },
+    sweet: { en: ['Mandoles'], el: ['Μάντολες'] }
   },
   {
     slug: 'zakynthos',
@@ -335,7 +347,8 @@ const ISLANDS = [
     highlights: {
       en: ['Navagio (Shipwreck) beach', 'Blue Caves', 'Loggerhead turtle nesting beaches', "Zakynthos Town's Venetian layout", 'Bochali hilltop view', 'Traditional Volimes village'],
       el: ['Παραλία Ναυάγιο', 'Γαλάζιες Σπηλιές', 'Παραλίες φωλιάσματος καρέτα-καρέτα', 'Ενετικό σχέδιο της πόλης Ζακύνθου', 'Θέα από τον λόφο της Μπόχαλης', 'Παραδοσιακό χωριό Βολίμες']
-    }
+    },
+    sweet: { en: ['Pastel'], el: ['Παστέλι'] }
   },
   {
     slug: 'kefalonia',
@@ -361,7 +374,8 @@ const ISLANDS = [
     highlights: {
       en: ['Myrtos Beach', 'Melissani cave-lake', 'Fiskardo village', 'Mount Ainos National Park', 'Assos village & fortress', 'Robola wine tasting'],
       el: ['Παραλία Μύρτος', 'Σπηλιά-λίμνη Μελισσάνη', 'Χωριό Φισκάρδο', 'Εθνικό Πάρκο Αίνου', 'Χωριό & κάστρο Άσσου', 'Γευσιγνωσία κρασιού Ρομπόλα']
-    }
+    },
+    sweet: { en: ['Mandoles'], el: ['Μάντολες'] }
   },
   {
     slug: 'lefkada',
@@ -387,7 +401,8 @@ const ISLANDS = [
     highlights: {
       en: ['Porto Katsiki beach', 'Egremni beach', 'Karya village embroidery', 'Nydri as a base for boat trips', 'Vasiliki windsurfing bay', 'Excursions to Meganisi & Skorpios'],
       el: ['Παραλία Πόρτο Κατσίκι', 'Παραλία Εγκρεμνοί', 'Κέντημα στο χωριό Καρυά', 'Νυδρί ως βάση για βαρκάδες', 'Κόλπος Βασιλικής για windsurfing', 'Εκδρομές σε Μεγανήσι & Σκορπιό']
-    }
+    },
+    sweet: { en: ['Mandoles'], el: ['Μάντολες'] }
   },
   {
     slug: 'chania',
@@ -413,7 +428,8 @@ const ISLANDS = [
     highlights: {
       en: ['Old Venetian Harbour', 'Samaria Gorge', 'Balos & Elafonisi beaches', 'Chania covered market', 'Venetian shipyards (Neoria)', 'Firka Fortress & maritime museum'],
       el: ['Παλιό Ενετικό Λιμάνι', 'Φαράγγι Σαμαριάς', 'Παραλίες Μπάλος & Ελαφονήσι', 'Στεγασμένη αγορά Χανίων', 'Ενετικά Νεώρια', 'Φρούριο Φιρκά & ναυτικό μουσείο']
-    }
+    },
+    sweet: { en: ['Kalitsounia'], el: ['Καλιτσούνια'] }
   },
   {
     slug: 'heraklion',
@@ -439,7 +455,8 @@ const ISLANDS = [
     highlights: {
       en: ['Palace of Knossos', 'Koules Fortress', 'Archaeological Museum of Heraklion', 'Venetian city walls', 'Morosini Lions Fountain', 'Phaistos Minoan palace'],
       el: ['Ανάκτορο της Κνωσού', 'Κάστρο Κούλες', 'Αρχαιολογικό Μουσείο Ηρακλείου', 'Ενετικά τείχη της πόλης', 'Σιντριβάνι των Λεόντων', 'Μινωικό ανάκτορο Φαιστού']
-    }
+    },
+    sweet: { en: ['Kalitsounia'], el: ['Καλιτσούνια'] }
   },
   {
     slug: 'skiathos',
@@ -465,7 +482,8 @@ const ISLANDS = [
     highlights: {
       en: ['Koukounaries beach', 'Lalaria beach by boat', 'Bourtzi islet', 'Old Kastro fortress ruins', 'Papadiamantis House Museum', 'Mandraki & Banana beaches'],
       el: ['Παραλία Κουκουναριές', 'Παραλία Λαλάρια με βάρκα', 'Νησάκι Μπούρτζι', 'Ερείπια παλιού Κάστρου', 'Μουσείο Παπαδιαμάντη', 'Παραλίες Μανδράκι & Μπανcopied']
-    }
+    },
+    sweet: { en: ['Amygdalota'], el: ['Αμυγδαλωτά'] }
   },
   {
     slug: 'hydra',
@@ -491,7 +509,8 @@ const ISLANDS = [
     highlights: {
       en: ['Car-free stone-mansion harbour', 'Vlychos & Bisti beaches by water taxi', 'Historical Archives Museum', 'Hilltop monasteries', 'Lazaros Koundouriotis Manor', 'Bastions with historic cannons'],
       el: ['Λιμάνι χωρίς αυτοκίνητα με αρχοντικά', 'Παραλίες Βλυχός & Μπίστι με υδροταξί', 'Ιστορικό Αρχείο - Μουσείο', 'Μοναστήρια στους λόφους', 'Αρχοντικό Λαζάρου Κουντουριώτη', 'Προμαχώνες με τα ιστορικά κανόνια']
-    }
+    },
+    sweet: { en: ['Amygdalota'], el: ['Αμυγδαλωτά'] }
   },
   {
     slug: 'samos',
@@ -517,7 +536,8 @@ const ISLANDS = [
     highlights: {
       en: ['Pythagoreio harbour', 'Ancient Eupalinos tunnel-aqueduct', 'Heraion temple ruins', 'Muscat vineyards', 'Potami waterfalls & gorge', 'Kokkari fishing village'],
       el: ['Λιμάνι Πυθαγορείου', 'Αρχαία σήραγγα-υδραγωγείο Ευπαλίνου', 'Ερείπια ναού Ηραίου', 'Αμπελώνες μοσχάτου', 'Καταρράκτες στο Ποτάμι', 'Ψαροχώρι Κοκκάρι']
-    }
+    },
+    sweet: { en: ['Samian glyko'], el: ['Σαμιώτικο γλυκό'] }
   },
   {
     slug: 'chios',
@@ -543,7 +563,8 @@ const ISLANDS = [
     highlights: {
       en: ['Mesta fortified village', 'Mastic-growing villages', 'Nea Moni monastery', 'Chios Town castle', 'Pyrgi village with "xysta" designs', 'Mavra Volia black-pebble beach'],
       el: ['Οχυρωμένο χωριό Μεστά', 'Μαστιχοχώρια', 'Μονή Νέας Μονής', 'Κάστρο της πόλης της Χίου', 'Χωριό Πυργί με τα "ξυστά"', 'Παραλία Μαύρα Βόλια']
-    }
+    },
+    sweet: { en: ['Ypovrichio'], el: ['Υποβρύχιο'] }
   },
   {
     slug: 'thassos',
@@ -569,7 +590,8 @@ const ISLANDS = [
     highlights: {
       en: ['Ancient Thasos ruins in Limenas', 'Golden Beach', 'Panagia village', 'Ring-road drive around the island', 'Giola natural rock pool', 'Monastery of Archangel Michael'],
       el: ['Αρχαία Θάσος στον Λιμένα', 'Χρυσή Αμμουδιά', 'Χωριό Παναγία', 'Διαδρομή στον περιφερειακό δρόμο του νησιού', 'Φυσική πισίνα Γκιόλα', 'Μονή Αρχαγγέλου Μιχαήλ']
-    }
+    },
+    sweet: { en: ['Glyko karydaki'], el: ['Γλυκό καρυδάκι'] }
   },
   {
     slug: 'patmos',
@@ -595,7 +617,8 @@ const ISLANDS = [
     highlights: {
       en: ['Monastery of Saint John the Theologian', 'Cave of the Apocalypse', 'Chora\'s captains\' houses', 'Quiet swimming coves', 'Windmills of Chora', 'Boat trips to Marathi & Arkoi'],
       el: ['Μονή Αγίου Ιωάννου του Θεολόγου', 'Σπήλαιο της Αποκάλυψης', 'Καπετανόσπιτα της Χώρας', 'Ήσυχοι κολπίσκοι για μπάνιο', 'Ανεμόμυλοι της Χώρας', 'Εκδρομές με βάρκα στο Μαράθι']
-    }
+    },
+    sweet: { en: ['Poungia'], el: ['Πουγκιά'] }
   },
   {
     slug: 'karpathos',
@@ -621,7 +644,8 @@ const ISLANDS = [
     highlights: {
       en: ['Olympos mountain village', 'Traditional dress & dialect', 'Windsurfing at Afiartis', 'Finiki fishing village', 'Apella & Kyra Panagia beaches', 'Hiking ancient mountain paths'],
       el: ['Ορεινό χωριό Όλυμπος', 'Παραδοσιακή φορεσιά & διάλεκτος', 'Windsurfing στον Αφιάρτη', 'Ψαροχώρι Φοίνικας', 'Παραλίες Άπελλα & Κυρά Παναγιά', 'Πεζοπορία σε ορεινά μονοπάτια']
-    }
+    },
+    sweet: { en: ['Baklava'], el: ['Μπακλαβάς'] }
   },
   {
     slug: 'skopelos',
@@ -647,7 +671,8 @@ const ISLANDS = [
     highlights: {
       en: ['Skopelos Town harbour', 'Mamma Mia! chapel viewpoint', 'Panormos & Milia beaches', 'Plum orchards & local sweets', 'Kastani & Hovolo beaches', 'Agios Ioannis Kastri cliff chapel'],
       el: ['Λιμάνι Σκοπέλου', 'Εκκλησάκι από το Mamma Mia!', 'Παραλίες Πάνορμος & Μηλιά', 'Δαμασκηνεώνες & τοπικά γλυκά', 'Παραλίες Καστάνη & Χόβολο', 'Άγιος Ιωάννης στο Καστρί']
-    }
+    },
+    sweet: { en: ['Avgato'], el: ['Αυγάτο'] }
   },
   {
     slug: 'aegina',
@@ -673,7 +698,8 @@ const ISLANDS = [
     highlights: {
       en: ['Temple of Aphaia', 'Local pistachios', 'Aegina Town harbour', 'Moni islet nature reserve', 'Monastery of Agios Nektarios', 'Medieval Paleochora ruins'],
       el: ['Ναός της Αφαίας', 'Τοπικό φιστίκι', 'Λιμάνι της πόλης Αίγινας', 'Φυσικό καταφύγιο νησίδας Μονή', 'Μονή Αγίου Νεκταρίου', 'Μεσαιωνική Παλαιοχώρα']
-    }
+    },
+    sweet: { en: ['Pistachio sweets'], el: ['Φιστικωτά'] }
   },
   {
     slug: 'syros',
@@ -699,7 +725,8 @@ const ISLANDS = [
     highlights: {
       en: ['Miaouli Square & town hall', 'Ano Syros hilltop old town', 'Vaporia neoclassical mansions', 'Apollo Theatre', 'Local loukoumia & halvadopita', 'Markos Vamvakaris Museum'],
       el: ['Πλατεία Μιαούλη & δημαρχείο', 'Άνω Σύρος στην κορυφή του λόφου', 'Νεοκλασικά αρχοντικά στα Βαπόρια', 'Θέατρο Απόλλων', 'Συριανά λουκούμια & χαλβαδόπιτες', 'Μουσείο Μάρκου Βαμβακάρη']
-    }
+    },
+    sweet: { en: ['Loukoumi', 'Halvadopita'], el: ['Λουκούμι', 'Χαλβαδόπιτα'] }
   },
   {
     slug: 'spetses',
@@ -725,7 +752,8 @@ const ISLANDS = [
     highlights: {
       en: ['Horse-drawn carriage rides', 'Old Harbour mansions', 'Water-taxi beach coves', 'Bekiris Cave', 'Bouboulina Museum', 'Dapia harbour & Poseidonion Hotel'],
       el: ['Βόλτα με άμαξα', 'Αρχοντικά στο Παλιό Λιμάνι', 'Κολπίσκοι με υδροταξί', 'Σπηλιά Μπεκίρη', 'Μουσείο Μπουμπουλίνας', 'Ντάπια & Ξενοδοχείο Ποσειδώνιο']
-    }
+    },
+    sweet: { en: ['Amygdalota'], el: ['Αμυγδαλωτά'] }
   },
   {
     slug: 'amorgos',
@@ -750,293 +778,24 @@ const ISLANDS = [
     best: { en: 'May–September', el: 'Μάιος–Σεπτέμβριος' },
     highlights: {
       en: ['Monastery of Panagia Chozoviotissa', 'Chora\'s Venetian castle ruins', 'Aigiali beach & village', 'Hiking trails between villages', 'Olympia shipwreck bay', 'Traditional Psimeni Raki tasting'],
-      el: ['Μονή Παναγίας Χοζοβιώτισσας', 'Ερείπια ενετικού κάστρου στη Χώρα', 'Παραλία & χωριό Αιγιάλη', 'Μονοπάτια πεζοπορίας ανάμεσα σε χωριά', 'Ναυάγιο της Ολυμπίας', 'Γευσιγνωσία για Ψημένη Ρακή']
-    }
-  },
-  {
-    slug: 'poros',
-    group: 'saronic',
-    groupName: { en: 'Saronic Islands', el: 'Σαρωνικά Νησιά' },
-    name: { en: 'Poros', el: 'Πόρος' },
-    tagline: { en: 'A narrow strait from the Peloponnese', el: 'Ένα στενό πέρασμα από την Πελοπόννησο' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Poros_Greece.JPG?width=1400',
-    credit: 'Wikimedia Commons contributor, CC BY 2.0',
-    desc: {
-      en: 'Poros is separated from the Peloponnesian mainland by a strait so narrow that boats and the town\'s waterfront cafés sit almost within touching distance of each other. The hillside town climbs steeply from the harbour, with a clock tower marking its highest point.',
-      el: 'Ο Πόρος χωρίζεται από την ηπειρωτική Πελοπόννησο με ένα τόσο στενό πέρασμα, που οι βάρκες και τα παραλιακά καφέ της πόλης βρίσκονται σχεδόν σε απόσταση αναπνοής. Η πόλη ανεβαίνει απότομα από το λιμάνι στην πλαγιά, με ένα ρολόι να σηματοδοτεί το ψηλότερο σημείο της.'
+      el: ['Μονή Παναγίας Χοζοβιώτισσας', 'Ερείπια βενετσιάνικου κάστρου στη Χώρα', 'Παραλία & χωριό Αιγιάλη', 'Μονοπάτια πεζοπορίας μεταξύ χωριών', 'Όρμος ναυαγίου Ολυμπία', 'Δοκιμή παραδοσιακής Ψημένης Ρακής']
     },
-    more: {
-      en: 'The island is actually two small landmasses joined by a causeway: Sferia, where the town sits, and the larger, pine-covered Kalavria. Just across the strait, the small Peloponnesian town of Galatas makes for an easy excursion and is known for its lemon groves.',
-      el: 'Το νησί είναι στην πραγματικότητα δύο μικρές στεριές ενωμένες με ένα πέρασμα: η Σφαιρία, όπου βρίσκεται η πόλη, και η μεγαλύτερη, πευκόφυτη Καλαυρία. Ακριβώς απέναντι από το πέρασμα, η μικρή πελοποννησιακή πόλη Γαλατάς προσφέρει μια εύκολη εκδρομή και είναι γνωστή για τους λεμονεώνες της.'
-    },
-    more2: {
-      en: 'Among pine forest in Kalavria lie the stone ruins of the sanctuary of Poseidon, an ancient sanctuary where the orator Demosthenes sought refuge. On the island\'s coast, Love Bay features turquoise waters shaded by thick pine trees hanging directly over the sand.',
-      el: 'Μέσα στο πευκοδάσος της Καλαυρίας βρίσκονται τα πέτρινα ερείπια του Ιερού του Ποσειδώνα, όπου κατέφυγε ο ρήτορας Δημοσθένης. Στην ακτή του νησιού, το Λιμανάκι της Αγάπης διαθέτει τιρκουάζ νερά υπό τη σκιά των πεύκων που φτάνουν στην άμμο.'
-    },
-    best: { en: 'April–October', el: 'Απρίλιος–Οκτώβριος' },
-    highlights: {
-      en: ['Clock tower & hillside town', 'Strait crossing to Galatas', 'Temple of Poseidon ruins', 'Pine forests of Kalavria', 'Love Bay (Limanaki Agapis)', 'Lemon Forest of Galatas nearby'],
-      el: ['Ρολόι & πόλη στην πλαγιά', 'Πέρασμα προς τον Γαλατά', 'Ερείπια ναού Ποσειδώνα', 'Πευκοδάση Καλαυρίας', 'Λιμανάκι της Αγάπης', 'Λεμονοδάσος Γαλατά κοντά']
-    }
-  },
-  {
-    slug: 'kythnos',
-    group: 'cyclades',
-    groupName: { en: 'Cyclades', el: 'Κυκλάδες' },
-    name: { en: 'Kythnos', el: 'Κύθνος' },
-    tagline: { en: 'An overlooked, quiet Cycladic island', el: 'Ένα παραγνωρισμένο, ήσυχο κυκλαδίτικο νησί' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Agios_Minas_beach%2C_Kythnos_airview.JPG?width=1400',
-    credit: 'Wikimedia Commons contributor, CC BY-SA 3.0',
-    desc: {
-      en: 'Kythnos sits close to Athens but sees far fewer visitors than its Cycladic neighbours, making it popular mainly with Athenians on weekend trips. Its two main villages, Chora and Dryopida, have distinctly different looks — flat Cycladic roofs in one, tiled roofs in the other.',
-      el: 'Η Κύθνος βρίσκεται κοντά στην Αθήνα αλλά δέχεται πολύ λιγότερους επισκέπτες από τα γειτονικά κυκλαδίτικα νησιά, γεγονός που την κάνει δημοφιλή κυρίως σε Αθηναίους για Σαββατοκύριακο. Τα δύο κύρια χωριά της, η Χώρα και η Δρυοπίδα, έχουν σαφώς διαφορετική όψη — επίπεδες κυκλαδίτικες στέγες στο ένα, κεραμοσκεπές στο άλλο.'
-    },
-    more: {
-      en: 'The island has a scattering of thermal springs at Loutra, once popular with 19th-century visitors seeking their healing properties, and dozens of beaches that stay uncrowded even in August compared with more established island destinations.',
-      el: 'Το νησί έχει διάσπαρτες ιαματικές πηγές στα Λουτρά, που ήταν κάποτε δημοφιλείς σε επισκέπτες του 19ου αιώνα για τις θεραπευτικές τους ιδιότητες, και δεκάδες παραλίες που παραμένουν χωρίς πολύ κόσμο ακόμα και τον Αύγουστο σε σύγκριση με πιο καθιερωμένους νησιωτικούς προορισμούς.'
-    },
-    more2: {
-      en: 'The landmark of Kythnos is Kolona, a famous double-sided beach formed by a narrow strip of sand connecting the island to the islet of Agios Loukas. In Dryopida, visitors can explore Katafiki Cave, one of the largest natural caves in Greece, which served as a refuge during Ottoman and World War II times.',
-      el: 'Το σήμα κατατεθέν της Κύθνου είναι η Κολώνα, μια διπλή παραλία που σχηματίζεται από μια στενή λωρίδα άμμου που συνδέει το νησί με τη νησίδα του Αγίου Λουκά. Στη Δρυοπίδα, οι επισκέπτες μπορούν να εξερευνήσουν το Σπήλαιο Καταφύκι, ένα από τα μεγαλύτερα σπήλαια στην Ελλάδα.'
-    },
-    best: { en: 'June–September', el: 'Ιούνιος–Σεπτέμβριος' },
-    highlights: {
-      en: ['Chora & Dryopida villages', 'Thermal springs at Loutra', 'Kolona double beach', 'Uncrowded coastline', 'Katafiki Cave in Dryopida', 'Panagia Kanala monastery'],
-      el: ['Χωριά Χώρα & Δρυοπίδα', 'Ιαματικές πηγές στα Λουτρά', 'Διπλή παραλία Κολώνα', 'Ακτογραμμή χωρίς πολύ κόσμο', 'Σπήλαιο Καταφύκι στη Δρυοπίδα', 'Παναγία Κανάλα']
-    }
-  },
-  {
-    slug: 'astypalaia',
-    group: 'dodecanese',
-    groupName: { en: 'Dodecanese', el: 'Δωδεκάνησα' },
-    name: { en: 'Astypalaia', el: 'Αστυπάλαια' },
-    tagline: { en: 'A butterfly-shaped island with a hilltop castle', el: 'Νησί σε σχήμα πεταλούδας με κάστρο στον λόφο' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/%CE%9A%CE%AC%CF%83%CF%84%CF%81%CE%BF_%CE%91%CF%83%CF%84%CF%81%CE%BF%CF%80%CE%B1%CE%BB%CE%B9%CE%AC%CF%82_3.jpg?width=1400',
-    credit: 'Wikimedia Commons contributor, CC BY-SA 4.0',
-    desc: {
-      en: 'Astypalaia sits at the western edge of the Dodecanese, closer in feel to the Cyclades, with two landmasses joined by a narrow strip of land that gives the island its distinctive butterfly shape. A Venetian-era castle crowns the hill above Chora, its whitewashed houses built into the fortress walls themselves.',
-      el: 'Η Αστυπάλαια βρίσκεται στη δυτική άκρη των Δωδεκανήσων, με ατμόσφαιρα πιο κοντά στις Κυκλάδες, με δύο κομμάτια στεριάς ενωμένα από μια στενή λωρίδα γης που δίνει στο νησί το χαρακτηριστικό σχήμα πεταλούδας. Ένα ενετικό κάστρο στέφει τον λόφο πάνω από τη Χώρα, με τα ασβεστωμένα σπίτια της χτισμένα μέσα στα ίδια τα τείχη του φρουρίου.'
-    },
-    more: {
-      en: 'Because it lies at the crossing point between two island groups, Astypalaia can be reached by ferry from either Piraeus or some Cycladic islands, though connections are less frequent than to more central destinations. Its relative remoteness has kept the island quiet, with scattered beaches reachable mainly by boat or a rented car.',
-      el: 'Επειδή βρίσκεται στο σημείο συνάντησης δύο νησιωτικών συμπλεγμάτων, η Αστυπάλαια είναι προσβάσιμη με πλοίο είτε από τον Πειραιά είτε από κάποια νησιά των Κυκλάδων, αν και οι συνδέσεις είναι λιγότερο συχνές σε σχέση με πιο κεντρικούς προορισμούς. Η σχετική απομόνωσή της έχει κρατήσει το νησί ήσυχο, με διάσπαρτες παραλίες προσβάσιμες κυρίως με βάρκα ή ενοικιαζόμενο αυτοκίνητο.'
-    },
-    more2: {
-      en: 'At the foot of Chora stand eight restored traditional windmills that mark the entrance to the old quarter. Boat tours frequently take visitors across crystal turquoise waters to uninhabited islets like Koutsomyti and Kaminakia, offering isolated bays and dramatic sea caves.',
-      el: 'Στους πρόποδες της Χώρας δεσπόζουν οκτώ αναστηλωμένοι παραδοσιακοί ανεμόμυλοι που σηματοδοτούν την είσοδο στον παλιό οικισμό. Εκδρομικά σκάφη μεταφέρουν επισκέπτες σε ακατοίκητα νησάκια όπως το Κουτσομύτη και τα Καμινάκια με διάφανα τιρκουάζ νερά.'
-    },
-    best: { en: 'June–September', el: 'Ιούνιος–Σεπτέμβριος' },
-    highlights: {
-      en: ['Querini Castle above Chora', 'Whitewashed windmills', 'Livadi beach', 'Boat trips to nearby islets', 'Koutsomyti & Kaminakia turquoise bays', 'Panagia Portaitissa church'],
-      el: ['Κάστρο Κερίνι πάνω από τη Χώρα', 'Ασβεστωμένοι ανεμόμυλοι', 'Παραλία Λιβάδι', 'Βαρκάδες σε κοντινές νησίδες', 'Τιρκουάζ όρμοι Κουτσομύτη & Καμινάκια', 'Παναγία Πορταΐτισσα']
-    }
-  },
-  {
-    slug: 'anafi',
-    group: 'cyclades',
-    groupName: { en: 'Cyclades', el: 'Κυκλάδες' },
-    name: { en: 'Anafi', el: 'Ανάφη' },
-    tagline: { en: 'A tiny island east of Santorini', el: 'Ένα μικρό νησί ανατολικά της Σαντορίνης' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chora_Anafi.JPG?width=1400',
-    credit: 'Wikimedia Commons contributor, CC BY-SA 3.0',
-    desc: {
-      en: 'Anafi lies just east of Santorini but sees a fraction of its visitors, with a single small Chora and long, largely empty sandy beaches. The island is dominated by Mount Kalamos, one of the tallest sea rocks in the Mediterranean, topped by a small monastery.',
-      el: 'Η Ανάφη βρίσκεται ακριβώς ανατολικά της Σαντορίνης αλλά δέχεται ένα κλάσμα των επισκεπτών της, με μία μικρή Χώρα και μακριές, σε μεγάλο βαθμό άδειες αμμώδεις παραλίες. Το νησί κυριαρχείται από το όρος Κάλαμος, έναν από τους ψηλότερους θαλάσσιους βράχους της Μεσογείου, με ένα μικρό μοναστήρι στην κορυφή του.'
-    },
-    more: {
-      en: 'With no airport and only a handful of ferry connections a week, Anafi requires more effort to reach than most Cycladic islands, which is precisely why it has kept its quiet, undeveloped character. There is little to do beyond walking, swimming and eating at a small number of family-run tavernas — which is the point for those who come.',
-      el: 'Χωρίς αεροδρόμιο και με μόλις λίγες ακτοπλοϊκές συνδέσεις την εβδομάδα, η Ανάφη απαιτεί περισσότερη προσπάθεια για να φτάσει κανείς σε σχέση με τα περισσότερα κυκλαδίτικα νησιά, κάτι που είναι ακριβώς ο λόγος που έχει διατηρήσει τον ήσυχο, ανεπτυγμένο χαρακτήρα της. Δεν υπάρχουν πολλά να κάνεις πέρα από περπάτημα, κολύμπι και φαγητό σε λίγες οικογενειακές ταβέρνες — που είναι ακριβώς αυτό που αναζητούν όσοι έρχονται.'
-    },
-    more2: {
-      en: 'The hiking trail climbing Mount Kalamos leads to the solitary monastery of Panagia Kalamiotissa, offering sweeping views across the open Aegean Sea. Anafi also has a historic link to Athens: 19th-century builders from the island moved to the Greek capital and constructed Anafiotika, a charming Cycladic-style neighborhood nestled directly under the Acropolis.',
-      el: 'Το μοναπάτι που ανεβαίνει στο όρος Κάλαμος οδηγεί στο μοναστήρι της Παναγίας της Καλαμιώτισσας με απέραντη θέα στο Αιγαίο. Η Ανάφη συνδέεται επίσης με την Αθήνα: Αναφιώτες μάστορες του 19ου αιώνα έχτισαν τα Αναφιώτικα, τη γραφική κυκλαδίτικη συνοικία κάτω από την Ακρόπολη.'
-    },
-    best: { en: 'June–September', el: 'Ιούνιος–Σεπτέμβριος' },
-    highlights: {
-      en: ['Mount Kalamos & hilltop chapel', 'Roukounas beach', 'Small, quiet Chora', 'Ancient Zoodochos Pigi monastery ruins', 'Panagia Kalamiotissa monastery hike', 'Connection to Athens\' Anafiotika'],
-      el: ['Όρος Κάλαμος & εκκλησάκι στην κορυφή', 'Παραλία Ρουκούνας', 'Μικρή, ήσυχη Χώρα', 'Ερείπια μονής Ζωοδόχου Πηγής', 'Πεζοπορία στην Παναγία Καλαμιώτισσα', 'Σύνδεση με τα Αναφιώτικα της Αθήνας']
-    }
-  },
-  {
-    slug: 'symi',
-    group: 'dodecanese',
-    groupName: { en: 'Dodecanese', el: 'Δωδεκάνησα' },
-    name: { en: 'Symi', el: 'Σύμη' },
-    tagline: { en: 'Pastel neoclassical harbour houses', el: 'Παστέλ νεοκλασικά σπίτια στο λιμάνι' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Ano_Symi_856_00%2C_Greece_-_panoramio_(1).jpg?width=1400',
-    credit: 'Panoramio upload bot, CC BY-SA 3.0',
-    desc: {
-      en: 'Symi\'s harbour is ringed by tiers of pastel-coloured neoclassical mansions, built during a 19th-century boom when the island was a centre of shipbuilding and sponge diving. The upper town, Ano Symi, is reached by climbing several hundred stone steps from the water.',
-      el: 'Το λιμάνι της Σύμης περιτριγυρίζεται από σειρές παστέλ νεοκλασικών αρχοντικών, χτισμένων κατά την οικονομική άνθηση του 19ου αιώνα, όταν το νησί ήταν κέντρο ναυπηγικής και σφουγγαράδικων. Η άνω πόλη, η Άνω Σύμη, προσεγγίζεται ανεβαίνοντας εκατοντάδες πέτρινα σκαλιά από το νερό.'
-    },
-    more: {
-      en: 'A short boat trip from the harbour leads to the Monastery of the Archangel Michael Panormitis, one of the most important pilgrimage sites in the Dodecanese, set beside a quiet bay. Symi makes an easy day trip from Rhodes, though staying overnight lets you see the harbour lit up once the day-trippers have left.',
-      el: 'Μια σύντομη βαρκάδα από το λιμάνι οδηγεί στη Μονή του Αρχαγγέλου Μιχαήλ Πανορμίτη, έναν από τους σημαντικότερους τόπους προσκυνήματος στα Δωδεκάνησα, χτισμένη δίπλα σε έναν ήσυχο κόλπο. Η Σύμη είναι εύκολη ημερήσια εκδρομή από τη Ρόδο, αν και μια διανυκτέρευση επιτρέπει να δεις το λιμάνι φωτισμένο αφού φύγουν οι ημερήσιοι επισκέπτες.'
-    },
-    more2: {
-      en: 'To reach Ano Symi, visitors climb the Kali Strata, a grand stone staircase of over 500 steps lined with historic merchant mansions. The island is culinary famous for "Symi shrimp", tiny sweet fried shrimp eaten whole, which features prominently in local seaside tavernas.',
-      el: 'Για να φτάσουν στην Άνω Σύμη, οι επισκέπτες ανεβαίνουν την Καλή Στράτα, μια πέτρινη σκάλα με πάνω από 500 σκαλοπάτια ανάμεσα σε αρχοντικά. Το νησί είναι επίσης γαστρονομικά διάσημο για το "συμιακό γαριδάκι", ένα μικροσκοπικό γλυκό γαριδάκι που τρώγεται ολόκληρο.'
-    },
-    best: { en: 'May–September', el: 'Μάιος–Σεπτέμβριος' },
-    highlights: {
-      en: ['Pastel harbour houses', 'Ano Symi upper town', 'Monastery of Panormitis', 'Boat trips to nearby coves', 'Kali Strata historic staircase', 'Local Symi tiny fried shrimp'],
-      el: ['Παστέλ σπίτια στο λιμάνι', 'Άνω πόλη, Άνω Σύμη', 'Μονή Πανορμίτη', 'Βαρκάδες σε κοντινούς κολπίσκους', 'Καλή Στράτα με τα πέτρινα σκαλιά', 'Τοπικό συμιακό γαριδάκι']
-    }
-  },
-  {
-    slug: 'ikaria',
-    group: 'north-aegean',
-    groupName: { en: 'North Aegean', el: 'Βόρειο Αιγαίο' },
-    name: { en: 'Ikaria', el: 'Ικαρία' },
-    tagline: { en: 'One of the world\'s "Blue Zones"', el: 'Μία από τις "Μπλε Ζώνες" του κόσμου' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mesakti_beach.jpg?width=1400',
-    credit: 'Armenistis View Studios, CC BY-SA 3.0',
-    desc: {
-      en: 'Ikaria, named in mythology after Icarus, who is said to have fallen into the sea nearby, is one of the world\'s so-called Blue Zones, regions studied for the unusually long lifespans of their residents. Life here runs on a noticeably slower rhythm than in much of Greece.',
-      el: 'Η Ικαρία, που πήρε το όνομά της κατά τη μυθολογία από τον Ίκαρο, ο οποίος λέγεται πως έπεσε στη θάλασσα κοντά στο νησί, είναι μία από τις λεγόμενες "Μπλε Ζώνες" του κόσμου, περιοχές που μελετώνται για το ασυνήθιστα μεγάλο προσδόκιμο ζωής των κατοίκων τους. Η ζωή εδώ κυλά με αισθητά πιο αργό ρυθμό απ\' ό,τι σε μεγάλο μέρος της Ελλάδας.'
-    },
-    more: {
-      en: 'The island is mountainous and dotted with small, spread-out villages rather than one central town, and shops in some villages have traditionally kept unusually late hours. Beaches such as Mesakti, on the north coast, offer long stretches of golden sand backed by pine-covered hills.',
-      el: 'Το νησί είναι ορεινό και γεμάτο μικρά, διάσπαρτα χωριά αντί για ένα κεντρικό αστικό κέντρο, ενώ τα μαγαζιά σε ορισμένα χωριά έχουν παραδοσιακά ασυνήθιστα αργό ωράριο. Παραλίες όπως το Μεσακτή, στη βόρεια ακτή, προσφέρουν μακριές αμμουδιές με χρυσή άμμο και φόντο πευκόφυτους λόφους.'
-    },
-    more2: {
-      en: 'Ikaria is famous throughout Greece for its summer "panigiria", vibrant traditional festivals with live violin music, local wine, and dancing that lasts until dawn. Exotic beaches like Seychelles feature white pebbles and granite boulders framing brilliant turquoise waters.',
-      el: 'Η Ικαρία είναι διάσημη για τα καλοκαιρινά της πανηγύρια, με ζωντανή παραδοσιακή μουσική, βιολιά, ντόπιο κρασί και χορό μέχρι το πρωί. Εξωτικές παραλίες όπως οι Σεϋχέλλες διαθέτουν λευκά βότσαλα και γρανιτένιους βράχους που πλαισιώνουν καταγάλανα νερά.'
-    },
-    best: { en: 'June–September', el: 'Ιούνιος–Σεπτέμβριος' },
-    highlights: {
-      en: ['Mesakti beach', 'Armenistis village', 'Hot springs at Therma', 'Slow-paced village life', 'Summer village festivals (panigiria)', 'Seychelles beach'],
-      el: ['Παραλία Μεσακτή', 'Χωριό Αρμενιστής', 'Ιαματικές πηγές στα Θέρμα', 'Χωριά με αργό ρυθμό ζωής', 'Ικαριώτικα πανηγύρια', 'Παραλία Σεϋχέλλες']
-    }
-  },
-  {
-    slug: 'nisyros',
-    group: 'dodecanese',
-    groupName: { en: 'Dodecanese', el: 'Δωδεκάνησα' },
-    name: { en: 'Nisyros', el: 'Νίσυρος' },
-    tagline: { en: 'A volcanic crater you can walk into', el: 'Ένας ηφαιστειακός κρατήρας που περπατιέται' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Nisyros_Stefanos_Krater_banner.jpg?width=1400',
-    credit: 'Wikimedia Commons contributor, CC BY 3.0',
-    desc: {
-      en: 'Nisyros is a small, round island formed entirely by a still-active volcano. Visitors can walk down into the Stefanos crater itself, where sulphur deposits, bubbling mud pools and hissing steam vents make the volcanic activity impossible to miss.',
-      el: 'Η Νίσυρος είναι ένα μικρό, στρογγυλό νησί που σχηματίστηκε εξ ολοκλήρου από ένα ηφαίστειο που παραμένει ενεργό. Οι επισκέπτες μπορούν να κατέβουν μέσα στον ίδιο τον κρατήρα Στέφανος, όπου εναποθέσεις θείου, αναβράζουσες λασπολίμνες και ατμός που σφυρίζει κάνουν την ηφαιστειακή δραστηριότητα αδύνατο να περάσει απαρατήρητη.'
-    },
-    more: {
-      en: 'The clifftop village of Nikia looks directly down into the crater and is built in a distinctive circular layout around its main square. Nisyros is usually visited as a day trip from Kos, though staying overnight means having the volcano\'s otherworldly landscape largely to yourself.',
-      el: 'Το χωριό Νικιά, χτισμένο πάνω σε γκρεμό, κοιτάζει απευθείας μέσα στον κρατήρα και έχει χαρακτηριστική κυκλική διάταξη γύρω από την κεντρική πλατεία του. Η Νίσυρος επισκέπτεται συνήθως ως ημερήσια εκδρομή από την Κω, αν και μια διανυκτέρευση σημαίνει να έχεις το αλλόκοτο ηφαιστειακό τοπίο σχεδόν μόνο για τον εαυτό σου.'
-    },
-    more2: {
-      en: 'Mandraki, the island\'s main port town, is crowned by the Monastery of Panagia Spiliani, built into a cave high on a cliff. The town features black volcanic stone pebble mosaics called "chochlakia" in its squares and narrow alleys, reflecting the island\'s unique geology.',
-      el: 'Το Μανδράκι, η πρωτεύουσα, στέφεται από τη Μονή της Παναγίας της Σπηλιανής, χτισμένη σε σπήλαιο πάνω στον βράχο. Η πόλη διαθέτει εντυπωσιακά βοτσαλωτά δάπεδα ("χοχλάκια") από μαύρη ηφαιστειακή πέτρα στις πλατείες και τα σοκάκια της.'
-    },
-    best: { en: 'May–September', el: 'Μάιος–Σεπτέμβριος' },
-    highlights: {
-      en: ['Stefanos volcanic crater', 'Nikia\'s circular clifftop village', 'Mandraki old town', 'Sulphur springs & mud pools', 'Panagia Spiliani cave monastery', 'Pebble mosaic squares (chochlakia)'],
-      el: ['Ηφαιστειακός κρατήρας Στέφανος', 'Κυκλικό χωριό Νικιά πάνω σε γκρεμό', 'Παλιά πόλη Μανδράκι', 'Θειούχες πηγές & λασπολίμνες', 'Μονή Παναγίας Σπηλιανής', 'Βοτσαλωτές πλατείες (χοχλάκια)']
-    }
-  },
-  {
-    slug: 'kalymnos',
-    group: 'dodecanese',
-    groupName: { en: 'Dodecanese', el: 'Δωδεκάνησα' },
-    name: { en: 'Kalymnos', el: 'Κάλυμνος' },
-    tagline: { en: 'Rock climbing and sponge-diving history', el: 'Αναρρίχηση και ιστορία σφουγγαράδων' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Pothia%2C_Kalymnos.JPG?width=1400',
-    credit: 'Wikimedia Commons contributor, CC BY-SA 3.0',
-    desc: {
-      en: 'Kalymnos was for generations the centre of Greece\'s natural sponge-diving industry, and Pothia, the main town, still has shops selling sponges along its harbour. In recent decades the island has become one of the world\'s best-known rock-climbing destinations, thanks to its steep limestone cliffs.',
-      el: 'Η Κάλυμνος υπήρξε επί γενιές το κέντρο της ελληνικής βιομηχανίας φυσικών σφουγγαριών, και η Πόθια, η κύρια πόλη, εξακολουθεί να έχει μαγαζιά που πουλάνε σφουγγάρια κατά μήκος του λιμανιού. Τις τελευταίες δεκαετίες το νησί έχει γίνει ένας από τους πιο γνωστούς προορισμούς αναρρίχησης στον κόσμο, χάρη στους απότομους ασβεστολιθικούς βράχους του.'
-    },
-    more: {
-      en: 'Climbers from around the world visit routes around Masouri and Myrties on the west coast, often combining a day on the rock with an afternoon swim. A short boat ride away, the tiny islet of Telendos, cut off from Kalymnos by an earthquake in the 6th century, offers a quieter, almost traffic-free alternative for a night or two.',
-      el: 'Αναρριχητές από όλο τον κόσμο επισκέπτονται διαδρομές γύρω από τη Μασούρη και τις Μυρτιές στη δυτική ακτή, συχνά συνδυάζοντας μια μέρα στον βράχο με ένα απογευματινό μπάνιο. Μια σύντομη βαρκάδα μακριά, η μικροσκοπική νησίδα Τέλενδος, αποκομμένη από την Κάλυμνο από σεισμό τον 6ο αιώνα, προσφέρει μια πιο ήσυχη, σχεδόν χωρίς κίνηση εναλλακτική για μία-δύο βραδιές.'
-    },
-    more2: {
-      en: 'The fjord-like valley of Vathys opens onto a narrow green bay lined with mandarin groves, contrasting sharply with the island\'s dry limestone mountains. In Pothia, the Nautical and Folklore Museum showcases traditional sponge-diving suits and equipment, preserving the island\'s seafaring heritage.',
-      el: 'Η κοιλάδα του Βαθέος μοιάζει με φιόρδ και καταλήγει σε έναν στενό πράσινο όρμο με μανταρινιώνες, δημιουργώντας αντίθεση με τους βράχους. Στην Πόθια, το Ναυτικό Μουσείο προβάλλει την ιστορία των σφουγγαράδων και τον παραδοσιακό εξοπλισμό κατάδυσης.'
-    },
-    best: { en: 'April–June & September–October for climbing, July–August for swimming', el: 'Απρίλιος–Ιούνιος & Σεπτέμβριος–Οκτώβριος για αναρρίχηση, Ιούλιος–Αύγουστος για μπάνιο' },
-    highlights: {
-      en: ['Rock climbing at Masouri & Myrties', 'Sponge-diving shops in Pothia', 'Telendos islet by boat', 'Vathys fjord-like inlet', 'Nautical Museum of Kalymnos', 'Secluded coves around Palionisos'],
-      el: ['Αναρρίχηση στη Μασούρη & Μυρτιές', 'Μαγαζιά σφουγγαράδων στην Πόθια', 'Νησίδα Τέλενδος με βάρκα', 'Φιόρδ-like κόλπος Βαθύ', 'Ναυτικό Μουσείο Καλύμνου', 'Ήσυχοι όρμοι στο Παλιόνησο']
-    }
-  },
-  {
-    slug: 'agkistri',
-    group: 'saronic',
-    groupName: { en: 'Saronic Islands', el: 'Σαρωνικά Νησιά' },
-    name: { en: 'Agkistri', el: 'Αγκίστρι' },
-    tagline: { en: 'A small, pine-covered island near Aegina', el: 'Ένα μικρό, πευκόφυτο νησί κοντά στην Αίγινα' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Agistri_Aponissos.jpg?width=1400',
-    credit: 'Wikimedia Commons contributor, CC BY-SA 4.0',
-    desc: {
-      en: 'Agkistri is one of the smallest inhabited islands in the Saronic Gulf, an easy stop combined with nearby Aegina and a popular weekend escape for Athenians. Pine forest covers most of the island, running down to a handful of small, clear-watered bays.',
-      el: 'Το Αγκίστρι είναι ένα από τα μικρότερα κατοικημένα νησιά του Σαρωνικού, εύκολος προορισμός σε συνδυασμό με την κοντινή Αίγινα και δημοφιλής απόδραση Σαββατοκύριακου για Αθηναίους. Πευκοδάσος καλύπτει το μεγαλύτερο μέρος του νησιού, φτάνοντας μέχρι λίγους μικρούς όρμους με καθαρά νερά.'
-    },
-    more: {
-      en: 'The island has no large towns, just a few small settlements including Skala and Milos, and can easily be explored on foot or by rented bicycle in a day. Its small size and short ferry connection from Piraeus make it a low-key alternative to busier Saronic islands.',
-      el: 'Το νησί δεν έχει μεγάλες πόλεις, μόνο λίγους μικρούς οικισμούς όπως η Σκάλα και ο Μύλος, και μπορεί εύκολα να εξερευνηθεί με τα πόδια ή με ενοικιαζόμενο ποδήλατο μέσα σε μία μέρα. Το μικρό μέγεθός του και η σύντομη ακτοπλοϊκή σύνδεση από τον Πειραιά το κάνουν μια χαμηλών τόνων εναλλακτική σε σχέση με πιο πολυσύχναστα νησιά του Σαρωνικού.'
-    },
-    more2: {
-      en: 'Highlights include Aponissos, a private rocky islet attached by a small bridge where emerald waters make for excellent swimming and snorkeling. Dragonera Beach offers a secluded pebble shore surrounded by dense pine trees, ideal for a quiet afternoon by the sea.',
-      el: 'Στα κορυφαία σημεία περιλαμβάνεται η Απόνησος, ένα βραχώδες νησάκι ενωμένο με γέφυρα, με σμαραγδένια νερά ιδανικά για κολύμπι. Η παραλία Δραγονέρα προσφέρει μια ήσυχη βอตσαλωτή ακτή περιτριγυρισμένη από πυκνά πεύκα.'
-    },
-    best: { en: 'May–September', el: 'Μάιος–Σεπτέμβριος' },
-    highlights: {
-      en: ['Aponissos beach', 'Pine-forest walking paths', 'Skala village', 'Easy day trip from Aegina', 'Dragonera pebble beach', 'Mylos village & church'],
-      el: ['Παραλία Απόνησος', 'Μονοπάτια μέσα στο πευκοδάσος', 'Χωριό Σκάλα', 'Εύκολη ημερήσια εκδρομή από την Αίγινα', 'Παραλία Δραγονέρα', 'Χωριό Μύλος & εκκλησία']
-    }
+    sweet: { en: ['Pastel'], el: ['Παστέλι'] }
   },
   {
     slug: 'athens',
-    group: 'cities',
-    groupName: { en: 'Mainland cities', el: 'Ηπειρωτικές πόλεις' },
+    group: 'mainland',
+    groupName: { en: 'Mainland', el: 'Ηπειρωτική Ελλάδα' },
     name: { en: 'Athens', el: 'Αθήνα' },
-    tagline: { en: 'The Acropolis and ancient history', el: 'Η Ακρόπολη και η αρχαία ιστορία' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Acropolis_Parthenon_Athens_Greece.jpg?width=1400',
-    credit: 'Jebulon, CC0 (public domain)',
-    desc: {
-      en: "Athens, Greece's capital, is built around the Acropolis, the rocky hill crowned by the Parthenon that has watched over the city for roughly 2,500 years. Most visitors combine the ancient sites with the narrow streets of Plaka, the old quarter beneath the rock.",
-      el: 'Η Αθήνα, πρωτεύουσα της Ελλάδας, είναι χτισμένη γύρω από την Ακρόπολη, τον βραχώδη λόφο που στέφεται από τον Παρθενώνα και επιβλέπει την πόλη εδώ και περίπου 2.500 χρόνια. Οι περισσότεροι επισκέπτες συνδυάζουν τους αρχαίους χώρους με τα στενά δρομάκια της Πλάκας, της παλιάς συνοικίας κάτω από τον βράχο.'
-    },
-    more: {
-      en: "Athens is also Greece's main ferry hub, with the port of Piraeus connecting to nearly every island group, which makes the city a natural starting or ending point for an island-hopping trip. Beyond the Acropolis, the Acropolis Museum, the National Archaeological Museum and the lively neighbourhoods of Monastiraki and Psiri round out a city visit.",
-      el: 'Η Αθήνα είναι επίσης ο κύριος ακτοπλοϊκός κόμβος της Ελλάδας, με το λιμάνι του Πειραιά να συνδέεται με σχεδόν κάθε νησιωτικό σύμπλεγμα, γεγονός που κάνει την πόλη φυσικό σημείο εκκίνησης ή ολοκλήρωσης ενός ταξιδιού island hopping. Πέρα από την Ακρόπολη, το Μουσείο της Ακρόπολης, το Εθνικό Αρχαιολογικό Μουσείο και οι ζωντανές γειτονιές του Μοναστηρακίου και του Ψυρρή συμπληρώνουν μια επίσκεψη στην πόλη.'
-    },
-    more2: {
-      en: 'The city mixes historical treasures with vibrant contemporary urban life, spanning rooftop cocktail bars with Parthenon views to historic open-air cinemas in summer. Panoramic viewpoints like Mount Lycabettus and Philopappou Hill offer sweeping vistas over the sprawling city basin extending all the way down to the Saronic Gulf.',
-      el: 'Η πόλη συνδυάζει ιστορικούς θησαυρούς με ζωντανή αστική ζωή, από cocktail bars σε ταράτσες με θέα τον Παρθενώνα μέχρι θερινούς κινηματογράφους το καλοκαίρι. Σημεία όπως ο Λόφος του Λυκαβηττού και ο Λόφος Φιλοπάππου προσφέρουν πανοραμική θέα σε όλο το λεκανοπέδιο μέχρι τον Σαρωνικό.'
-    },
-    best: { en: 'April–June & September–October', el: 'Απρίλιος–Ιούνιος & Σεπτέμβριος–Οκτώβριος' },
-    highlights: {
-      en: ['Acropolis & Parthenon', 'Acropolis Museum', 'Plaka & Monastiraki', 'Piraeus ferry port', 'Mount Lycabettus view', 'Panathenaic Stadium (Kallimarmaro)'],
-      el: ['Ακρόπολη & Παρθενώνας', 'Μουσείο Ακρόπολης', 'Πλάκα & Μοναστηράκι', 'Λιμάνι Πειραιά', 'Θέα από τον Λυκαβηττό', 'Παναθηναϊκό Στάδιο (Καλλιμάρμαρο)']
-    }
+    tagline: { en: 'Historic capital city', el: 'Ιστορική πρωτεύουσα' },
+    sweet: { en: ['Baklava', 'Loukoumades'], el: ['Μπακλαβάς', 'Λουκουμάδες'] }
   },
   {
     slug: 'thessaloniki',
-    group: 'cities',
-    groupName: { en: 'Mainland cities', el: 'Ηπειρωτικές πόλεις' },
+    group: 'mainland',
+    groupName: { en: 'Mainland', el: 'Ηπειρωτική Ελλάδα' },
     name: { en: 'Thessaloniki', el: 'Θεσσαλονίκη' },
-    tagline: { en: "Greece's northern capital", el: 'Η βόρεια πρωτεύουσα της Ελλάδας' },
-    img: 'https://commons.wikimedia.org/wiki/Special:FilePath/White_Tower_in_Thessaloniki.jpg?width=1400',
-    credit: 'Haneburger, CC BY-SA 4.0',
-    desc: {
-      en: "Thessaloniki, Greece's second-largest city, stretches along the Thermaic Gulf with the White Tower, its best-known landmark, standing on the waterfront promenade. The city layers Byzantine churches, Ottoman-era buildings and a lively student population.",
-      el: 'Η Θεσσαλονίκη, η δεύτερη μεγαλύτερη πόλη της Ελλάδας, απλώνεται κατά μήκος του Θερμαϊκού κόλπου, με τον Λευκό Πύργο, το πιο γνωστό της ορόσημο, να στέκεται στην παραλιακή προμενάδα. Η πόλη συνδυάζει βυζαντινές εκκλησίες, κτίρια της οθωμανικής περιόδου και έναν ζωντανό φοιτητικό πληθυσμό.'
-    },
-    more: {
-      en: "Several of the city's Byzantine churches, including the Rotunda and Agios Dimitrios, are listed as UNESCO World Heritage Sites. Thessaloniki is also widely regarded as Greece's food capital, known for street snacks like bougatsa and a lively market district around Modiano.",
-      el: 'Αρκετές από τις βυζαντινές εκκλησίες της πόλης, συμπεριλαμβανομένων της Ροτόντας και του Αγίου Δημητρίου, είναι μνημεία παγκόσμιας κληρονομιάς της UNESCO. Η Θεσσαλονίκη θεωρείται επίσης ευρέως η γαστρονομική πρωτεύουσα της Ελλάδας, γνωστή για σνακ του δρόμου όπως η μπουγάτσα και μια ζωντανή αγορά γύρω από το Μοδιάνο.'
-    },
-    more2: {
-      en: 'Ano Poli (the Upper Town) retains Ottoman-era timber-framed houses and medieval Byzantine city walls overlooking the bay. Lower in the city, the waterfront promenade stretches for miles towards the modern umbrellas art installation, while the Ladadika district serves as the nightlife and dining epicenter.',
-      el: 'Η Άνω Πόλη διατηρεί οθωμανικά σπίτια με ξύλινες προσόψεις και τα βυζαντινά τείχη με θέα στον Θερμαϊκό. Στη νέα παραλία δεσπόζουν "Οι Ομπρέλες" του Ζογγολόπουλου, ενώ τα Λαδάδικα αποτελούν το επίκεντρο της νυχτερινής ζωής και της εστίασης.'
-    },
-    best: { en: 'April–June & September–October', el: 'Απρίλιος–Ιούνιος & Σεπτέμβριος–Οκτώβριος' },
-    highlights: {
-      en: ['White Tower', 'Rotunda & Agios Dimitrios', 'Modiano Market', 'Ano Poli old town', 'Ladadika district nightlife', 'Zongolopoulos Umbrellas sculpture'],
-      el: ['Λευκός Πύργος', 'Ροτόντα & Άγιος Δημήτριος', 'Αγορά Μοδιάνο', 'Άνω Πόλη', 'Περιοχή Λαδάδικα', 'Γλυπτό Ομπρέλες Ζογγολόπουλου']
-    }
+    tagline: { en: 'Gastronomic capital', el: 'Γαστρονομική πρωτεύουσα' },
+    sweet: { en: ['Trigona Panoramatos', 'Tsoureki'], el: ['Τρίγωνα Πανοράματος', 'Τσουρέκι'] }
   }
 ];
