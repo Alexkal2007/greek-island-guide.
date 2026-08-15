@@ -791,7 +791,7 @@ slug: 'athens',
     en: 'The historic heart of Western civilization', 
     el: 'Η ιστορική καρδιά του δυτικού πολιτισμού' 
   },
-  img: https://commons.wikimedia.org/wiki/Special:FilePath/Acropolis_of_Athens_from_Philopappou_Hill.jpg?width=1400',
+  img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Acropolis_Parthenon_Athens_Greece.jpg?width=1400',
   credit: 'Wikimedia Commons contributor, CC BY-SA 4.0',
   desc: {
     en: 'Athens, the sprawling and vibrant capital of Greece, is globally renowned for its ancient landmarks, most notably the Acropolis and the Parthenon towering above the city. Blending thousands of years of rich history with a modern, dynamic urban culture, it serves as the cultural and political center of the nation.',
@@ -835,7 +835,7 @@ slug: 'thessaloniki',
     en: 'The vibrant cultural capital of Northern Greece', 
     el: 'Η ζωντανή πολιτιστική πρωτεύουσα της Βόρειας Ελλάδας' 
   },
-  img:'https://commons.wikimedia.org/wiki/Special:FilePath/Thessaloniki_White_Tower_and_waterfront.jpg?width=1400',
+  img:'https://commons.wikimedia.org/wiki/Special:FilePath/White_Tower_in_Thessaloniki.jpg?width=1400',
   credit: 'Wikimedia Commons contributor, CC BY-SA 4.0',
   desc: {
     en: 'Thessaloniki, Greece\'s vibrant second-largest city, sits along the Thermaic Gulf and is renowned for its rich Byzantine heritage, lively atmosphere, and legendary food culture. Built with layers of Roman, Byzantine, and Ottoman history, it offers a youthful energy driven by its large student population.',
