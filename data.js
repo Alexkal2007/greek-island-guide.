@@ -784,18 +784,90 @@ const ISLANDS = [
   },
   {
     slug: 'athens',
-    group: 'mainland',
-    groupName: { en: 'Mainland', el: 'Ηπειρωτική Ελλάδα' },
-    name: { en: 'Athens', el: 'Αθήνα' },
-    tagline: { en: 'Historic capital city', el: 'Ιστορική πρωτεύουσα' },
-    sweet: { en: ['Baklava', 'Loukoumades'], el: ['Μπακλαβάς', 'Λουκουμάδες'] }
+  group: 'attica',
+  groupName: { en: 'Attica', el: 'Αττική' },
+  name: { en: 'Athens', el: 'Αθήνα' },
+  tagline: { 
+    en: 'The historic heart of Western civilization', 
+    el: 'Η ιστορική καρδιά του δυτικού πολιτισμού' 
+  },
+  img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Parthenon_from_Philopappos_2017.jpg?width=1400',
+  credit: 'Wikimedia Commons contributor, CC BY-SA 4.0',
+  desc: {
+    en: 'Athens, the sprawling and vibrant capital of Greece, is globally renowned for its ancient landmarks, most notably the Acropolis and the Parthenon towering above the city. Blending thousands of years of rich history with a modern, dynamic urban culture, it serves as the cultural and political center of the nation.',
+    el: 'Η Αθήνα, η χαώδης και ζωντανή πρωτεύουσα της Ελλάδας, είναι παγκοσμιότατα γνωστή για τα αρχαία της μνημεία, με κυριότερα την Ακρόπολη και τον Παρθενώνα που δεσπόζουν πάνω από την πόλη. Συνδυάζοντας χιλιάδες χρόνια πλούσιας ιστορίας με μια σύγχρονη, δυναμική αστική κουλτούρα, αποτελεί το πολιτιστικό και πολιτικό κέντρο του έθνους.'
+  },
+  more: {
+    en: 'The city features a fascinating contrast between ancient ruins and lively neighborhoods like Plaka and Monastiraki, filled with neoclassical architecture, bustling markets, and rooftop cafes overlooking the illuminated monuments at night.',
+    el: 'Η πόλη διαθέτει μια συναρπαστική αντίθεση ανάμεσα σε αρχαία ερείπια και ζωντανές γειτονιές όπως η Πλάκα και το Μοναστηράκι, γεμάτες νεοκλασική αρχιτεκτονική, πολυσύχναστες αγορές και καφέ ταράτσας με θέα στα φωτισμένα μνημεία τη νύχτα.'
+  },
+  more2: {
+    en: 'Beyond the historical center, Athens offers a thriving culinary scene ranging from traditional tavernas serving souvlaki and mezedes to innovative Michelin-starred gastronomy, all complemented by the nearby coastal riviera and vibrant nightlife.',
+    el: 'Πέρα από το ιστορικό κέντρο, η Αθήνα προσφέρει μια ακμάζουσα γαστρονομική σκηνή που κυμαίνεται από παραδοσιακές ταβέρνες με σουβλάκι και μεζέδες μέχρι καινοτόμα γαστρονομία βραβευμένη με αστέρια Michelin, όλα συνδυασμένα με την κοντινή αθηναϊκή ριβιέρα και τη ζωντανή νυχτερινή ζωή.'
+  },
+  best: { en: 'March–May & September–November', el: 'Μάρτιος–Μάιος & Σεπτέμβριος–Νοέμβριος' },
+  highlights: {
+    en: [
+      'The Acropolis & Parthenon',
+      'The Acropolis Museum',
+      'Plaka & Anafiotika neighborhoods',
+      'Ancient Agora & Temple of Hephaestus',
+      'National Archaeological Museum',
+      'Monastiraki flea market & rooftop bars'
+    ],
+    el: [
+      'Η Ακρόπολη & ο Παρθενώνας',
+      'Το Μουσείο της Ακρόπολης',
+      'Οι γειτονιές Πλάκα & Αναφιώτικα',
+      'Αρχαία Αγορά & Ναός του Ηφαίστου',
+      'Εθνικό Αρχαιολογικό Μουσείο',
+      'Υπαίθρια αγορά Μοναστηρακίου & roof bars'
+    ]
+  },
+  sweet: { en: ['Loukoumades', 'Baklava'], el: ['Λουκουμάδες', 'Μπακλαβάς'] }
   },
   {
-    slug: 'thessaloniki',
-    group: 'mainland',
-    groupName: { en: 'Mainland', el: 'Ηπειρωτική Ελλάδα' },
-    name: { en: 'Thessaloniki', el: 'Θεσσαλονίκη' },
-    tagline: { en: 'Gastronomic capital', el: 'Γαστρονομική πρωτεύουσα' },
-    sweet: { en: ['Trigona Panoramatos', 'Tsoureki'], el: ['Τρίγωνα Πανοράματος', 'Τσουρέκι'] }
+   slug: 'thessaloniki',
+  group: 'macedonia',
+  groupName: { en: 'Macedonia', el: 'Μακεδονία' },
+  name: { en: 'Thessaloniki', el: 'Θεσσαλονίκη' },
+  tagline: { 
+    en: 'The vibrant cultural capital of Northern Greece', 
+    el: 'Η ζωντανή πολιτιστική πρωτεύουσα της Βόρειας Ελλάδας' 
+  },
+  img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Thessaloniki_White_Tower_and_waterfront_2019.jpg?width=1400',
+  credit: 'Wikimedia Commons contributor, CC BY-SA 4.0',
+  desc: {
+    en: 'Thessaloniki, Greece\'s vibrant second-largest city, sits along the Thermaic Gulf and is renowned for its rich Byzantine heritage, lively atmosphere, and legendary food culture. Built with layers of Roman, Byzantine, and Ottoman history, it offers a youthful energy driven by its large student population.',
+    el: 'Η Θεσσαλονίκη, η ζωντανή συμπρωτεύουσα της Ελλάδας, απλώνεται κατά μήκος του Θερμαϊκού κόλπου και φημίζεται για την πλούσια βυζαντινή της κληρονομιά, τη ζωντανή ατμόσφαιρα και τη θρυλική γαστρονομική της κουλτούρα. Χτισμένη με στρώματα ρωμαϊκής, βυζαντινής και οθωμανικής ιστορίας, προσφέρει μια νεανική ενέργεια που τροφοδοτείται από τον μεγάλο φοιτητικό της πληθυσμό.'
+  },
+  more: {
+    en: 'The city is famous for its iconic White Tower on the bustling waterfront promenade, historic upper town (Ano Poli) with traditional Ottoman-era architecture, and a dynamic café culture where locals spend hours socializing.',
+    el: 'Η πόλη είναι διάσημη για τον εμβληματικό Λευκό Πύργο στην πολυσύχναστη παραλιακή λεωφόρο, την ιστορική Άνω Πόλη με την παραδοσιακή αρχιτεκτονική οθωμανικής εποχής, και μια δυναμική κουλτούρα καφέ όπου οι ντόπιοι περνούν ώρες κοινωνικοποιούμενοι.'
+  },
+  more2: {
+    en: 'Widely considered the culinary capital of the country, Thessaloniki blends traditional Macedonian recipes with Balkan and Middle Eastern influences, celebrated especially through its famous local pastries and vibrant markets like Kapani and Modiano.',
+    el: 'Θεωρούμενη ευρέως ως η γαστρονομική πρωτεύουσα της χώρας, η Θεσσαλονίκη συνδυάζει παραδοσιακές μακεδονικές συνταγές με βαλκανικές και με Ανατολίτικες επιρροές, οι οποίες τιμώνται ιδιαίτερα μέσα από τα διάσημα τοπικά αρτοσκευάσματα και τις ζωντανές αγορές όπως το Καπάνι και η Μοδιάνο.'
+  },
+  best: { en: 'May–June & September–October', el: 'Μάιος–Ιούνιος & Σεπτέμβριος–Οκτώβριος' },
+  highlights: {
+    en: [
+      'The White Tower of Thessaloniki',
+      'Aristotelous Square & Waterfront Promenade',
+      'Ano Poli (Upper Town) & Byzantine Walls',
+      'Rotunda & Arch of Galerius',
+      'Kapani & Modiano food markets',
+      'Museum of Byzantine Culture'
+    ],
+    el: [
+      'Ο Λευκός Πύργος Θεσσαλονίκης',
+      'Πλατεία Αριστοτέλους & Παραλιακή Λεωφόρος',
+      'Άνω Πόλη & Βυζαντινά Τείχη',
+      'Ροτόντα & Αψίδα του Γαλερίου',
+      'Αγορές τροφίμων Καπάνι & Μοδιάνο',
+      'Μουσείο Βυζαντινού Πολιτισμού'
+    ]
+  },
+  sweet: { en: ['Trigona Panormou', 'Bougatsa'], el: ['Τρίγωνα Πανοράματος', 'Μπουγάτσα'] }
   }
 ];
