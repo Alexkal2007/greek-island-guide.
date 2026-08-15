@@ -783,7 +783,7 @@ const ISLANDS = [
     sweet: { en: ['Pastel'], el: ['Παστέλι'] }
   },
   {
-    slug: 'athens',
+   slug: 'athens',
   group: 'attica',
   groupName: { en: 'Attica', el: 'Αττική' },
   name: { en: 'Athens', el: 'Αθήνα' },
@@ -791,7 +791,7 @@ const ISLANDS = [
     en: 'The historic heart of Western civilization', 
     el: 'Η ιστορική καρδιά του δυτικού πολιτισμού' 
   },
-  img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Parthenon_from_Philopappos_2017.jpg?width=1400',
+  img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Parthenon_from_Philopappos_2017.jpg/1400px-Parthenon_from_Philopappos_2017.jpg',
   credit: 'Wikimedia Commons contributor, CC BY-SA 4.0',
   desc: {
     en: 'Athens, the sprawling and vibrant capital of Greece, is globally renowned for its ancient landmarks, most notably the Acropolis and the Parthenon towering above the city. Blending thousands of years of rich history with a modern, dynamic urban culture, it serves as the cultural and political center of the nation.',
@@ -827,7 +827,7 @@ const ISLANDS = [
   sweet: { en: ['Loukoumades', 'Baklava'], el: ['Λουκουμάδες', 'Μπακλαβάς'] }
   },
   {
-   slug: 'thessaloniki',
+  slug: 'thessaloniki',
   group: 'macedonia',
   groupName: { en: 'Macedonia', el: 'Μακεδονία' },
   name: { en: 'Thessaloniki', el: 'Θεσσαλονίκη' },
@@ -835,7 +835,7 @@ const ISLANDS = [
     en: 'The vibrant cultural capital of Northern Greece', 
     el: 'Η ζωντανή πολιτιστική πρωτεύουσα της Βόρειας Ελλάδας' 
   },
-  img: 'https://commons.wikimedia.org/wiki/Special:FilePath/Thessaloniki_White_Tower_and_waterfront_2019.jpg?width=1400',
+  img: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Thessaloniki_White_Tower_and_waterfront_2019.jpg/1400px-Thessaloniki_White_Tower_and_waterfront_2019.jpg',
   credit: 'Wikimedia Commons contributor, CC BY-SA 4.0',
   desc: {
     en: 'Thessaloniki, Greece\'s vibrant second-largest city, sits along the Thermaic Gulf and is renowned for its rich Byzantine heritage, lively atmosphere, and legendary food culture. Built with layers of Roman, Byzantine, and Ottoman history, it offers a youthful energy driven by its large student population.',
